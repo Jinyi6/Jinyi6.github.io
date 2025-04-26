@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main class="page-home">
+  <!-- 渲染正文（如果你有 Markdown 内容）-->
+  {{ .Content }}
+
+  <!-- 如果 front matter 有 awards，就渲染列表 -->
+  {{ with .Params.awards }}
+  <section class="awards-list">
+    {{ range . }}
+      <div class="award-item">
+        <span class="award-date">{{ .date }}</span>
+        <span class="award-detail">{{ .title }} (by {{ .awarder }})</span>
+      </div>
+    {{ end }}
+  </section>
+  {{ end }}
+</main>
+{{ end }}
