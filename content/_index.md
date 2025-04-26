@@ -43,7 +43,7 @@ sections:
   #   design:
   #     columns: '1'
   - block: collection
-    id: news
+    id: news_
     content:
       title: News
       subtitle: ''
