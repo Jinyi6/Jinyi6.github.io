@@ -43,21 +43,13 @@ sections:
   #   design:
   #     columns: '1'
   - block: markdown
-    id: news_
+    id: news
     content:
       title: News
       subtitle: ''
       text: |
-        <div>
-        📢 2025-02 Nominated as Distinguished PC Members of AAMAS 2025.  
-          <span style="display:block;height:0.6em"></span>
-        🚀 2025-01 One paper has been accepted by WWW 2025.  
-          <span style="display:block;height:0.6em"></span>
-        </div>
-    # design:
-    #   view: compact
-    #   spacing:
-    #     padding: [0, 0, 3, 0]
+        - 📢 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.
+        - 🚀 **2025-01** One paper has been accepted by WWW 2025.
   - block: collection
     id: papers
     content:

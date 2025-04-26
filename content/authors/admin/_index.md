@@ -182,8 +182,10 @@ awards:
     #   I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
 
 service:
-  - title: 📝 Reviewer
-    content: IEEE TNNLS (2024-2025), ICCV (2025), ICML (2025), AAMAS (2025), IJCAI (2024-2025), NeurIPS (2024-2025), CIKM (2022) 
+  - title: 📝 Reviewer (Journal)
+    content: IEEE TNNLS (2024-2025), Machine Learning (2025)
+  - title: 📝 Reviewer / PC member (Conference)
+    content: ICCV (2025), ICML (2025), AAMAS (2025), IJCAI (2024-2025), NeurIPS (2024-2025), CIKM (2022) 
   - title: 🙋‍♂️ Conference Committee Volunteer
     content: DAI 2022
   - title: 👥 Student Liaison
