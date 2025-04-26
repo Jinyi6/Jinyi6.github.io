@@ -15,4 +15,14 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the 23rd International Conference on Autonomous Agents
   and Multiagent Systems*'
+
+featured: false
+url_pdf: 'https://dl.acm.org/doi/10.5555/3635637.3662980#core-collateral-purchase-access'
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
 ---
