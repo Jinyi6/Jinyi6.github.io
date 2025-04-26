@@ -1,0 +1,40 @@
+{{/* Hugo Blox: Academic Service */}}
+{{/* Documentation: https://hugoblox.com/blocks/ */}}
+{{/* License: https://github.com/HugoBlox/hugo-blox-builder/blob/main/LICENSE.md */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $author := $block.content.username | default "admin" }}
+
+{{ $person_page_path := printf "/authors/%s" $author }}
+{{ $person_page := site.GetPage $person_page_path }}
+{{ if not $person_page }}
+  {{ errorf "Could not find an author page at `%s`. Please check the value of `username` in your Academic‑Service block and create an associated author page if one does not already exist." $person_page_path }}
+{{ end }}
+
+{{ $services := $person_page.Params.service }}
+
+<div class="flex flex-col items-center max-w-prose mx-auto gap-4 justify-center">
+
+  <!-- Block Title -->
+  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
+    {{ $block.content.title | markdownify | emojify }}
+  </div>
+
+  <!-- Academic‑Service Entries -->
+  <div class="w-full flex flex-col gap-6">
+    {{ range $services }}
+      <div class="grid grid-cols-[auto,1fr] gap-4">
+        <!-- Title -->
+        <div class="font-semibold text-gray-900 dark:text-white min-w-max">
+          {{ .title | markdownify | emojify }}
+        </div>
+        <!-- Content -->
+        <div class="text-gray-700 dark:text-gray-300 prose">
+          {{ .content | markdownify | emojify }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</div>
