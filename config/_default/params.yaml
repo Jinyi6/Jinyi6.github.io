@@ -6,7 +6,7 @@
 # Appearance
 appearance:
   mode: system
-  color: emerald
+  color: cyan
 
 # SEO
 marketing:
@@ -36,6 +36,7 @@ header:
     show_theme_chooser: false
     logo:
       text: "Jinyi Liu (刘金毅)"
+      filename: "logo.svg"
 
 # Site footer
 footer:
