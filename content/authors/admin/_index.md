@@ -3,7 +3,7 @@
 title: Jinyi Liu (刘金毅)
 
 # Name pronunciation (optional)
-name_pronunciation: Jinyi Liu
+# name_pronunciation: Jinyi Liu
 
 # Full name (for SEO)
 first_name: Jinyi
