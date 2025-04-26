@@ -55,7 +55,7 @@ interests:
 
 education:
   - area: PhD Software Engineering
-    institution: <span style="color: gray">Tianjin University</span>
+    institution: Tianjin University
     date_start: 2022
     date_end: ''
     # summary: |
@@ -64,7 +64,7 @@ education:
     #   text: 'Read Thesis'
     #   url: 'https://example.com'
   - area: MSc Software Engineering
-    institution: <span style="color: gray">Tianjin University</span>
+    institution: Tianjin University
     date_start: 2019
     date_end: 2022
     # summary: |
@@ -75,7 +75,7 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - area: BSc Software Engineering
-    institution: <span style="color: gray">NorthEastern University</span>
+    institution: NorthEastern University
     date_start: 2015
     date_end: 2019
     # summary: |
