@@ -14,7 +14,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
+    description: 'Welcome to My personal website. I research Reinforcement Learning and LLMs, with a focus on building interpretable decision-making agents and enabling real-world LLM applications.'
     twitter: 'GetResearchDev'
   analytics:
     google_analytics: ''
@@ -32,15 +32,15 @@ header:
     enable: true
     blox: "navbar"
     fixed_to_top: true
-    show_search: true
+    show_search: False
     show_theme_chooser: true
     logo:
-      text: "Your Name"
+      text: "Jinyi Liu"
 
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Jinyi Liu. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
