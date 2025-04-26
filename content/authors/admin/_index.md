@@ -156,25 +156,25 @@ languages:
   # Only `title`, `awarder`, and `date` are required.
   # Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: 🏆 Distinguished PC Members in AAMAS 2025
+  - title: Distinguished PC Members in AAMAS 2025
     date: '2025-01-01'
     awarder: AAMAS 2025
-  - title: 🏆 Academic First-class Scholarship (Top 10%)
+  - title: Academic First-class Scholarship (Top 10%)
     date: '2024-09-01'
     awarder: Tianjin University 
-  - title: 🏆 Academic Second-class Scholarship
+  - title: Academic Second-class Scholarship
     date: '2022-12-01'
     awarder: Tianjin University 
-  - title: 🏆 iFlyTek Spark "Prompt Engineer" Certification
+  - title: iFlyTek Spark "Prompt Engineer" Certification
     date: '2023-06-01'
     awarder: iFlyTek Spark
-  - title: 🏆 Silver Award, 8th China International "Internet+" Innovation and Entrepreneurship Competition (Tianjin Regional Division)
+  - title: Silver Award, 8th China International "Internet+" Innovation and Entrepreneurship Competition (Tianjin Regional Division)
     date: '2022-12-01'
     awarder: ''
-  - title: 🏆 Tianjin University Academic Second-class Scholarship ×2 (Master's Student)
+  - title: Tianjin University Academic Second-class Scholarship ×2 (Master's Student)
     date: '2021-12-01'
     awarder: Tianjin University 
-  - title: 🏆 Outstanding Bachelor's Thesis Award (Top 1%)
+  - title: Outstanding Bachelor's Thesis Award (Top 1%)
     date: '2019-06-01'
     awarder: Tianjin University 
     # icon: coursera
@@ -182,11 +182,11 @@ awards:
     #   I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
 
 service:
-  - title: Reviewer
+  - title: 📝 Reviewer
     content: IEEE TNNLS (2024-2025), ICCV (2025), ICML (2025), AAMAS (2025), IJCAI (2024-2025), NeurIPS (2024-2025), CIKM (2022) 
-  - title: Conference Committee Volunteer
+  - title: 🙋‍♂️ Conference Committee Volunteer
     content: DAI 2022
-  - title: Student Liaison
+  - title: 👥 Student Liaison
     content: RL China (Academic Community)
 
 ---

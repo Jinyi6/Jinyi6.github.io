@@ -18,14 +18,16 @@
 <div class="flex flex-col items-center max-w-prose mx-auto gap-4 justify-center">
 
   <!-- Block Title -->
-  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
+  <!-- <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
     {{ $block.content.title | markdownify | emojify }}
-  </div>
+  </div> -->
+
+  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "academic service" | default "Academic Service" }}</h3>
 
   <!-- Academic‑Service Entries -->
   <div class="w-full flex flex-col gap-6">
     {{ range $services }}
-      <div class="grid grid-cols-[auto,1fr] gap-4">
+      <div class="grid grid-cols-[auto,1fr] gap-2">
         <!-- Title -->
         <div class="font-semibold text-gray-900 dark:text-white min-w-max">
           {{ .title | markdownify | emojify }}
