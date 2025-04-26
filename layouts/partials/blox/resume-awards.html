@@ -1,0 +1,34 @@
+{{/* layouts/blocks/resume-awards.html */}}
+{{/* 重写 Hugo Blox 的 “Awards” 区块，使用自定义 .awards-list/.award-item CSS */}}
+
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $author := $block.content.username | default "admin" }}
+{{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
+{{ if not $person_page }}
+  {{ errorf "找不到作者页面: /authors/%s" $author }}
+{{ end }}
+{{ $awards := $person_page.Params.awards }}
+
+{{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
+{{ $dateFmt := $block.design.date_format | default "2006-01-02" }}
+
+<div class="awards-list">
+  {{ range sort $awards "date" "desc" }}
+  <div class="award-item">
+    <div class="award-date">
+      {{ if .date }}
+        {{ (time .date) | time.Format $dateFmt }}
+      {{ else }}
+        {{ i18n "present" | default "Present" }}
+      {{ end }}
+    </div>
+    <div class="award-detail">
+      <strong>{{ .title | markdownify | emojify }}</strong>
+      {{ with .awarder }}
+        &mdash; {{ . }}
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div>
