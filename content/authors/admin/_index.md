@@ -49,7 +49,8 @@ profiles:
 interests:
   - Artificial Intelligence
   - Large Language Model and LLM Agents
-  - Reinforcement Learning
+  - Deep Reinforcement Learning
+  - Reinforcement Fine-tuning for LLMs
 
 education:
   - area: PhD Software Engineering
