@@ -86,7 +86,7 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
 work:
   - position: Algorithm Research Intern (Project Collaboration)
-    company_name: Kuaishou
+    company_name: Kuaishou (advised by Hangyu Mao)
     company_url: ''
     company_logo: ''
     date_start: 2024-10-20
@@ -97,7 +97,7 @@ work:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - position: Algorithm Research Intern
-    company_name: NetEase
+    company_name: NetEase (advised by Yujing Hu)
     company_url: ''
     company_logo: ''
     date_start: 2022-06-30
