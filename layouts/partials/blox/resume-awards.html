@@ -6,7 +6,7 @@
 {{ $author := $block.content.username | default "admin" }}
 {{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
 {{ if not $person_page }}
-{{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your Skill block and create an associated author page if one does not already exist. See https://docs.hugoblox.com/page-builder/#about " $person_page_path }}
+{{ errorf "Could not find an author page." }}
 {{ end }}
 {{ $awards := $person_page.Params.awards }}
 
