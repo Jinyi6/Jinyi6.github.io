@@ -17,7 +17,6 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the AAAI Conference on Artificial Intelligence*'
 
-featured: true
 url_pdf: 'https://ojs.aaai.org/index.php/AAAI/article/view/29303/30458'
 url_code: ''
 url_dataset: ''
@@ -26,4 +25,20 @@ url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''
+
+summary:  We propose Optimistic Value Distribution Explorer (OVD-Explorer) to achieve a noise-aware optimistic exploration for continuous control.
+
+tags:
+  - DRL
+  - Exploration
+
+# Display this page in the Featured widget?
+featured: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
 ---

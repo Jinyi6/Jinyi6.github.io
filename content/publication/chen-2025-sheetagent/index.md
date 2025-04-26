@@ -27,4 +27,20 @@ url_slides: ''
 url_source: ''
 url_video: ''
 
+summary:  SheetAgent, an novel autonomous agent that utilizes the power of LLMs.
+
+tags:
+  - Large Language Models
+  - LLM Agent
+
+# Display this page in the Featured widget?
+featured: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
+
 ---
