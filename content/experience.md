@@ -28,7 +28,10 @@ sections:
     content:
       title: Awards
       username: admin
-    
+  - block: academic-service
+    content:
+      title: Academic Service
+      username: admin  
   - block: resume-languages
     content:
       title: Languages
