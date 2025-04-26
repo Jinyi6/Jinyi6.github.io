@@ -49,16 +49,16 @@ sections:
       subtitle: ''
       text: |
         <div style="line-height:1.8em">
-        - 📢 2025-02 Nominated as Distinguished PC Members of AAMAS 2025.  
+        📢 2025-02 Nominated as Distinguished PC Members of AAMAS 2025.  
           <span style="display:block;height:0.8em"></span>
         
-        - 🚀 2025-01 One paper has been accepted by WWW 2025.  
+        🚀 2025-01 One paper has been accepted by WWW 2025.  
           <span style="display:block;height:0.8em"></span>
         </div>
     design:
       view: compact
       spacing:
-        padding: [0, 0, 5, 0]
+        padding: [0, 0, 3, 0]
   - block: collection
     id: papers
     content:
@@ -69,7 +69,7 @@ sections:
         featured_only: true
     design:
       view: article-grid
-      columns: 1
+      columns: 3
   # - block: collection
   #   id: news
   #   content:
