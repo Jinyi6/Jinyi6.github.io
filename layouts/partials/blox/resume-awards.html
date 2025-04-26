@@ -6,29 +6,35 @@
 {{ $author := $block.content.username | default "admin" }}
 {{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
 {{ if not $person_page }}
-  {{ errorf "找不到作者页面: /authors/%s" $author }}
+{{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your Skill block and create an associated author page if one does not already exist. See https://docs.hugoblox.com/page-builder/#about " $person_page_path }}
 {{ end }}
 {{ $awards := $person_page.Params.awards }}
 
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
-{{ $dateFmt := $block.design.date_format | default "2006-01-02" }}
+{{ $dateFmt := $block.design.date_format | default "2006-01" }}
 
-<div class="awards-list">
-  {{ range sort $awards "date" "desc" }}
-  <div class="award-item">
-    <div class="award-date">
-      {{ if .date }}
-        {{ (time .date) | time.Format $dateFmt }}
-      {{ else }}
-        {{ i18n "present" | default "Present" }}
+<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center">
+
+    <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
+      {{ $block.content.title | markdownify | emojify }}
+    </div>
+  
+    <div class="w-full flex flex-col gap-2">
+      {{ if $awards }}
+        {{ range $idx, $award := sort $awards ".date_start" "desc" }}
+          {{/* format date or show “Present” if no date */}}
+          {{ $date := "" }}
+          {{ with $award.date }}
+            {{ $date = (time .) | time.Format ($block.design.date_format | default "January 2006") }}
+          {{ else }}
+            {{ $date = i18n "present" | default "Present" }}
+          {{ end }}
+          <div class="text-gray-700 dark:text-gray-300">
+            {{ $date }}&nbsp;&nbsp;&nbsp;{{ $award.title }} (by {{ $award.awarder }})
+          </div>
+        {{ end }}
       {{ end }}
     </div>
-    <div class="award-detail">
-      <strong>{{ .title | markdownify | emojify }}</strong>
-      {{ with .awarder }}
-        &mdash; {{ . }}
-      {{ end }}
-    </div>
+  
   </div>
-  {{ end }}
-</div>
+  

@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
   }
   
   /* 每一项 */
