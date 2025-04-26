@@ -48,8 +48,8 @@ sections:
       title: News
       subtitle: ''
       text: |
-        - 📢 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.
-        - 🚀 **2025-01** One paper has been accepted by WWW 2025.
+        - <span style="font-size:0.875rem;">📢 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
+        - <span style="font-size:0.875rem;">🚀 **2025-01** One paper has been accepted by WWW 2025.</span>
   - block: collection
     id: papers
     content:
