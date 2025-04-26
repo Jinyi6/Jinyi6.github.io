@@ -28,6 +28,7 @@ sections:
     content:
       title: Awards
       username: admin
+    
   - block: resume-languages
     content:
       title: Languages

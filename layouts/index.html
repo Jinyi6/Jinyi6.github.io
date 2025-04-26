@@ -1,18 +1,37 @@
 {{ define "main" }}
 <main class="page-home">
-  <!-- 渲染正文（如果你有 Markdown 内容）-->
+
+  <!-- 渲染 Markdown 正文 -->
   {{ .Content }}
 
-  <!-- 如果 front matter 有 awards，就渲染列表 -->
-  {{ with .Params.awards }}
-  <section class="awards-list">
+  <!-- 遍历 blocks 数组 -->
+  {{ with .Params.blocks }}
     {{ range . }}
-      <div class="award-item">
-        <span class="award-date">{{ .date }}</span>
-        <span class="award-detail">{{ .title }} (by {{ .awarder }})</span>
-      </div>
+      {{- /* 区块标识 */ -}}
+      {{ $blk := .block }}
+      {{ if eq $blk "resume-awards" }}
+        <!-- resume-awards block -->
+        <section class="awards-list">
+          <!-- 标题来自 front-matter 中的 content.title -->
+          <h2>{{ .content.title }}</h2>
+
+          <!-- 用 content.username 动态定位到作者页 -->
+          {{ $author := site.GetPage (printf "authors/%s" .content.username) }}
+          {{ with $author.Params.awards }}
+            {{ range . }}
+              <div class="award-item">
+                <span class="award-date">{{ .date }}</span>
+                <span class="award-detail">{{ .title }} (by {{ .awarder }})</span>
+              </div>
+            {{ end }}
+          {{ end }}
+        </section>
+
+      <!-- {{ else if eq $blk "其它-block" }} -->
+        <!-- 你可以继续 else if 来渲染别的区块逻辑 -->
+      {{ end }}
     {{ end }}
-  </section>
   {{ end }}
+
 </main>
 {{ end }}
