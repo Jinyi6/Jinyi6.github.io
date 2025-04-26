@@ -88,7 +88,7 @@ work:
     company_name: Kuaishou
     company_url: ''
     company_logo: ''
-    date_start: 2024-10
+    date_start: 2024-10-20
     date_end: ''
     # summary: |2-
     #   Responsibilities include:
@@ -99,8 +99,8 @@ work:
     company_name: NetEase
     company_url: ''
     company_logo: ''
-    date_start: 2022-06
-    date_end: 2024-03
+    date_start: 2022-06-30
+    date_end: 2024-03-01
     # summary: |
     #   Responsibilities include:
     #   - Migrated infrastructure to a new data center
@@ -141,13 +141,13 @@ work:
 #         percent: 80
 #         icon: camera
 
-# languages:
-#   - name: English
-#     percent: 100
-#   - name: Chinese
-#     percent: 75
-#   - name: Portuguese
-#     percent: 25
+languages:
+  - name: Chinese
+    percent: 100
+  - name: English
+    percent: 60
+  - name: Korean
+    percent: 5
 
 # Awards.
 #   Add/remove as many awards below as you like.
