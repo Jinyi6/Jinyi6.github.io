@@ -7,7 +7,7 @@ authors:
 - Jun Sun
 - Yuqi Chen
 - Wenzhi Huang
-- Jinyi Liu
+- admin
 - Jian Liu
 - Jianye Hao
 date: '2021-01-01'

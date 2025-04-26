@@ -4,7 +4,7 @@ authors:
 - Kai Zhao
 - Jianye Hao
 - Yi Ma
-- Jinyi Liu
+- admin
 - Yan Zheng
 - Zhaopeng Meng
 date: '2024-01-01'

@@ -5,7 +5,7 @@ authors:
 - Yi Ma
 - Chao Wang
 - Chen Chen
-- Jinyi Liu
+- admin
 - Zhaopeng Meng
 - Yan Zheng
 - Jianye Hao

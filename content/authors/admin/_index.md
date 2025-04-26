@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Jinyi Liu (刘金毅)
+title: Jinyi Liu
 
 # Name pronunciation (optional)
 # name_pronunciation: Jinyi Liu
@@ -48,7 +48,8 @@ profiles:
 
 interests:
   - Artificial Intelligence
-  - Large Language Model and LLM Agents
+  - Large Language Model
+  - LLM Agents
   - Deep Reinforcement Learning
   - Reinforcement Fine-tuning for LLMs
 
@@ -184,4 +185,4 @@ languages:
 
 ## About Me
 
-Jinyi is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [Deep Reinforcement Learning (DRL) Laboratory](http://www.icdai.org/). His research interests primarily focus on **Deep Reinforcement Learning**, **Large Language Models (LLMs)**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.
+Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University, China under the supervision of Professor Jianye Hao, as a member of the [Deep Reinforcement Learning (DRL) Laboratory](http://www.icdai.org/). His research interests primarily focus on **Deep Reinforcement Learning**, **Large Language Models (LLMs)**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.

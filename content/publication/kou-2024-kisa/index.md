@@ -5,7 +5,7 @@ authors:
 - Longxin Kou
 - Fei Ni
 - Yan Zheng
-- Jinyi Liu
+- admin
 - Yifu Yuan
 - Zibin Dong
 - Jianye Hao

@@ -2,7 +2,7 @@
 title: 'From Chaos to Order: The Atomic Reasoner Framework for Fine-grained Reasoning
   in Large Language Models'
 authors:
-- Jinyi Liu
+- admin
 - Yan Zheng
 - Rong Cheng
 - Qiyu Wu

@@ -2,7 +2,7 @@
 title: 'Ovd-explorer: Optimism should not be the sole pursuit of exploration in noisy
   environments'
 authors:
-- Jinyi Liu
+- admin
 - Zhi Wang
 - Yan Zheng
 - Jianye Hao

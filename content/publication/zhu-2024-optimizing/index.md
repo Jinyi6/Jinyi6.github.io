@@ -3,7 +3,7 @@ title: Optimizing Reward Models with Proximal Policy Exploration in Preference-B
   Reinforcement Learning
 authors:
 - Yiwen Zhu
-- Jinyi Liu
+- admin
 - Yifu Yuan
 - Wenya Wei
 - Zhenxing Ge

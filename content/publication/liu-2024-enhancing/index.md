@@ -2,7 +2,7 @@
 title: Enhancing robotic manipulation with AI feedback from multimodal large language
   models
 authors:
-- Jinyi Liu
+- admin
 - Yifu Yuan
 - Jianye Hao
 - Fei Ni

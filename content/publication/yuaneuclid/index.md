@@ -8,7 +8,7 @@ authors:
 - Yao Mu
 - YAN ZHENG
 - Yujing Hu
-- Jinyi Liu
+- admin
 - Yingfeng Chen
 - Changjie Fan
 date: '2023-01-01'

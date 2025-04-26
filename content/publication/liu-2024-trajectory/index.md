@@ -2,7 +2,7 @@
 title: A trajectory perspective on the role of data sampling techniques in offline
   reinforcement learning
 authors:
-- Jinyi Liu
+- admin
 - Yi Ma
 - Jianye Hao
 - Yujing Hu

@@ -61,8 +61,8 @@ sections:
       text: |
         - 📢 2025-02 Nominated as Distinguished PC Members of AAMAS 2025.
         - 🚀 2025-01 One paper has been accepted by WWW 2025.
-    design:
-      view: compact
+    # design:
+    #   view: compact
       # Reduce spacing
       # spacing:
       #   padding: [0, 0, 0, 0]

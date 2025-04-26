@@ -6,7 +6,7 @@ authors:
 - Yifu Yuan
 - Zeyu Zhang
 - Yan Zheng
-- Jinyi Liu
+- admin
 - Fei Ni
 - Jianye Hao
 - Hangyu Mao
@@ -16,4 +16,15 @@ publishDate: '2025-04-26T09:31:01.952329Z'
 publication_types:
 - paper-conference
 publication: '*Proceedings of the ACM on Web Conference 2025*'
+
+featured: true
+url_pdf: ''
+url_code: ''
+url_dataset: ''
+url_poster: ''
+url_project: ''
+url_slides: ''
+url_source: ''
+url_video: ''
+
 ---

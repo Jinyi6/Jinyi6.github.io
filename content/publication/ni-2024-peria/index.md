@@ -8,7 +8,7 @@ authors:
 - Longxin Kou
 - Yifu Yuan
 - Zibin Dong
-- Jinyi Liu
+- admin
 - MingZhi Li
 - Yuzheng Zhuang
 - Yan Zheng

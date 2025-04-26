@@ -6,7 +6,7 @@ authors:
 - Tianpei Yang
 - Hongyao Tang
 - Chenjia Bai
-- Jinyi Liu
+- admin
 - Zhaopeng Meng
 - Peng Liu
 - Zhen Wang

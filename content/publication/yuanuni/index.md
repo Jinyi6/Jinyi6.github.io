@@ -7,7 +7,7 @@ authors:
 - Yi Ma
 - Zibin Dong
 - Hebin Liang
-- Jinyi Liu
+- admin
 - Zhixin Feng
 - Kai Zhao
 - YAN ZHENG

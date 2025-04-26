@@ -3,7 +3,7 @@ title: 'Cellagent: An llm-driven multi-agent framework for automated single-cell
   analysis'
 authors:
 - Yihang Xiao
-- Jinyi Liu
+- admin
 - Yan Zheng
 - Xiaohan Xie
 - Jianye Hao
