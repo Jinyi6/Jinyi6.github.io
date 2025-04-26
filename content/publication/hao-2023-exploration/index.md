@@ -1,0 +1,18 @@
+---
+title: 'Exploration in deep reinforcement learning: From single-agent to multiagent
+  domain'
+authors:
+- Jianye Hao
+- Tianpei Yang
+- Hongyao Tang
+- Chenjia Bai
+- Jinyi Liu
+- Zhaopeng Meng
+- Peng Liu
+- Zhen Wang
+date: '2023-01-01'
+publishDate: '2025-04-26T09:31:01.866363Z'
+publication_types:
+- article-journal
+publication: '*IEEE Transactions on Neural Networks and Learning Systems*'
+---
