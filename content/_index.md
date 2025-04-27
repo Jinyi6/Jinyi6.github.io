@@ -21,7 +21,7 @@ sections:
     design:
       css_class: dark
       background:
-        color: white
+        color: black
         # image:
         #   # Add your image background to `assets/media/`.
         #   filename: stacked-peaks.svg
@@ -72,6 +72,7 @@ sections:
     design:
       view: citation
   - block: resume-experience
+    id: experience
     content:
       username: admin
     design:
@@ -80,6 +81,7 @@ sections:
       # Education or Experience section first?
       is_education_first: false
   - block: resume-awards
+    id: awards
     content:
       title: Awards
       username: admin
@@ -87,6 +89,18 @@ sections:
     content:
       title: Academic Service
       username: admin 
+  - block: collection
+    id: projects
+    content:
+      title: Selected Projects
+      text: ''
+      filters:
+        folders:
+          - project
+    design:
+      view: article-grid
+      fill_image: false
+      columns: 3
   # - block: collection
   #   id: talks
   #   content:

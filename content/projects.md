@@ -12,7 +12,7 @@ sections:
   - block: collection
     content:
       title: Selected Projects
-      text: I have contributed to several open-source or publicly available projects, with the hope of contributing to the academic community.
+      text: ''
       filters:
         folders:
           - project
