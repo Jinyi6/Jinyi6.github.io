@@ -6,7 +6,7 @@
 # Website name
 title: Jinyi Liu (刘金毅)
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: 'https://liu.jinyi.space/'
 
 ############################
 ## LANGUAGE
@@ -54,3 +54,6 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+marketing:
+  analytics:
+    google_analytics: 'G-0SE4RZZH5R'
