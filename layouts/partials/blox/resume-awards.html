@@ -13,16 +13,17 @@
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
 {{ $dateFmt := $block.design.date_format | default "2006-01" }}
 
-<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center">
+<div class="w-full flex flex-col gap-6">
+  <!-- <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center"> -->
 
     <!-- 1. 保留原 block title -->
     <!-- <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
       {{ $block.content.title | markdownify | emojify }}
     </div> -->
-    <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
+    <h5 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h5>
   
     <!-- 4. 每个 item 之间间距放大到 gap-6 -->
-    <div class="w-full flex flex-col gap-1">
+    <div class="w-full p-6 flex flex-col gap-1">
       {{ if $awards }}
         <!-- 1. 准备一组多样化的 emoji -->
         {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" }}
