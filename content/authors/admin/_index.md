@@ -56,7 +56,7 @@ interests:
 education:
   - area: PhD Software Engineering
     institution: Tianjin University
-    date_start: 2022
+    date_start: 2022-09-01
     date_end: ''
     # summary: |
     #   Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
@@ -65,8 +65,8 @@ education:
     #   url: 'https://example.com'
   - area: MSc Software Engineering
     institution: Tianjin University
-    date_start: 2019
-    date_end: 2022
+    date_start: 2019-09-01
+    date_end: 2022-03-15
     # summary: |
     #   GPA: 3.8/4.0
 
@@ -76,8 +76,8 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - area: BSc Software Engineering
     institution: NorthEastern University
-    date_start: 2015
-    date_end: 2019
+    date_start: 2015-09-01
+    date_end: 2019-06-30
     # summary: |
     #   GPA: 3.4/4.0
       
@@ -195,4 +195,4 @@ service:
 
 ## About Me
 
-Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University, China under the supervision of Professor Jianye Hao, as a member of the [Deep Reinforcement Learning (DRL) Laboratory](http://www.icdai.org/). His research interests primarily focus on **Deep Reinforcement Learning**, **Large Language Models (LLMs)**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.
+Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [Deep Reinforcement Learning (DRL) Laboratory](http://www.icdai.org/). His research interests primarily focus on **Deep Reinforcement Learning**, **Large Language Models (LLMs)**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.

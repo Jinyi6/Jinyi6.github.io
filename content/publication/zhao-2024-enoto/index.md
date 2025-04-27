@@ -13,4 +13,8 @@ publication_types:
 - paper-conference
 publication: '*Proceedings of the Thirty-Third International Joint Conference on Artificial
   Intelligence*'
+
+tags:
+  - DRL
+  - Offline RL
 ---

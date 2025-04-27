@@ -25,4 +25,21 @@ url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''
+
+summary:  Organizing samples in a trajective manner can improve the learning efficiency for offline RL algorithms.
+
+tags:
+  - DRL
+  - Offline RL
+  - AAMAS 2024
+
+# Display this page in the Featured widget?
+featured: false
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: false
 ---

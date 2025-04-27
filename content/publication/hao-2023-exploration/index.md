@@ -25,4 +25,8 @@ url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''
+
+tags:
+  - DRL
+  - Exploration
 ---

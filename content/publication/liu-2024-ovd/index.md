@@ -31,6 +31,7 @@ summary:  We propose Optimistic Value Distribution Explorer (OVD-Explorer) to ac
 tags:
   - DRL
   - Exploration
+  - AAAI 2024
 
 # Display this page in the Featured widget?
 featured: true

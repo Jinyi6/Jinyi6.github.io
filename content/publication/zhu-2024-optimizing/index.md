@@ -11,9 +11,13 @@ authors:
 - Yujing Hu
 - Bo An
 - ' others'
-date: 2024-01-01
+date: 2024-10-01
 publishDate: '2025-04-26T09:31:01.999969Z'
 publication_types:
 - paper-conference
 publication: '*NeurIPS 2024 Workshop on Behavioral Machine Learning*'
+
+tags:
+  - DRL
+  - PbRL
 ---

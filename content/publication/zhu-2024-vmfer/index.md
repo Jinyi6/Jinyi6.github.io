@@ -3,7 +3,7 @@ title: 'vMFER: Von Mises-Fisher experience resampling based on uncertainty of gr
   directions for policy improvement'
 authors:
 - Yiwen Zhu
-- admin
+- Jinyi Liu
 - Wenya Wei
 - Qianyi Fu
 - Yujing Hu
@@ -13,9 +13,12 @@ authors:
 - Tangjie Lv
 - Changjie Fan
 date: '2024-01-01'
-publishDate: '2025-04-26T09:31:01.975473Z'
+publishDate: '2025-04-27T02:53:26.366863Z'
 publication_types:
 - paper-conference
 publication: '*Proceedings of the Thirty-Third International Joint Conference on Artificial
   Intelligence*'
+
+tags:
+  - DRL
 ---

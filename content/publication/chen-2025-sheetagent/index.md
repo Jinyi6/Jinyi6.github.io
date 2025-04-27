@@ -30,8 +30,9 @@ url_video: ''
 summary:  SheetAgent, an novel autonomous agent that utilizes the power of LLMs.
 
 tags:
-  - Large Language Models
+  - LLM
   - LLM Agent
+  - WWW 2025 Oral
 
 # Display this page in the Featured widget?
 featured: true
