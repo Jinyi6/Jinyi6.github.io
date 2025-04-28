@@ -3,7 +3,7 @@ title: 'DualRAG: A Dual-Process Approach to Integrate Reasoning and Retrieval fo
   Multi-Hop Question Answering'
 authors:
 - Rong Cheng
-- Jinyi Liu
+- admin
 - YAN ZHENG
 - Fei Ni
 - Jiazhen Du
