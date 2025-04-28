@@ -16,7 +16,7 @@ publication_types:
 publication: '*arXiv preprint arXiv:2402.14245*'
 
 featured: false
-url_pdf: ''
+url_pdf: 'https://arxiv.org/pdf/2402.14245'
 url_code: ''
 url_dataset: ''
 url_poster: ''
