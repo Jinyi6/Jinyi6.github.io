@@ -14,14 +14,14 @@
 {{ $dateFmt := $block.design.date_format | default "2006-01" }}
 <div class="flex flex-col items-center max-w-prose mx-auto">
 
-<div class="w-full flex flex-col gap-4">
+<div class="w-full flex flex-col gap-1 p-6 ">
   <!-- <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center"> -->
 
     <!-- 1. 保留原 block title -->
     <!-- <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
       {{ $block.content.title | markdownify | emojify }}
     </div> -->
-    <h3 class="w-full mb-6 p-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
+    <h3 class="w-full mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
   
     <!-- 4. 每个 item 之间间距放大到 gap-6 -->
       {{ if $awards }}
