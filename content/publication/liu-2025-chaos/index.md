@@ -29,7 +29,7 @@ url_slides: ''
 url_source: ''
 url_video: ''
 
-summary:  Organizing samples in a trajective manner can improve the learning efficiency for offline RL algorithms.
+summary:  A lightweight large language model inference framework that performs structured and fine-grained natural language reasoning without the need for complex search and external tools.
 
 tags:
   - LLM
