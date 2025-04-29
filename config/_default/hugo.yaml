@@ -54,6 +54,6 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
-marketing:
-  analytics:
-    google_analytics: 'G-51XTL78GSK'
+services:
+  googleAnalytics:
+    id: G-51XTL78GSK
