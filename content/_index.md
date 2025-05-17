@@ -48,8 +48,10 @@ sections:
       title: News
       subtitle: ''
       text: |
+        - <span style="font-size:1.05rem;">🛫 **2025-05** 3 papers has been accepted by ACL 2025 (long paper)!</span>
+        - <span style="font-size:1.05rem;">🛫 **2025-04** The 114th [RLCHINA Paper Seminar](https://rlchina.org/topic/997) hosted!</span>
         - <span style="font-size:1.05rem;">📢 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
-        - <span style="font-size:1.05rem;">🚀 **2025-01** One paper has been accepted by WWW 2025, oral presentation.</span>
+        - <span style="font-size:1.05rem;">🚀 **2025-01** 1 paper has been accepted by WWW 2025, oral presentation.</span>
   - block: collection
     id: papers
     content:

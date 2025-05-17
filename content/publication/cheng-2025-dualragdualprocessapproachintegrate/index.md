@@ -13,15 +13,11 @@ authors:
 - Jianye HAO
 date: '2025-01-09'
 publishDate: '2025-04-28T06:07:19.991695Z'
+publication: '*Proceedings of the Association for Computational Linguistics: ACL 2025*'
 publication_types:
-- manuscript
-links:
-- name: arXiv
-  url: https://arxiv.org/abs/2504.18243
-- name: URL
-  url: https://arxiv.org/abs/2504.18243
+- conference
 
-url_pdf: 'https://arxiv.org/pdf/2504.18243'
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''
@@ -32,5 +28,5 @@ url_video: ''
 
 tags:
   - LLM Agent
-  - RAG
+  - Reasoning
 ---
