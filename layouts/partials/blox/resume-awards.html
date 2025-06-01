@@ -1,70 +1,63 @@
 {{/* layouts/blocks/resume-awards.html */}}
-{{/* 重写 Hugo Blox 的 “Awards” 区块，使用自定义 .awards-list/.award-item CSS (或在此处用 Tailwind Grid 实现) */}}
+{{/* 重写 Hugo Blox 的 “Awards” 区块，实现表格化对齐和调整间距 */}}
 
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
 {{ $author := $block.content.username | default "admin" }}
 {{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
 {{ if not $person_page }}
-  {{ errorf "Could not find an author page for username: %s" $author }}
+  {{ errorf "Could not find an author page for '%s'. Ensure an author page exists at `content/authors/%s/_index.md`." $author $author }}
 {{ end }}
 {{ $awards := $person_page.Params.awards }}
 
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
-{{ $dateFmt := $block.design.date_format | default "Jan 2006" }} {{/* Changed default for potentially shorter month */}}
+{{/* Default to a more descriptive format like "January 2006" or "Jan 2006" if space is tight */}}
+{{ $dateFmt := $block.design.date_format | default "January 2006" }}
 
-<div class="flex flex-col items-center w-full max-w-prose mx-auto">
-  <div class="w-full p-6"> {{/* Removed outer flex and gap, p-6 for padding */}}
-    <h3 class="w-full mb-8 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3> {{/* Slightly more mb for title */}}
+<div class="flex flex-col items-center max-w-prose mx-auto">
+  <div class="w-full flex flex-col p-6">
+    <h3 class="w-full mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
 
     {{ if $awards }}
       {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }} {{/* Added a few more emojis */}}
-      
-      {{/* Custom class for the list if needed, but styling via Tailwind directly on items */}}
-      <div class="awards-list flex flex-col gap-y-4"> {{/* Reduced gap between items: gap-y-4 (Tailwind for row gap) */}}
+
+      <div class="awards-list w-full">
         {{ range $idx, $award := sort $awards ".date_start" "desc" }}
-          {{ $date := "" }}
-          {{ with $award.date_start }} {{/* Assuming date_start for sorting, use .date if that's the display field */}}
-            {{ $parsedDate := "" }}
-            {{ if (findRE `^\d{4}$` . ) }} {{/* Just year */}}
-              {{ $parsedDate = time (printf "%s-01-01" .) }}
-              {{ $date = $parsedDate | time.Format ($block.design.date_format | default "2006") }}
-            {{ else if (findRE `^\d{4}-\d{2}$` . ) }} {{/* Year and month */}}
-              {{ $parsedDate = time (printf "%s-01" .) }}
-              {{ $date = $parsedDate | time.Format ($block.design.date_format | default "Jan 2006") }}
-            {{ else }}
-              {{ $parsedDate = time . }}
-              {{ $date = $parsedDate | time.Format ($block.design.date_format | default "Jan 2, 2006") }}
-            {{ end }}
+          {{ $date_display := "" }}
+          {{ with $award.date }} {{/* Use .date for display, as in original logic */}}
+            {{ $date_display = (time .).Format $dateFmt }}
           {{ else }}
-            {{ $date = i18n "present" | default "Present" }}
+            {{ $date_display = i18n "present" | default "Present" }}
           {{ end }}
-          
+
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          {{/* Custom class for item if needed */}}
-          {{/* Using Tailwind CSS Grid for alignment */}}
-          <div class="award-item grid grid-cols-[auto,1fr] md:grid-cols-[minmax(100px,_1fr)_3fr] gap-x-4 items-start">
-            {{/* Column 1: Date - ensure it doesn't wrap aggressively */}}
-            <div class="date-col text-right md:text-left font-semibold text-gray-700 dark:text-gray-300 pt-0.5 whitespace-nowrap">
-              {{ $date }}
+          {{/* Each award item as a flex row */}}
+          {{/* Reduced bottom margin from original implied mb-6 per item to mb-4 for tighter spacing */}}
+          <div class="award-item flex mb-4">
+            {{/* Column 1: Date - ~25% width. flex-shrink-0 prevents it from shrinking */}}
+            {{/* pr-4 for padding between date and title column */}}
+            <div class="date-column w-1/4 lg:w-1/5 pr-4 flex-shrink-0">
+              <p class="font-bold text-black dark:text-white text-sm md:text-base">
+                {{ $date_display }}
+              </p>
             </div>
 
-            {{/* Column 2: Title and Awarder */}}
-            <div class="details-col flex flex-col">
+            {{/* Column 2: Title and Awarder - ~75% width */}}
+            <div class="details-column w-3/4 lg:w-4/5">
               <p class="font-bold text-black dark:text-white">
                 {{ $emoji }} {{ $award.title | markdownify | emojify }}
               </p>
               {{ if $award.awarder }}
-              <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1"> {{/* mt-1 for slight space from title */}}
                 by {{ $award.awarder | markdownify }}
               </p>
               {{ end }}
-              <!-- {{ if $award.summary }}
-              <p class="text-gray-500 dark:text-gray-500 text-sm mt-1">
+              {{ if $award.summary }}
+              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
                 {{ $award.summary | markdownify }}
-                {{ end }}
-              </p> -->
+              </p>
+              {{ end }}
             </div>
           </div>
         {{ end }}
