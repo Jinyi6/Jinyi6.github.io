@@ -47,11 +47,10 @@ profiles:
     url: https://orcid.org/0000-0002-4537-348X
 
 interests:
-  - Artificial Intelligence
-  - Large Language Model
-  - LLM Agents
   - Deep Reinforcement Learning
+  - LLM and LLM Agents
   - Reinforcement Fine-tuning for LLMs
+  - AI for Science
 
 education:
   - area: PhD Software Engineering
@@ -195,4 +194,4 @@ service:
 
 ## About Me
 
-Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [Deep Reinforcement Learning (DRL) Laboratory](http://www.icdai.org/). His research interests primarily focus on **Deep Reinforcement Learning**, **Large Language Models (LLMs)**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.
+Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [DRL Lab](http://www.icdai.org/). His research interests primarily focus on **DRL**, **LLMs**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.

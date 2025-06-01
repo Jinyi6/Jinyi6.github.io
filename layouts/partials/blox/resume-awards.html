@@ -1,58 +1,76 @@
 {{/* layouts/blocks/resume-awards.html */}}
-{{/* 重写 Hugo Blox 的 “Awards” 区块，使用自定义 .awards-list/.award-item CSS */}}
+{{/* 重写 Hugo Blox 的 “Awards” 区块，使用自定义 .awards-list/.award-item CSS (或在此处用 Tailwind Grid 实现) */}}
 
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
 {{ $author := $block.content.username | default "admin" }}
 {{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
 {{ if not $person_page }}
-{{ errorf "Could not find an author page." }}
+  {{ errorf "Could not find an author page for username: %s" $author }}
 {{ end }}
 {{ $awards := $person_page.Params.awards }}
 
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
-{{ $dateFmt := $block.design.date_format | default "2006-01" }}
-<div class="flex flex-col items-center max-w-prose mx-auto">
+{{ $dateFmt := $block.design.date_format | default "Jan 2006" }} {{/* Changed default for potentially shorter month */}}
 
-<div class="w-full flex flex-col gap-1 p-6 ">
-  <!-- <div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center"> -->
+<div class="flex flex-col items-center w-full max-w-prose mx-auto">
+  <div class="w-full p-6"> {{/* Removed outer flex and gap, p-6 for padding */}}
+    <h3 class="w-full mb-8 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3> {{/* Slightly more mb for title */}}
 
-    <!-- 1. 保留原 block title -->
-    <!-- <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
-      {{ $block.content.title | markdownify | emojify }}
-    </div> -->
-    <h3 class="w-full mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
-  
-    <!-- 4. 每个 item 之间间距放大到 gap-6 -->
-      {{ if $awards }}
-        <!-- 1. 准备一组多样化的 emoji -->
-        {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" }}
-  
+    {{ if $awards }}
+      {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }} {{/* Added a few more emojis */}}
+      
+      {{/* Custom class for the list if needed, but styling via Tailwind directly on items */}}
+      <div class="awards-list flex flex-col gap-y-4"> {{/* Reduced gap between items: gap-y-4 (Tailwind for row gap) */}}
         {{ range $idx, $award := sort $awards ".date_start" "desc" }}
-          {{/* 计算日期，若无则显示 Present */}}
           {{ $date := "" }}
-          {{ with $award.date }}
-            {{ $date = (time .) | time.Format ($block.design.date_format | default "January 2006") }}
+          {{ with $award.date_start }} {{/* Assuming date_start for sorting, use .date if that's the display field */}}
+            {{ $parsedDate := "" }}
+            {{ if (findRE `^\d{4}$` . ) }} {{/* Just year */}}
+              {{ $parsedDate = time (printf "%s-01-01" .) }}
+              {{ $date = $parsedDate | time.Format ($block.design.date_format | default "2006") }}
+            {{ else if (findRE `^\d{4}-\d{2}$` . ) }} {{/* Year and month */}}
+              {{ $parsedDate = time (printf "%s-01" .) }}
+              {{ $date = $parsedDate | time.Format ($block.design.date_format | default "Jan 2006") }}
+            {{ else }}
+              {{ $parsedDate = time . }}
+              {{ $date = $parsedDate | time.Format ($block.design.date_format | default "Jan 2, 2006") }}
+            {{ end }}
           {{ else }}
             {{ $date = i18n "present" | default "Present" }}
           {{ end }}
-          <!-- 根据索引选取 emoji -->
+          
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
-  
-          <div class="mb-6">
-            <!-- 2. date & title 加粗，黑色 -->
-            <p class="font-bold text-black dark:text-white">
-             {{ $date }}&nbsp;&nbsp;&nbsp;&nbsp;{{ $emoji }} {{$award.title | markdownify | emojify }}
-            </p>
-            <!-- 3. awarder 放到第二行，灰色小字 -->
-            <p class="text-gray-500 dark:text-gray-400 text-sm">
-              by {{ $award.awarder | markdownify }}
-            </p>
+
+          {{/* Custom class for item if needed */}}
+          {{/* Using Tailwind CSS Grid for alignment */}}
+          <div class="award-item grid grid-cols-[auto,1fr] md:grid-cols-[minmax(100px,_1fr)_3fr] gap-x-4 items-start">
+            {{/* Column 1: Date - ensure it doesn't wrap aggressively */}}
+            <div class="date-col text-right md:text-left font-semibold text-gray-700 dark:text-gray-300 pt-0.5 whitespace-nowrap">
+              {{ $date }}
+            </div>
+
+            {{/* Column 2: Title and Awarder */}}
+            <div class="details-col flex flex-col">
+              <p class="font-bold text-black dark:text-white">
+                {{ $emoji }} {{ $award.title | markdownify | emojify }}
+              </p>
+              {{ if $award.awarder }}
+              <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+                by {{ $award.awarder | markdownify }}
+              </p>
+              {{ end }}
+              <!-- {{ if $award.summary }}
+              <p class="text-gray-500 dark:text-gray-500 text-sm mt-1">
+                {{ $award.summary | markdownify }}
+              </p> -->
+              {{ end }}
+            </div>
           </div>
         {{ end }}
-      {{ end }}
-
+      </div>
+    {{ else }}
+      <p class="text-gray-500 dark:text-gray-400">{{ i18n "no_awards_found" | default "No awards to display at this time." }}</p>
+    {{ end }}
   </div>
 </div>
-  
-  
