@@ -11,7 +11,6 @@
 {{ $awards := $person_page.Params.awards }}
 
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
-{{/* Default to a more descriptive format like "January 2006" or "Jan 2006" if space is tight */}}
 {{ $dateFmt := $block.design.date_format | default "January 2006" }}
 
 <div class="flex flex-col items-center max-w-prose mx-auto">
@@ -19,12 +18,12 @@
     <h3 class="w-full mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
 
     {{ if $awards }}
-      {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }} {{/* Added a few more emojis */}}
+      {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}
 
       <div class="awards-list w-full">
         {{ range $idx, $award := sort $awards ".date_start" "desc" }}
           {{ $date_display := "" }}
-          {{ with $award.date }} {{/* Use .date for display, as in original logic */}}
+          {{ with $award.date }}
             {{ $date_display = (time .).Format $dateFmt }}
           {{ else }}
             {{ $date_display = i18n "present" | default "Present" }}
@@ -32,29 +31,41 @@
 
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          {{/* Each award item as a flex row */}}
-          {{/* Reduced bottom margin from original implied mb-6 per item to mb-4 for tighter spacing */}}
-          <div class="award-item flex mb-4">
-            {{/* Column 1: Date - ~25% width. flex-shrink-0 prevents it from shrinking */}}
-            {{/* pr-4 for padding between date and title column */}}
-            <div class="date-column w-1/4 lg:w-1/5 pr-4 flex-shrink-0">
-              <p class="font-bold text-black dark:text-white text-sm md:text-base">
+          {{/*
+            Each award item as a flex row.
+            items-start: Aligns items to the top of the flex container.
+                         Useful if date column wraps and becomes taller.
+            mb-4: Reduced bottom margin for tighter spacing between award entries.
+          */}}
+          <div class="award-item flex items-start mb-4">
+            {{/*
+              Column 1: Date
+              w-1/4: Sets width to 25%.
+              pr-4: Padding-right for spacing between date and title column.
+              flex-shrink-0: Prevents this column from shrinking if content in the second column is very long.
+            */}}
+            <div class="date-column w-1/4 pr-4 flex-shrink-0">
+              {{/* Date uses the same styling as the title for font size/weight */}}
+              <p class="font-bold text-black dark:text-white">
                 {{ $date_display }}
               </p>
             </div>
 
-            {{/* Column 2: Title and Awarder - ~75% width */}}
-            <div class="details-column w-3/4 lg:w-4/5">
+            {{/*
+              Column 2: Title, Awarder, and Summary
+              w-3/4: Sets width to 75%.
+            */}}
+            <div class="details-column w-3/4">
               <p class="font-bold text-black dark:text-white">
                 {{ $emoji }} {{ $award.title | markdownify | emojify }}
               </p>
               {{ if $award.awarder }}
-              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1"> {{/* mt-1 for slight space from title */}}
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1"> {{/* Original styling for awarder */}}
                 by {{ $award.awarder | markdownify }}
               </p>
               {{ end }}
               {{ if $award.summary }}
-              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
+              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1"> {{/* Summary styling, consistent with awarder */}}
                 {{ $award.summary | markdownify }}
               </p>
               {{ end }}
