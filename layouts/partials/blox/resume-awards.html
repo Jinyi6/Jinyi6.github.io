@@ -31,25 +31,26 @@
 
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          {{/* Each award item: main flex row for date column and details column */}}
           <div class="award-item flex items-start mb-4">
-            {{/* Column 1: Date */}}
             <div class="date-column w-1/4 pr-4 flex-shrink-0">
               <p class="font-bold text-black dark:text-white">
                 {{ $date_display }}
               </p>
             </div>
 
-            {{/* Column 2: Details (Title, Awarder, Summary) */}}
             <div class="details-column w-3/4">
-              {{/* Nested flex: one item for emoji, one for the text block */}}
               <div class="flex items-start">
-                {{/* Emoji container: flex-shrink-0 prevents it from shrinking. mr-2 for spacing. */}}
-                <div class="emoji-container mr-2 flex-shrink-0">
-                  {{ $emoji }}
+                {{/*
+                  Emoji container:
+                  - w-7: Fixed width (1.75rem). Tailwind's w-6 is 1.5rem, w-8 is 2rem. Adjust as needed.
+                         This helps align emojis that have different character widths visually.
+                  - mr-2: Margin right for spacing between emoji and title text.
+                  - flex-shrink-0: Prevents this container from shrinking.
+                  - flex, items-center, justify-center: These classes center the emoji within its fixed-width box.
+                */}}
+                <div class="emoji-container w-7 mr-2 flex-shrink-0 flex items-center justify-center">
+                  <span>{{ $emoji }}</span> {{ Wrapping in a span is optional but can sometimes help with precise alignment or styling }}
                 </div>
-                {{/* Text content container: flex-grow allows it to take remaining space. */}}
-                {{/* All text lines within this div will be left-aligned with each other. */}}
                 <div class="text-content-container flex-grow">
                   <p class="font-bold text-black dark:text-white">
                     {{ $award.title | markdownify | emojify }}
