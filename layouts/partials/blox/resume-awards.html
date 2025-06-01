@@ -15,7 +15,7 @@
 
 <div class="flex flex-col items-center max-w-prose mx-auto">
   <div class="w-full flex flex-col p-6">
-    <h3 class="w-full mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
+    <h3 class="w-full mb-8 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
 
     {{ if $awards }}
       {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}
@@ -31,42 +31,36 @@
 
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          <div class="award-item flex items-start mb-4">
-            <div class="date-column w-1/4 pr-4 flex-shrink-0">
-              <p class="font-bold text-black dark:text-white">
+          {{/* Each award item is a flex container, items aligned to the top */}}
+          <div class="award-item flex items-start mb-6"> {{/* Increased bottom margin for better separation */}}
+
+            {{/* 1. Emoji Column - Fixed width, centered emoji */}}
+            <div class="emoji-column w-10 flex-shrink-0 flex items-center justify-center mr-3 pt-1"> {{/* w-10 (2.5rem) gives enough space, mr-3 for spacing to date, pt-1 for slight vertical adjustment */}}
+              <span class="text-xl">{{ $emoji }}</span> {{/* text-xl to make emoji slightly larger, adjust as needed */}}
+            </div>
+
+            {{/* 2. Date Column - Fixed width, prevents content from pushing details */}}
+            <div class="date-column w-40 flex-shrink-0 mr-4"> {{/* Increased width e.g., w-40 (10rem) for longer dates, adjust based on your longest date string. mr-4 for spacing to details */}}
+              <p class="font-semibold text-gray-800 dark:text-gray-200"> {{/* Using semibold and slightly different color for emphasis */}}
                 {{ $date_display }}
               </p>
             </div>
 
-            <div class="details-column w-3/4">
-              <div class="flex items-start">
-                {{/*
-                  Emoji container:
-                  - w-7: Fixed width (1.75rem). Tailwind's w-6 is 1.5rem, w-8 is 2rem. Adjust as needed.
-                         This helps align emojis that have different character widths visually.
-                  - mr-2: Margin right for spacing between emoji and title text.
-                  - flex-shrink-0: Prevents this container from shrinking.
-                  - flex, items-center, justify-center: These classes center the emoji within its fixed-width box.
-                */}}
-                <div class="emoji-container w-7 mr-2 flex-shrink-0 flex items-center justify-center">
-                  <span>{{ $emoji }}</span> {{/* Wrapping in a span is optional but can sometimes help with precise alignment or styling */}}
-                </div>
-                <div class="text-content-container flex-grow">
-                  <p class="font-bold text-black dark:text-white">
-                    {{ $award.title | markdownify | emojify }}
-                  </p>
-                  {{ if $award.awarder }}
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
-                    by {{ $award.awarder | markdownify }}
-                  </p>
-                  {{ end }}
-                  {{ if $award.summary }}
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
-                    {{ $award.summary | markdownify }}
-                  </p>
-                  {{ end }}
-                </div>
-              </div>
+            {{/* 3. Details Column - Takes remaining space */}}
+            <div class="details-column flex-grow">
+              <p class="font-bold text-black dark:text-white">
+                {{ $award.title | markdownify | emojify }}
+              </p>
+              {{ if $award.awarder }}
+              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                by {{ $award.awarder | markdownify }}
+              </p>
+              {{ end }}
+              {{ if $award.summary }}
+              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                {{ $award.summary | markdownify }}
+              </p>
+              {{ end }}
             </div>
           </div>
         {{ end }}
