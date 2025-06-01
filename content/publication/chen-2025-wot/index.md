@@ -6,6 +6,12 @@ authors:
 - YAN ZHENG
 - Yifu Yuan
 - Jianye HAO
+author_notes:
+  - 'Equal contribution'
+  - 'Equal contribution'
+  - ''
+  - ''
+  - ''
 date: '2025-05-31' # Placeholder date for ACL 2025 Findings publication (adjust as needed)
 publishDate: '2025-05-16T22:00:00Z' # Timestamp of this metadata generation (adjust as needed)
 publication_types:
