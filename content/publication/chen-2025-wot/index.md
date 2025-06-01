@@ -1,8 +1,8 @@
 ---
 title: 'War of Thoughts: Competition Stimulates Stronger Reasoning in Large Language Models'
 authors:
-- Yibin Chen *
-- admin *
+- Yibin Chen
+- admin
 - YAN ZHENG
 - Yifu Yuan
 - Jianye HAO
