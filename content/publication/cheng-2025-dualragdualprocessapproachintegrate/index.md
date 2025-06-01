@@ -11,7 +11,7 @@ authors:
 - Fuzheng Zhang
 - Bo Wang
 - Jianye HAO
-date: '2025-01-09'
+date: '2025-05-31'
 publishDate: '2025-04-28T06:07:19.991695Z'
 publication: '*Proceedings of the Association for Computational Linguistics: ACL 2025*'
 publication_types:

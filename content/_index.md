@@ -60,6 +60,7 @@ sections:
         folders:
           - publication
         featured_only: true
+        show_date: true
     design:
       view: article-grid
       columns: 3
