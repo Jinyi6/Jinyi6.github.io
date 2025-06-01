@@ -1,12 +1,12 @@
 ---
 title: 'War of Thoughts: Competition Stimulates Stronger Reasoning in Large Language Models'
 authors:
-- Yibin Chen
+- Yibin Chen *
+- admin *
 - YAN ZHENG
 - Yifu Yuan
-- admin
 - Jianye HAO
-date: '2025-07-15' # Placeholder date for ACL 2025 Findings publication (adjust as needed)
+date: '2025-05-31' # Placeholder date for ACL 2025 Findings publication (adjust as needed)
 publishDate: '2025-05-16T22:00:00Z' # Timestamp of this metadata generation (adjust as needed)
 publication_types:
 - conference
