@@ -1,5 +1,5 @@
 {{/* layouts/blocks/resume-awards.html */}}
-{{/* 重写 Hugo Blox 的 “Awards” 区块，实现表格化对齐和调整间距 */}}
+{{/* 保持原有 Date | (Emoji + Details) 结构，修复对齐问题 */}}
 
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
@@ -31,36 +31,48 @@
 
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          {{/* Each award item is a flex container, items aligned to the top */}}
-          <div class="award-item flex items-start mb-6"> {{/* Increased bottom margin for better separation */}}
+          <div class="award-item flex items-start mb-6"> {{/* 整体容器，日期和详情水平排列，顶部对齐 */}}
 
-            {{/* 1. Emoji Column - Fixed width, centered emoji */}}
-            <div class="emoji-column w-10 flex-shrink-0 flex items-center justify-center mr-3 pt-1"> {{/* w-10 (2.5rem) gives enough space, mr-3 for spacing to date, pt-1 for slight vertical adjustment */}}
-              <span class="text-xl">{{ $emoji }}</span> {{/* text-xl to make emoji slightly larger, adjust as needed */}}
-            </div>
-
-            {{/* 2. Date Column - Fixed width, prevents content from pushing details */}}
-            <div class="date-column w-40 flex-shrink-0 mr-4"> {{/* Increased width e.g., w-40 (10rem) for longer dates, adjust based on your longest date string. mr-4 for spacing to details */}}
-              <p class="font-semibold text-gray-800 dark:text-gray-200"> {{/* Using semibold and slightly different color for emphasis */}}
+            {{/* Date Column: 改为固定宽度，确保右侧内容起点一致 */}}
+            {{/* 例如 w-36 (9rem), w-40 (10rem)。请根据你最长的日期字符串调整此宽度。 */}}
+            {{/* 保留 pr-4 是为了日期文本和这一列右边缘的间距 */}}
+            {{/* flex-shrink-0 确保此列宽度不会被压缩 */}}
+            <div class="date-column w-36 pr-4 flex-shrink-0">
+              <p class="font-bold text-black dark:text-white">
                 {{ $date_display }}
               </p>
             </div>
 
-            {{/* 3. Details Column - Takes remaining space */}}
-            <div class="details-column flex-grow">
-              <p class="font-bold text-black dark:text-white">
-                {{ $award.title | markdownify | emojify }}
-              </p>
-              {{ if $award.awarder }}
-              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
-                by {{ $award.awarder | markdownify }}
-              </p>
-              {{ end }}
-              {{ if $award.summary }}
-              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
-                {{ $award.summary | markdownify }}
-              </p>
-              {{ end }}
+            {{/* Details Column: 使用 flex-1 来占据剩余空间 */}}
+            <div class="details-column flex-1">
+              <div class="flex items-start"> {{/* 内部flex: emoji 和 文本内容 顶部对齐 */}}
+                {{/*
+                  Emoji container:
+                  - w-7: 固定宽度 (1.75rem).
+                  - mr-2: 右边距.
+                  - flex-shrink-0: 防止收缩.
+                  - flex, items-center, justify-center: 内部 emoji 居中.
+                  - pt-0.5 or pt-1: 可以微调 emoji 和旁边标题文字的垂直对齐，可选。
+                */}}
+                <div class="emoji-container w-7 mr-2 flex-shrink-0 flex items-center justify-center pt-0.5"> {{/* pt-0.5 可选，用于微调垂直对齐 */}}
+                  <span>{{ $emoji }}</span>
+                </div>
+                <div class="text-content-container flex-grow">
+                  <p class="font-bold text-black dark:text-white">
+                    {{ $award.title | markdownify | emojify }}
+                  </p>
+                  {{ if $award.awarder }}
+                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                    by {{ $award.awarder | markdownify }}
+                  </p>
+                  {{ end }}
+                  {{ if $award.summary }}
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                    {{ $award.summary | markdownify }}
+                  </p>
+                  {{ end }}
+                </div>
+              </div>
             </div>
           </div>
         {{ end }}
