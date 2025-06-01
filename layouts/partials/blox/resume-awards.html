@@ -31,44 +31,41 @@
 
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          {{/*
-            Each award item as a flex row.
-            items-start: Aligns items to the top of the flex container.
-                         Useful if date column wraps and becomes taller.
-            mb-4: Reduced bottom margin for tighter spacing between award entries.
-          */}}
+          {{/* Each award item: main flex row for date column and details column */}}
           <div class="award-item flex items-start mb-4">
-            {{/*
-              Column 1: Date
-              w-1/4: Sets width to 25%.
-              pr-4: Padding-right for spacing between date and title column.
-              flex-shrink-0: Prevents this column from shrinking if content in the second column is very long.
-            */}}
+            {{/* Column 1: Date */}}
             <div class="date-column w-1/4 pr-4 flex-shrink-0">
-              {{/* Date uses the same styling as the title for font size/weight */}}
               <p class="font-bold text-black dark:text-white">
                 {{ $date_display }}
               </p>
             </div>
 
-            {{/*
-              Column 2: Title, Awarder, and Summary
-              w-3/4: Sets width to 75%.
-            */}}
+            {{/* Column 2: Details (Title, Awarder, Summary) */}}
             <div class="details-column w-3/4">
-              <p class="font-bold text-black dark:text-white">
-                {{ $emoji }} {{ $award.title | markdownify | emojify }}
-              </p>
-              {{ if $award.awarder }}
-              <p class="text-gray-500 dark:text-gray-400 text-sm mt-1"> {{/* Original styling for awarder */}}
-                by {{ $award.awarder | markdownify }}
-              </p>
-              {{ end }}
-              {{ if $award.summary }}
-              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1"> {{/* Summary styling, consistent with awarder */}}
-                {{ $award.summary | markdownify }}
-              </p>
-              {{ end }}
+              {{/* Nested flex: one item for emoji, one for the text block */}}
+              <div class="flex items-start">
+                {{/* Emoji container: flex-shrink-0 prevents it from shrinking. mr-2 for spacing. */}}
+                <div class="emoji-container mr-2 flex-shrink-0">
+                  {{ $emoji }}
+                </div>
+                {{/* Text content container: flex-grow allows it to take remaining space. */}}
+                {{/* All text lines within this div will be left-aligned with each other. */}}
+                <div class="text-content-container flex-grow">
+                  <p class="font-bold text-black dark:text-white">
+                    {{ $award.title | markdownify | emojify }}
+                  </p>
+                  {{ if $award.awarder }}
+                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                    by {{ $award.awarder | markdownify }}
+                  </p>
+                  {{ end }}
+                  {{ if $award.summary }}
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                    {{ $award.summary | markdownify }}
+                  </p>
+                  {{ end }}
+                </div>
+              </div>
             </div>
           </div>
         {{ end }}
