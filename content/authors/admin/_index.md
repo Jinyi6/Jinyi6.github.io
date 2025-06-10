@@ -195,3 +195,7 @@ service:
 ## About Me
 
 Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [DRL Lab](http://www.icdai.org/). His research interests primarily focus on **DRL**, **LLMs**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.
+
+<div style="background-color: #e4f9f5; border-radius: 10px; padding: 20px; margin-top: 2rem; margin-bottom: 2rem;">
+🔬 Ready to research with us? My lab ([TJU DRL-LAB](http://www.icdai.org/)) is seeking collaborators (interns, MS/PhD)! We've got some wicked ideas 😈 and the compute power 🚀 to make them a reality. DM me if you're interested! 👋
+</div>
