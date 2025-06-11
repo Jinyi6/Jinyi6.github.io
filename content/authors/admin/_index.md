@@ -55,7 +55,7 @@ interests:
 education:
   - area: PhD (and MSc) Software Engineering
     institution: Tianjin University
-    date_start: 2022-09-01
+    date_start: 2019-09-01
     date_end: ''
     # summary: |
     #   Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
@@ -197,5 +197,5 @@ service:
 Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [DRL Lab](http://www.icdai.org/). His research interests primarily focus on **DRL**, **LLMs**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.
 <div style="background-color: rgba(228, 249, 245, 0.36); color: #333333; border-radius: 10px; padding: 20px; margin-top: 2rem; margin-bottom: 2rem; line-height: 1.6;">
   🔬 Ready to research with us? <a href="http://www.icdai.org/" target="_blank" rel="noopener noreferrer">TJU DRL-LAB</a> (under the supervision of <a href="http://www.icdai.org/jianye.html" target="_blank" rel="noopener noreferrer">Jianye Hao</a>, <a href="https://yanzzzzz.github.io/" target="_blank" rel="noopener noreferrer">Yan Zheng</a> and <a href="https://bluecontra.github.io/" target="_blank" rel="noopener noreferrer">Hongyao Tang</a>) is seeking collaborators (interns, MS/PhD)! We've got some wicked ideas and the compute power 🚀 to make them a reality. <br>
-  DM me if you're interested! 👋
+  👋 DM me if you're interested!
 </div>
