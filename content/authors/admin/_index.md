@@ -53,7 +53,7 @@ interests:
   - AI for Science
 
 education:
-  - area: PhD Software Engineering
+  - area: PhD (and MSc) Software Engineering
     institution: Tianjin University
     date_start: 2022-09-01
     date_end: ''
@@ -62,10 +62,10 @@ education:
     # button:
     #   text: 'Read Thesis'
     #   url: 'https://example.com'
-  - area: MSc Software Engineering
-    institution: Tianjin University
-    date_start: 2019-09-01
-    date_end: 2022-03-15
+  # - area: MSc Software Engineering
+  #   institution: Tianjin University
+  #   date_start: 2019-09-01
+  #   date_end: 2022-03-15
     # summary: |
     #   GPA: 3.8/4.0
 
