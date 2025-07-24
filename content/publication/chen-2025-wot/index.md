@@ -33,8 +33,7 @@ url_video: ''
 summary: 'This paper investigates how competitive mechanisms can enhance the reasoning capabilities of Large Language Models (LLMs), leading to improved performance on complex tasks.'
 
 tags:
-  - LLM
-  - Reasoning
+  - LLM Post-training
   - ACL 2025
   - ACL Findings
   - Competition

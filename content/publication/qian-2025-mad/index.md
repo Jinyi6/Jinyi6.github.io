@@ -26,6 +26,6 @@ url_video: ''
 
 tags:
   - Multi-Agent Systems
-  - LLM
+  - LLM Post-training
   - Role Allocation
 ---

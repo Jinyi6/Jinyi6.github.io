@@ -17,10 +17,9 @@ date: '2025-06-01'
 publishDate: '2025-04-26T09:31:01.928038Z'
 publication_types:
 - article-journal
-publication: '*arXiv preprint arXiv:2503.15944*'
+publication: '*SCALR@COLM 2025*'
 
-featured: false
-url_pdf: ''
+url_pdf: 'https://arxiv.org/pdf/2503.15944'
 url_code: ''
 url_dataset: ''
 url_poster: ''
@@ -32,7 +31,7 @@ url_video: ''
 summary:  A lightweight large language model inference framework that performs structured and fine-grained natural language reasoning without the need for complex search and external tools.
 
 tags:
-  - LLM
+  - LLM Post-training
   - Reasoning
 
 # Display this page in the Featured widget?

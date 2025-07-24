@@ -48,11 +48,13 @@ sections:
       title: News
       subtitle: ''
       text: |
-        - <span style="font-size:1.05rem;">🛫 **2025-06** 1 paper has been accepted by ICML 2025 Workshop MAS !</span>
-        - <span style="font-size:1.05rem;">🛫 **2025-05** 3 papers has been accepted by ACL 2025 (long paper)!</span>
+        - <span style="font-size:1.05rem;">📑 **2025-07** 1 paper accepted by SCALR@COLM (<a href="https://liu.jinyi.space/publication/liu-2025-chaos/">Atomic Reasoner</a>)</span>
+        - <span style="font-size:1.05rem;">📑 **2025-07** 1 paper accepted by ICCV 2025 (RoboAnnotatorX)!</span>
+        - <span style="font-size:1.05rem;">📑 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!</span>
+        - <span style="font-size:1.05rem;">📑 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!</span>
         - <span style="font-size:1.05rem;">🛫 **2025-04** The 114th [RLCHINA Paper Seminar](https://rlchina.org/topic/997) hosted!</span>
         - <span style="font-size:1.05rem;">📢 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
-        - <span style="font-size:1.05rem;">🚀 **2025-01** 1 paper has been accepted by WWW 2025, oral presentation.</span>
+        - <span style="font-size:1.05rem;">📑 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!</span>
   - block: collection
     id: papers
     content:
