@@ -10,7 +10,7 @@ authors:
 - Rui Liu
 - YAN ZHENG
 
-date: '2025-10-01' # Placeholder date for ICCV 2025
+date: '2025-07-10' # Placeholder date for ICCV 2025
 publishDate: '2025-10-01T00:00:00Z'
 publication_types:
 - conference
