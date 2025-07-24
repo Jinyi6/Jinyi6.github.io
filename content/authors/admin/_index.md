@@ -53,7 +53,7 @@ interests:
   - AI for Science
 
 education:
-  - area: PhD (and MSc) Software Engineering
+  - area: PhD (and MSc)
     institution: Tianjin University
     date_start: 2019-09-01
     date_end: ''
@@ -73,7 +73,7 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Software Engineering
+  - area: BSc
     institution: NorthEastern University
     date_start: 2015-09-01
     date_end: 2019-06-30
@@ -200,8 +200,8 @@ Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under 
   <!-- We've got some wicked ideas and the compute power 🚀 to make them a reality. <br> -->
   👋 DM me if you're interested!
 </div>
-<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; margin-top: 20px;">
+<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fceec8d5; margin-top: 20px;">
     <p style="margin: 0; font-size: 1.1em; color: #333;">
-        我正在寻找26届校招机会，主要关注LLM Post-training、RL、LLM Agent等方向算法研究岗。如有合适职位，欢迎联系(jyliu_tju.edu.cn)！
+        我正在关注26届校招，LLM后训练、RL、Agentic Intelligence等方向算法研究岗。如有合适职位，欢迎联系(jyliu_tju.edu.cn)！
     </p>
 </div>
