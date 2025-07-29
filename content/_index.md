@@ -55,6 +55,8 @@ sections:
         - <span style="font-size:1.05rem;">🛫 **2025-04** The 114th [RLCHINA Paper Seminar](https://rlchina.org/topic/997) hosted!</span>
         - <span style="font-size:1.05rem;">📢 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
         - <span style="font-size:1.05rem;">📑 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!</span>
+      design:
+        columns: '1' 
   - block: collection
     id: papers
     content:

@@ -48,8 +48,8 @@ profiles:
 
 interests:
   - Deep Reinforcement Learning
+  - LLM Post-training (Scaling and RFT)
   - LLM and LLM Agents
-  - Reinforcement Fine-tuning for LLMs
   - AI for Science
 
 education:
@@ -182,9 +182,9 @@ awards:
 
 service:
   - title: 📝 Reviewer (Journal)
-    content: IEEE TNNLS (2024-2025), Machine Learning (2025)
+    content: IEEE TNNLS, Machine Learning, Quantum Machine Intelligence, SIVP
   - title: 📝 Reviewer / PC member (Conference)
-    content: ICCV (2025), ICML (2025), AAMAS (2025), IJCAI (2024-2025), NeurIPS (2024-2025), CIKM (2022) 
+    content: NeurIPS (2024-), IJCAI (2024-), AAAI (2025-), ICCV (2025-), ICML (2025-), AAMAS (2025-),  CIKM (2022) 
   - title: 🙋‍♂️ Conference Committee Volunteer
     content: DAI 2022
   - title: 👥 Student Liaison
@@ -202,6 +202,6 @@ Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under 
 </div>
 <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fef2d0b9; margin-top: 20px;">
     <p style="margin: 0; font-size: 1.1em; color: #333;">
-        我正在关注26届校招，LLM后训练、RL、Agentic Intelligence等方向算法研究岗。如有合适职位，欢迎联系(jyliu_tju.edu.cn)！
+        我正关注26届校招，LLM后训练、RL、Agentic Intelligence等方向算法研究岗。如有合适职位，欢迎联系(jyliu_tju.edu.cn)！
     </p>
 </div>
