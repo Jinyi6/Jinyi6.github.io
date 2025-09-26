@@ -48,6 +48,7 @@ sections:
       title: News
       subtitle: ''
       text: |
+        - <span style="font-size:1.05rem;">📑 **2025-09** 1 paper accepted by NeurIPS 2025</span>
         - <span style="font-size:1.05rem;">📑 **2025-07** 1 paper accepted by SCALR@COLM (<a href="https://liu.jinyi.space/publication/liu-2025-chaos/">Atomic Reasoner</a>)</span>
         - <span style="font-size:1.05rem;">📑 **2025-07** 1 paper accepted by ICCV 2025 (RoboAnnotatorX)!</span>
         - <span style="font-size:1.05rem;">📑 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!</span>
