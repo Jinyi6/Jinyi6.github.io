@@ -28,7 +28,7 @@ url_source: 'https://openreview.net/forum?id=hmXie9J7yy'
 url_video: ''
 
 tags:
-  - LLM Post-training (RL Tuning)
   - DRL
   - PbRL
+  - Exploration
 ---

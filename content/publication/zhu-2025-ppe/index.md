@@ -26,7 +26,7 @@ publication_types:
   - paper-conference
 publication: 'NeurIPS 2025'
 tags:
-  - LLM Post-training (RL Tuning)
   - DRL
+  - Exploration
   - Preference Learning
 ---

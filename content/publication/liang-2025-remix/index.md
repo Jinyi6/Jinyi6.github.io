@@ -33,7 +33,7 @@ summary: 'This paper introduces an efficient method for finetuning Large Languag
 tags:
   - LLM Post-training (RL Tuning)
   - LLM Post-training
-  - Reinforcement Learning
+  - DRL
   - Fine-tuning
   - Off-policy
 

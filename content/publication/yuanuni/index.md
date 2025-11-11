@@ -18,7 +18,6 @@ publication_types:
 publication: '*The Twelfth International Conference on Learning Representations*'
 
 tags:
-  - LLM Post-training (RL Tuning)
   - DRL
   - PbRL
 ---

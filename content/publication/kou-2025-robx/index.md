@@ -36,7 +36,6 @@ tags:
   - Computer Vision
   - Annotation
   - Robot Demonstration
-  - ICCV 2025
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.

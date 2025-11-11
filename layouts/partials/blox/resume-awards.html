@@ -31,43 +31,27 @@
 
           {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          <div class="award-item flex items-start mb-6"> {{/* 整体容器，日期和详情水平排列，顶部对齐 */}}
-
-            {{/* Date Column: 改为固定宽度，确保右侧内容起点一致 */}}
-            {{/* 例如 w-36 (9rem), w-40 (10rem)。请根据你最长的日期字符串调整此宽度。 */}}
-            {{/* 保留 pr-4 是为了日期文本和这一列右边缘的间距 */}}
-            {{/* flex-shrink-0 确保此列宽度不会被压缩 */}}
-            <div class="date-column w-40 pr-4 flex-shrink-0">
-              <p class="font-bold text-black dark:text-white">
-                {{ $date_display }}
-              </p>
+          <div class="award-item grid gap-4 mb-6 sm:grid-cols-[auto,1fr] sm:items-center">
+            <div class="date-column text-sm font-semibold text-gray-900 dark:text-gray-100 sm:text-right sm:pr-4 min-w-[9rem]">
+              {{ $date_display }}
             </div>
 
-            {{/* Details Column: 使用 flex-1 来占据剩余空间 */}}
-            <div class="details-column flex-1">
-              <div class="flex items-start"> {{/* 内部flex: emoji 和 文本内容 顶部对齐 */}}
-                {{/*
-                  Emoji container:
-                  - w-7: 固定宽度 (1.75rem).
-                  - mr-2: 右边距.
-                  - flex-shrink-0: 防止收缩.
-                  - flex, items-center, justify-center: 内部 emoji 居中.
-                  - pt-0.5 or pt-1: 可以微调 emoji 和旁边标题文字的垂直对齐，可选。
-                */}}
-                <div class="emoji-container w-7 mr-2 flex-shrink-0 flex items-center justify-center pt-0.5"> {{/* pt-0.5 可选，用于微调垂直对齐 */}}
+            <div class="details-column flex flex-col gap-1">
+              <div class="flex items-start gap-3">
+                <div class="emoji-container text-lg leading-none flex items-center justify-center flex-shrink-0">
                   <span>{{ $emoji }}</span>
                 </div>
-                <div class="text-content-container flex-grow">
+                <div class="text-content-container flex-1">
                   <p class="font-bold text-black dark:text-white">
                     {{ $award.title | markdownify | emojify }}
                   </p>
                   {{ if $award.awarder }}
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">
                     by {{ $award.awarder | markdownify }}
                   </p>
                   {{ end }}
                   {{ if $award.summary }}
-                  <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
                     {{ $award.summary | markdownify }}
                   </p>
                   {{ end }}
