@@ -31,6 +31,7 @@ url_video: ''
 summary:  A lightweight large language model inference framework that performs structured and fine-grained natural language reasoning without the need for complex search and external tools.
 
 tags:
+  - LLM Agent
   - LLM Post-training
   - Reasoning
 

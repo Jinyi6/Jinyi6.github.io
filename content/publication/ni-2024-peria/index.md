@@ -19,5 +19,7 @@ publication_types:
 publication: '*Advances in Neural Information Processing Systems*'
 
 tags:
+  - Embodied AI
+  - LLM Agent
   - LLM
 ---

@@ -184,7 +184,7 @@ service:
   - title: 📝 Reviewer (Journal)
     content: IEEE TNNLS, Machine Learning, Quantum Machine Intelligence, SIVP
   - title: 📝 Reviewer / PC member (Conference)
-    content: NeurIPS (2024-), IJCAI (2024-), AAAI (2025-), ICCV (2025-), ICML (2025-), AAMAS (2025-),  CIKM (2022) 
+    content: NeurIPS (2024-), IJCAI (2024-), AAAI (2025-), ICCV (2025-), ICML (2025-), ICLR (2025-), AAMAS (2025-), CIKM (2022)
   - title: 🙋‍♂️ Conference Committee Volunteer
     content: DAI 2022
   - title: 👥 Student Liaison

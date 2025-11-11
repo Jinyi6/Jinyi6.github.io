@@ -26,5 +26,6 @@ url_source: ''
 url_video: ''
 
 tags:
+  - Embodied AI
   - LLM
 ---

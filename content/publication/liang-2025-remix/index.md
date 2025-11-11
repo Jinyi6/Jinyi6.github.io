@@ -31,6 +31,7 @@ url_video: ''
 summary: 'This paper introduces an efficient method for finetuning Large Language Models (LLMs) using off-policy reinforcement learning, aiming to improve performance while minimizing computational resources.'
 
 tags:
+  - LLM Post-training (RL Tuning)
   - LLM Post-training
   - Reinforcement Learning
   - Fine-tuning

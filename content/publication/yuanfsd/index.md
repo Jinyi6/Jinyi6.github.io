@@ -18,6 +18,8 @@ publication_types:
 publication: 'arXiv preprint arXiv:2505.08548'
 
 tags:
+  - Embodied AI
+  - LLM Agent
   - Robotics
   - VLM
   - Manipulation

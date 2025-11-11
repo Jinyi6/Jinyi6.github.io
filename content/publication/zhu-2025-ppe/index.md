@@ -10,12 +10,23 @@ authors:
   - Zhou Fang
   - Yujing Hu
   - Bo An
+author_notes:
+  - 'Equal contribution'
+  - 'Equal contribution'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
 date: '2025-09-26'
 publishDate: '2025-09-26T00:00:00Z'
 publication_types:
   - paper-conference
 publication: 'NeurIPS 2025'
 tags:
+  - LLM Post-training (RL Tuning)
   - DRL
   - Preference Learning
 ---

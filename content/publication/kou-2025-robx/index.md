@@ -31,6 +31,7 @@ url_video: ''
 summary: 'This paper presents RoboAnnotatorX, a comprehensive and universal framework for annotating long-horizon robot demonstrations to enable accurate understanding.'
 
 tags:
+  - Embodied AI
   - Robotics
   - Computer Vision
   - Annotation

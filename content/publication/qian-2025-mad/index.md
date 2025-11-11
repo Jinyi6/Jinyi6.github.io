@@ -25,6 +25,7 @@ url_source: 'https://openreview.net/forum?id=lS58bfecPs'
 url_video: ''
 
 tags:
+  - LLM Agent
   - Multi-Agent Systems
   - LLM Post-training
   - Role Allocation
