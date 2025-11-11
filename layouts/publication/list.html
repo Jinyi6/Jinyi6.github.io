@@ -1,0 +1,109 @@
+{{ define "main" }}
+  {{ $filters := slice
+      (dict "label" "All" "slug" "all")
+      (dict "label" "DRL" "slug" "drl")
+      (dict "label" "LLM Agent" "slug" "llm-agent")
+      (dict "label" "RL Tuning for LLMs" "slug" "rl-tuning-for-llms")
+      (dict "label" "Embodied AI" "slug" "embodied-ai")
+  }}
+  <section class="px-6 py-12 lg:py-16">
+    <div class="mx-auto w-full max-w-5xl">
+      <header class="mb-10">
+        <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white">{{ .Title }}</h1>
+        {{ with .Content }}
+          <div class="prose prose-neutral mt-4 text-base leading-relaxed dark:prose-invert">
+            {{ . }}
+          </div>
+        {{ end }}
+      </header>
+      <div class="mb-8 flex flex-wrap gap-3" id="pub-filters">
+        {{ range $index, $filter := $filters }}
+          <button
+            class="pub-filter-button rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition hover:border-primary-500 hover:text-primary-600 focus:outline-none focus-visible:ring"
+            data-pub-filter="{{ $filter.slug }}"
+            aria-pressed="{{ if eq $index 0 }}true{{ else }}false{{ end }}">
+            {{ $filter.label }}
+          </button>
+        {{ end }}
+      </div>
+      <div class="space-y-6" id="pub-list">
+        {{ range .Pages.ByDate.Reverse }}
+          {{ $tagSlugs := slice }}
+          {{ range .Params.tags }}
+            {{ $tagSlug := . | lower | replace " " "-" | replace "/" "-" }}
+            {{ $tagSlugs = $tagSlugs | append $tagSlug }}
+          {{ end }}
+          <article class="pub-card rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:border-primary-400 dark:border-neutral-700 dark:bg-neutral-900"
+                   data-tag-slugs="{{ delimit $tagSlugs " " }}">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl font-semibold text-neutral-900 dark:text-white">
+                <a href="{{ .RelPermalink }}" class="hover:text-primary-600">{{ .Title }}</a>
+              </h2>
+              {{ with .Params.authors }}
+                <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ delimit . ", " }}</p>
+              {{ end }}
+              <p class="text-sm text-neutral-500 dark:text-neutral-400">
+                {{ with .Params.publication }}{{ . | markdownify }}{{ end }}
+                {{ with .Date }} · {{ .Format "Jan 2006" }}{{ end }}
+              </p>
+              {{ with .Params.summary }}
+                <p class="text-base text-neutral-700 dark:text-neutral-200">{{ . }}</p>
+              {{ end }}
+              {{ with .Params.tags }}
+                <div class="flex flex-wrap gap-2 pt-2">
+                  {{ range . }}
+                    <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium uppercase tracking-wide text-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <style>
+    .pub-filter-button[aria-pressed="true"] {
+      border-color: var(--color-primary-500, #2563eb);
+      background-color: var(--color-primary-500, #2563eb);
+      color: #fff;
+    }
+    .pub-card.hidden {
+      display: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = Array.from(document.querySelectorAll('[data-pub-filter]'));
+      const cards = Array.from(document.querySelectorAll('.pub-card'));
+
+      const setActive = (activeSlug) => {
+        buttons.forEach((btn) => {
+          const isActive = btn.dataset.pubFilter === activeSlug;
+          btn.setAttribute('aria-pressed', isActive);
+        });
+
+        cards.forEach((card) => {
+          if (activeSlug === 'all') {
+            card.classList.remove('hidden');
+            return;
+          }
+          const tags = (card.dataset.tagSlugs || '').split(' ').filter(Boolean);
+          if (tags.includes(activeSlug)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          setActive(button.dataset.pubFilter);
+        });
+      });
+
+      setActive('all');
+    });
+  </script>
+{{ end }}
