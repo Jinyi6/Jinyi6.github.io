@@ -1,11 +1,10 @@
 {{ define "main" }}
-  {{ $filters := slice
-      (dict "label" "All" "slug" "all")
-      (dict "label" "DRL" "slug" "drl")
-      (dict "label" "LLM Agent" "slug" "llm-agent")
-      (dict "label" "RL Tuning for LLMs" "slug" "rl-tuning-for-llms")
-      (dict "label" "Embodied AI" "slug" "embodied-ai")
-  }}
+  {{ $filterLabels := slice "All" "DRL" "LLM Agent" "LLM Post-training (RL Tuning)" "LLM Post-training (TTS)" "Embodied AI" }}
+  {{ $filters := slice }}
+  {{ range $filterLabels }}
+    {{ $slug := cond (eq . "All") "all" (urlize .) }}
+    {{ $filters = $filters | append (dict "label" . "slug" $slug) }}
+  {{ end }}
   <section class="px-6 py-12 lg:py-16">
     <div class="mx-auto w-full max-w-5xl">
       <header class="mb-10">
@@ -30,7 +29,7 @@
         {{ range .Pages.ByDate.Reverse }}
           {{ $tagSlugs := slice }}
           {{ range .Params.tags }}
-            {{ $tagSlug := . | lower | replace " " "-" | replace "/" "-" }}
+            {{ $tagSlug := . | urlize }}
             {{ $tagSlugs = $tagSlugs | append $tagSlug }}
           {{ end }}
           <article class="pub-card rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:border-primary-400 dark:border-neutral-700 dark:bg-neutral-900"
@@ -40,7 +39,19 @@
                 <a href="{{ .RelPermalink }}" class="hover:text-primary-600">{{ .Title }}</a>
               </h2>
               {{ with .Params.authors }}
-                <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ delimit . ", " }}</p>
+                {{ $authorNames := slice }}
+                {{ range . }}
+                  {{ if eq . "admin" }}
+                    {{ with site.GetPage "authors/admin" }}
+                      {{ $authorNames = $authorNames | append .Title }}
+                    {{ else }}
+                      {{ $authorNames = $authorNames | append . }}
+                    {{ end }}
+                  {{ else }}
+                    {{ $authorNames = $authorNames | append . }}
+                  {{ end }}
+                {{ end }}
+                <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ delimit $authorNames ", " }}</p>
               {{ end }}
               <p class="text-sm text-neutral-500 dark:text-neutral-400">
                 {{ with .Params.publication }}{{ . | markdownify }}{{ end }}
