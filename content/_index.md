@@ -48,6 +48,12 @@ sections:
       title: News
       subtitle: ''
       text: |
+        <style>
+          #news .col-lg-8 {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+        </style>
         - <span style="font-size:1rem;">🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).</span>
         - <span style="font-size:1rem;">🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!</span>
         - <span style="font-size:1rem;">📝 **2025-11** 1 paper accepted by AAAI 2025 (MADC)!</span>
