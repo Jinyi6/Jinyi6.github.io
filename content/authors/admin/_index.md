@@ -85,12 +85,23 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
 work:
+  - position: Algorithm Research Intern
+    company_name: Shanghai AI Lab (advised by Shuyue Hu)
+    company_url: ''
+    company_logo: ''
+    date_start: 2025-08-20
+    date_end: ''
+    # summary: |2-
+    #   Responsibilities include:
+    #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
+    #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
+    #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - position: Algorithm Research Intern (Project Collaboration)
     company_name: Kuaishou (advised by Hangyu Mao)
     company_url: ''
     company_logo: ''
     date_start: 2024-10-20
-    date_end: ''
+    date_end: 2025-08-01
     # summary: |2-
     #   Responsibilities include:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
