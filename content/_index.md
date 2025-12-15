@@ -48,18 +48,18 @@ sections:
       title: News
       subtitle: ''
       text: |
-        - 🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).
-        - 🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!
-        - 📝 **2025-11** 1 paper accepted by AAAI 2025 (MADC)!
-        - 📝 **2025-09** 1 paper accepted by NeurIPS 2025
-        - 📝 **2025-07** 1 paper accepted by SCALR@COLM (<a href="https://liu.jinyi.space/publication/liu-2025-chaos/">Atomic Reasoner</a>)
-        - 📝 **2025-07** 1 paper accepted by ICCV 2025 (RoboAnnotatorX)!
-        - 📝 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!
-        - 📝 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!
-        - 🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.
-        - 📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!
+        - <span style="font-size:1rem;">🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).</span>
+        - <span style="font-size:1rem;">🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!</span>
+        - <span style="font-size:1rem;">📝 **2025-11** 1 paper accepted by AAAI 2025 (MADC)!</span>
+        - <span style="font-size:1rem;">📝 **2025-09** 1 paper accepted by NeurIPS 2025</span>
+        - <span style="font-size:1rem;">📝 **2025-07** 1 paper accepted by SCALR@COLM (<a href="https://liu.jinyi.space/publication/liu-2025-chaos/">Atomic Reasoner</a>)</span>
+        - <span style="font-size:1rem;">📝 **2025-07** 1 paper accepted by ICCV 2025 (RoboAnnotatorX)!</span>
+        - <span style="font-size:1rem;">📝 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!</span>
+        - <span style="font-size:1rem;">📝 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!</span>
+        - <span style="font-size:1rem;">🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
+        - <span style="font-size:1rem;">📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!</span>
       design:
-        columns: '2' 
+        columns: '1' 
   - block: collection
     id: papers
     content:
