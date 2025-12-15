@@ -48,7 +48,7 @@ profiles:
 
 interests:
   - Deep Reinforcement Learning
-  - LLM Post-training (Scaling and RFT)
+  - LLM Post-training (Scaling and RL)
   - LLM and LLM Agents
   - AI for Science
 
@@ -200,8 +200,8 @@ Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under 
   <!-- We've got some wicked ideas and the compute power 🚀 to make them a reality. <br> -->
   👋 DM me if you're interested!
 </div>
-<div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fef2d0b9; margin-top: 20px;">
+<!-- <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fef2d0b9; margin-top: 20px;">
     <p style="margin: 0; font-size: 1.1em; color: #333;">
         我正关注26届校招，LLM后训练、RL、Agentic Intelligence等方向算法研究岗。如有合适职位，欢迎联系(jyliu_tju.edu.cn)！
     </p>
-</div>
+</div> -->
