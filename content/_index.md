@@ -53,6 +53,15 @@ sections:
             flex: 0 0 100%;
             max-width: 100%;
           }
+          @media (min-width: 1200px) {
+            #awards, #service {
+              width: 50%;
+              float: left;
+            }
+            #projects {
+              clear: both;
+            }
+          }
         </style>
         - <span style="font-size:1rem;">🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).</span>
         - <span style="font-size:1rem;">🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!</span>
@@ -97,12 +106,14 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: false
+      columns: '2'
   - block: resume-awards
     id: awards
     content:
       title: Awards
       username: admin
   - block: academic-service
+    id: service
     content:
       title: Academic Service
       username: admin 
