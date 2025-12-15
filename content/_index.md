@@ -95,7 +95,7 @@ sections:
         - <span style="font-size:1rem;">🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
         - <span style="font-size:1rem;">📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!</span>
       design:
-        columns: '1' 
+        # columns: '1' removed for full width 
   - block: collection
     id: papers
     content:
@@ -157,7 +157,7 @@ sections:
           </div>
         </div>
     design:
-      columns: '1'
+      # columns: '1' removed to allow full width
   - block: resume-awards
     id: awards
     content:
