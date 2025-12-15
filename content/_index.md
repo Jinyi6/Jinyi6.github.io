@@ -48,18 +48,39 @@ sections:
       title: News
       subtitle: ''
       text: |
+      text: |
         <style>
           #news .col-lg-8 {
             flex: 0 0 100%;
             max-width: 100%;
           }
           @media (min-width: 1200px) {
+            /* Awards & Service */
             #awards, #service {
-              width: 50%;
-              float: left;
+              width: 48% !important;
+              float: left !important;
+              clear: none !important;
+              margin-right: 2% !important;
+              display: block !important;
+            }
+            #service {
+              margin-right: 0 !important;
             }
             #projects {
-              clear: both;
+              clear: both !important;
+            }
+
+            /* Experience & Education Hack */
+            /* Force side-by-side if they are separate columns */
+            #experience .row {
+              display: flex !important;
+              flex-direction: row !important;
+              flex-wrap: wrap !important;
+            }
+            #experience .col-12, #experience .col-lg-12 {
+              width: 50% !important;
+              flex: 0 0 50% !important;
+              max-width: 50% !important;
             }
           }
         </style>
