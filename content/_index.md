@@ -50,15 +50,18 @@ sections:
       text: |
       text: |
       text: |
+      text: |
         <style>
-          /* News: Force full width */
+          /* News: Force full width and remove auto-centering offsets */
           #news div[class*="col-"] {
             flex: 0 0 100% !important;
             max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
           }
           
           @media (min-width: 1200px) {
-            /* Awards & Service: Centered ~61% Width */
+            /* Awards & Service: Centered ~61% Width (Confirmed Working) */
             #awards {
               width: 30.5% !important;
               float: left !important;
@@ -75,23 +78,23 @@ sections:
             }
             #projects {
               clear: both !important;
+              margin-top: 2rem; /* Spacing */
             }
 
-            /* Experience: Column Flow Split */
-            /* Use column-count to split stacked content into two columns */
-            #experience div[class*="col-"] {
-               column-count: 2 !important;
-               column-gap: 40px !important;
+            /* Experience & Education: Float the Rows */
+            /* Assuming Experience and Education are separate .row blocks */
+            #experience .row {
+               width: 50% !important;
+               float: left !important;
+               clear: none !important;
+               display: block !important;
+               padding: 0 15px !important;
             }
-            /* Prevent breaking inside items */
-            #experience .experience-group, #experience .card {
-               break-inside: avoid !important;
-               page-break-inside: avoid !important;
-            }
-            /* Ensure titles span if needed, but here we want them split */
-            /* Default h2 padding fix */
-            #experience h2 {
-               margin-top: 0 !important;
+            /* Reset inner cols to fill the 50% row */
+            #experience .row div[class*="col-"] {
+               width: 100% !important;
+               max-width: 100% !important;
+               flex: 0 0 100% !important;
             }
           }
         </style>
