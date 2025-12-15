@@ -52,12 +52,14 @@ sections:
       text: |
       text: |
         <style>
-          /* News: Force full width and remove auto-centering offsets */
-          #news div[class*="col-"] {
-            flex: 0 0 100% !important;
+          /* News: Force full width */
+          #news .container, #news .col-lg-8, #news .col-12 {
             max-width: 100% !important;
-            margin-left: 0 !important;
-            margin-right: 0 !important;
+            flex: 0 0 100% !important;
+            width: 100% !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            margin: 0 !important;
           }
           
           @media (min-width: 1200px) {
@@ -78,23 +80,7 @@ sections:
             }
             #projects {
               clear: both !important;
-              margin-top: 2rem; /* Spacing */
-            }
-
-            /* Experience & Education: Float the Rows */
-            /* Assuming Experience and Education are separate .row blocks */
-            #experience .row {
-               width: 50% !important;
-               float: left !important;
-               clear: none !important;
-               display: block !important;
-               padding: 0 15px !important;
-            }
-            /* Reset inner cols to fill the 50% row */
-            #experience .row div[class*="col-"] {
-               width: 100% !important;
-               max-width: 100% !important;
-               flex: 0 0 100% !important;
+              margin-top: 2rem;
             }
           }
         </style>
@@ -132,16 +118,46 @@ sections:
         exclude_featured: false
     design:
       view: citation
-  - block: resume-experience
+  - block: markdown
     id: experience
     content:
-      username: admin
+      title: ""
+      text: |
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <h2>Experience</h2>
+            <div class="experience-item" style="margin-bottom: 2rem;">
+               <div style="font-weight: bold; font-size: 1.1rem;">Algorithm Research Intern</div>
+               <div style="color: #666; font-size: 0.9rem;">Shanghai AI Lab (advised by Shuyue Hu)</div>
+               <div style="color: #888; font-size: 0.85rem;">August 2025 – Present</div>
+            </div>
+            <div class="experience-item" style="margin-bottom: 2rem;">
+               <div style="font-weight: bold; font-size: 1.1rem;">Algorithm Research Intern (Project Collaboration)</div>
+               <div style="color: #666; font-size: 0.9rem;">Kuaishou (advised by Hangyu Mao)</div>
+               <div style="color: #888; font-size: 0.85rem;">October 2024 – August 2025</div>
+            </div>
+            <div class="experience-item" style="margin-bottom: 2rem;">
+               <div style="font-weight: bold; font-size: 1.1rem;">Algorithm Research Intern</div>
+               <div style="color: #666; font-size: 0.9rem;">NetEase (advised by Yujing Hu)</div>
+               <div style="color: #888; font-size: 0.85rem;">June 2022 – March 2024</div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h2>Education</h2>
+            <div class="education-item" style="margin-bottom: 2rem;">
+               <div style="font-weight: bold; font-size: 1.1rem;">PhD (and MSc)</div>
+               <div style="color: #666; font-size: 0.9rem;">Tianjin University</div>
+               <div style="color: #888; font-size: 0.85rem;">September 2019 – Present</div>
+            </div>
+            <div class="education-item" style="margin-bottom: 2rem;">
+               <div style="font-weight: bold; font-size: 1.1rem;">BSc</div>
+               <div style="color: #666; font-size: 0.9rem;">NorthEastern University</div>
+               <div style="color: #888; font-size: 0.85rem;">September 2015 – June 2019</div>
+            </div>
+          </div>
+        </div>
     design:
-      # Hugo date format
-      date_format: 'January 2006'
-      # Education or Experience section first?
-      is_education_first: false
-      columns: '2'
+      columns: '1'
   - block: resume-awards
     id: awards
     content:
