@@ -49,38 +49,49 @@ sections:
       subtitle: ''
       text: |
       text: |
+      text: |
         <style>
-          #news .col-lg-8 {
-            flex: 0 0 100%;
-            max-width: 100%;
+          /* News: Force full width */
+          #news div[class*="col-"] {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
           }
+          
           @media (min-width: 1200px) {
-            /* Awards & Service */
-            #awards, #service {
-              width: 48% !important;
+            /* Awards & Service: Centered ~61% Width */
+            #awards {
+              width: 30.5% !important;
               float: left !important;
-              clear: none !important;
-              margin-right: 2% !important;
+              margin-left: 19.5% !important;
+              clear: both !important;
               display: block !important;
             }
             #service {
-              margin-right: 0 !important;
+              width: 30.5% !important;
+              float: left !important;
+              margin-right: 19.5% !important;
+              clear: none !important;
+              display: block !important;
             }
             #projects {
               clear: both !important;
             }
 
-            /* Experience & Education Hack */
-            /* Force side-by-side if they are separate columns */
-            #experience .row {
-              display: flex !important;
-              flex-direction: row !important;
-              flex-wrap: wrap !important;
+            /* Experience: Column Flow Split */
+            /* Use column-count to split stacked content into two columns */
+            #experience div[class*="col-"] {
+               column-count: 2 !important;
+               column-gap: 40px !important;
             }
-            #experience .col-12, #experience .col-lg-12 {
-              width: 50% !important;
-              flex: 0 0 50% !important;
-              max-width: 50% !important;
+            /* Prevent breaking inside items */
+            #experience .experience-group, #experience .card {
+               break-inside: avoid !important;
+               page-break-inside: avoid !important;
+            }
+            /* Ensure titles span if needed, but here we want them split */
+            /* Default h2 padding fix */
+            #experience h2 {
+               margin-top: 0 !important;
             }
           }
         </style>
