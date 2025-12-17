@@ -15,10 +15,10 @@
 
 <div class="w-full px-4 py-6">
   <div class="mx-auto flex w-full flex-col gap-10 max-w-5xl">
-    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 experience-columns">
 
-      <div class="w-full">
-        <h2 class="mb-8 text-4xl font-bold text-gray-900 dark:text-white">Experience</h2>
+      <div class="w-full experience-column text-left">
+        <h2 class="mb-8 text-4xl font-bold text-gray-900 dark:text-white text-left">Experience</h2>
 
         {{ if $work }}
           {{ range $work }}
@@ -56,8 +56,8 @@
         {{ end }}
       </div>
 
-      <div class="w-full">
-        <h2 class="mb-8 text-4xl font-bold text-gray-900 dark:text-white">Education</h2>
+      <div class="w-full education-column text-left lg:text-right">
+        <h2 class="mb-8 text-4xl font-bold text-gray-900 dark:text-white text-left lg:text-right">Education</h2>
 
         {{ if $education }}
           {{ range $education }}
