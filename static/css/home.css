@@ -1,30 +1,50 @@
-/* 1) News 变宽：Tailwind 版常见限宽是 max-w-prose（≈65ch），我们把它放大到 5xl (≈1024px) */
-#news .max-w-prose,
-#news .prose {
-  max-width: 64rem !important; /* Tailwind max-w-5xl 的典型宽度 */
-}
+/* Homepage-specific layout tweaks */
 
-/* 让正文不要再被 prose 自己的 max-width 夹住 */
+/* News: allow wider content similar to publications */
+#news .max-w-prose,
 #news .prose {
   max-width: 64rem !important;
 }
 
-/* News 列表间距更舒服一点 */
-#news ul { margin-top: 1rem; }
-#news li { margin: 0.45rem 0; }
+#news ul {
+  margin-top: 1.25rem;
+}
 
-/* 2) Experience/Education：宽屏并排，小屏堆叠 */
-@media (min-width: 1024px) {
-  #experience .exp-edu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+#news li {
+  margin-bottom: 0.65rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+/* Awards & Academic Service: keep the slimmer centered look on wide screens */
+@media (min-width: 1200px) {
+  #awards,
+  #service {
+    width: 30.9%;
+    float: left;
+    display: block;
+  }
+
+  #awards {
+    margin-left: 19.5%;
+    margin-right: 0;
+    clear: both;
+  }
+
+  #service {
+    margin-right: 19.5%;
+    margin-left: 0;
+    clear: none;
+  }
+
+  #projects {
+    clear: both;
+    margin-top: 2rem;
   }
 }
 
-/* （可选）让 Experience/Education 也不要被 max-w-prose 限得太窄 */
-#experience .max-w-prose,
-#experience .prose {
-  max-width: 64rem !important;
+#awards .max-w-prose,
+#service .max-w-prose {
+  max-width: none;
+  width: 100%;
 }
