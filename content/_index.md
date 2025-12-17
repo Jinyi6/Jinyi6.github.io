@@ -42,7 +42,7 @@ sections:
   #       Please reach out to collaborate 😃
   #   design:
   #     columns: '1'
-  - block: markdown
+  - block: news-list
     id: news
     content:
       title: News
@@ -58,8 +58,6 @@ sections:
         - 📝 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!
         - 🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.
         - 📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!
-    design:
-      columns: '1'
   - block: collection
     id: papers
     content:
@@ -88,16 +86,10 @@ sections:
       username: admin
     design:
       date_format: "January 2006"
-  - block: resume-awards
+  - block: awards-service
     id: awards
     content:
-      title: Awards
       username: admin
-  - block: academic-service
-    id: service
-    content:
-      title: Academic Service
-      username: admin 
   - block: collection
     id: projects
     content:

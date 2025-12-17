@@ -1,0 +1,89 @@
+{{/* Combined Awards + Academic Service block, side-by-side on large screens */}}
+
+{{ $block := .wcBlock }}
+{{ $author := $block.content.username | default "admin" }}
+{{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
+{{ if not $person_page }}
+  {{ errorf "Could not find an author page for '%s'. Ensure an author page exists at `content/authors/%s/_index.md`." $author $author }}
+{{ end }}
+
+{{ $awards := $person_page.Params.awards }}
+{{ $services := $person_page.Params.service }}
+{{ $dateFmt := $block.design.date_format | default "January 2006" }}
+
+<div class="w-full px-4 py-6">
+  <div class="mx-auto flex w-full flex-col gap-12 max-w-6xl">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+
+      <div class="space-y-6">
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
+          {{ i18n "awards" | default "Awards" }}
+        </h3>
+
+        {{ if $awards }}
+          <div class="space-y-6">
+            {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}
+            {{ range $idx, $award := sort $awards ".date" "desc" }}
+              {{ $date_display := "" }}
+              {{ with $award.date }}
+                {{ $date_display = (time .).Format $dateFmt }}
+              {{ else }}
+                {{ $date_display = i18n "present" | default "Present" }}
+              {{ end }}
+              {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
+              <div class="flex flex-col gap-1">
+                <div class="text-sm font-semibold text-gray-600 dark:text-gray-300">
+                  {{ $date_display }}
+                </div>
+                <div class="flex items-start gap-3 text-left text-gray-900 dark:text-white">
+                  <span class="text-lg leading-none">{{ $emoji }}</span>
+                  <div>
+                    <p class="font-bold">
+                      {{ $award.title | markdownify | emojify }}
+                    </p>
+                    {{ if $award.awarder }}
+                      <p class="text-sm text-gray-500 dark:text-gray-400">
+                        {{ $award.awarder | markdownify | emojify }}
+                      </p>
+                    {{ end }}
+                    {{ if $award.summary }}
+                      <p class="text-sm text-gray-600 dark:text-gray-300">
+                        {{ $award.summary | markdownify | emojify }}
+                      </p>
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="text-gray-500 dark:text-gray-400">{{ i18n "no_awards_found" | default "No awards to display." }}</p>
+        {{ end }}
+      </div>
+
+      <div class="space-y-6 text-left lg:text-right">
+        <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
+          {{ i18n "academic service" | default "Academic Service" }}
+        </h3>
+
+        {{ if $services }}
+          <div class="space-y-5">
+            {{ range $services }}
+              <div class="grid gap-2 text-gray-900 dark:text-white">
+                <div class="font-semibold">
+                  {{ .title | markdownify | emojify }}
+                </div>
+                <div class="text-sm text-gray-700 dark:text-gray-300 lg:text-right">
+                  {{ .content | markdownify | emojify }}
+                </div>
+              </div>
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="text-gray-500 dark:text-gray-400">{{ i18n "no_service_found" | default "No academic service entries." }}</p>
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</div>
