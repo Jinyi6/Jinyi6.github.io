@@ -47,55 +47,19 @@ sections:
     content:
       title: News
       subtitle: ''
-      text: |
-      text: |
-      text: |
-      text: |
-        <style>
-          /* News: Force full width */
-          #news .container, #news .col-lg-8, #news .col-12 {
-            max-width: 100% !important;
-            flex: 0 0 100% !important;
-            width: 100% !important;
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
-            margin: 0 !important;
-          }
-          
-          @media (min-width: 1200px) {
-            /* Awards & Service: Centered ~61% Width (Confirmed Working) */
-            #awards {
-              width: 30.5% !important;
-              float: left !important;
-              margin-left: 19.5% !important;
-              clear: both !important;
-              display: block !important;
-            }
-            #service {
-              width: 30.5% !important;
-              float: left !important;
-              margin-right: 19.5% !important;
-              clear: none !important;
-              display: block !important;
-            }
-            #projects {
-              clear: both !important;
-              margin-top: 2rem;
-            }
-          }
-        </style>
-        - <span style="font-size:1rem;">🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).</span>
-        - <span style="font-size:1rem;">🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!</span>
-        - <span style="font-size:1rem;">📝 **2025-11** 1 paper accepted by AAAI 2025 (MADC)!</span>
-        - <span style="font-size:1rem;">📝 **2025-09** 1 paper accepted by NeurIPS 2025</span>
-        - <span style="font-size:1rem;">📝 **2025-07** 1 paper accepted by SCALR@COLM (<a href="https://liu.jinyi.space/publication/liu-2025-chaos/">Atomic Reasoner</a>)</span>
-        - <span style="font-size:1rem;">📝 **2025-07** 1 paper accepted by ICCV 2025 (RoboAnnotatorX)!</span>
-        - <span style="font-size:1rem;">📝 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!</span>
-        - <span style="font-size:1rem;">📝 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!</span>
-        - <span style="font-size:1rem;">🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.</span>
-        - <span style="font-size:1rem;">📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!</span>
-      design:
-        # columns: '1' removed for full width 
+      text: |-
+        - 🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).
+        - 🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!
+        - 📝 **2025-11** 1 paper accepted by AAAI 2025 (MADC)!
+        - 📝 **2025-09** 1 paper accepted by NeurIPS 2025
+        - 📝 **2025-07** 1 paper accepted by SCALR@COLM (<a href="https://liu.jinyi.space/publication/liu-2025-chaos/">Atomic Reasoner</a>)
+        - 📝 **2025-07** 1 paper accepted by ICCV 2025 (RoboAnnotatorX)!
+        - 📝 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!
+        - 📝 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!
+        - 🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.
+        - 📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!
+    design:
+      columns: '1' 
   - block: collection
     id: papers
     content:
@@ -118,46 +82,12 @@ sections:
         exclude_featured: false
     design:
       view: citation
-  - block: markdown
+  - block: resume-experience
     id: experience
     content:
-      title: ""
-      text: |
-        <div class="row">
-          <div class="col-12 col-lg-6">
-            <h2>Experience</h2>
-            <div class="experience-item" style="margin-bottom: 2rem;">
-               <div style="font-weight: bold; font-size: 1.1rem;">Algorithm Research Intern</div>
-               <div style="color: #666; font-size: 0.9rem;">Shanghai AI Lab (advised by Shuyue Hu)</div>
-               <div style="color: #888; font-size: 0.85rem;">August 2025 – Present</div>
-            </div>
-            <div class="experience-item" style="margin-bottom: 2rem;">
-               <div style="font-weight: bold; font-size: 1.1rem;">Algorithm Research Intern (Project Collaboration)</div>
-               <div style="color: #666; font-size: 0.9rem;">Kuaishou (advised by Hangyu Mao)</div>
-               <div style="color: #888; font-size: 0.85rem;">October 2024 – August 2025</div>
-            </div>
-            <div class="experience-item" style="margin-bottom: 2rem;">
-               <div style="font-weight: bold; font-size: 1.1rem;">Algorithm Research Intern</div>
-               <div style="color: #666; font-size: 0.9rem;">NetEase (advised by Yujing Hu)</div>
-               <div style="color: #888; font-size: 0.85rem;">June 2022 – March 2024</div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6">
-            <h2>Education</h2>
-            <div class="education-item" style="margin-bottom: 2rem;">
-               <div style="font-weight: bold; font-size: 1.1rem;">PhD (and MSc)</div>
-               <div style="color: #666; font-size: 0.9rem;">Tianjin University</div>
-               <div style="color: #888; font-size: 0.85rem;">September 2019 – Present</div>
-            </div>
-            <div class="education-item" style="margin-bottom: 2rem;">
-               <div style="font-weight: bold; font-size: 1.1rem;">BSc</div>
-               <div style="color: #666; font-size: 0.9rem;">NorthEastern University</div>
-               <div style="color: #888; font-size: 0.85rem;">September 2015 – June 2019</div>
-            </div>
-          </div>
-        </div>
+      username: admin
     design:
-      # columns: '1' removed to allow full width
+      date_format: "January 2006"
   - block: resume-awards
     id: awards
     content:

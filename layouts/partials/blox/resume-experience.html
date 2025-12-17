@@ -1,0 +1,78 @@
+{{/* Custom resume-experience: show Work and Education side-by-side on large screens */}}
+
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+
+{{ $author := $block.content.username | default "admin" }}
+{{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
+{{ if not $person_page }}
+{{ errorf "Could not find an author page for '%s' at content/authors/%s/_index.md" $author $author }}
+{{ end }}
+
+{{ $work := $person_page.Params.work }}
+{{ $edu := $person_page.Params.education }}
+
+{{/* 日期格式（可按需调整）*/}}
+{{ $dateFmt := $block.design.date_format | default "January 2006" }}
+
+<div class="flex flex-col items-center mx-auto px-4 max-w-5xl">
+    <div class="w-full py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            <!-- Experience column -->
+            <div class="w-full">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+                    Experience
+                </h2>
+
+                {{ range $work }}
+                {{ $start := "" }}
+                {{ $end := "" }}
+                {{ with .date_start }}{{ $start = (time .).Format $dateFmt }}{{ end }}
+                {{ with .date_end }}{{ $end = (time .).Format $dateFmt }}{{ end }}
+                {{ if not $end }}{{ $end = (i18n "present" | default "Present") }}{{ end }}
+
+                <div class="mb-10">
+                    <div class="text-lg font-semibold text-gray-900 dark:text-white">
+                        {{ .position | markdownify }}
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300">
+                        {{ .company_name | markdownify }}
+                    </div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        {{ $start }} – {{ $end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+            <!-- Education column -->
+            <div class="w-full">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">
+                    Education
+                </h2>
+
+                {{ range $edu }}
+                {{ $start := "" }}
+                {{ $end := "" }}
+                {{ with .date_start }}{{ $start = (time .).Format $dateFmt }}{{ end }}
+                {{ with .date_end }}{{ $end = (time .).Format $dateFmt }}{{ end }}
+                {{ if not $end }}{{ $end = (i18n "present" | default "Present") }}{{ end }}
+
+                <div class="mb-10">
+                    <div class="text-lg font-semibold text-gray-900 dark:text-white">
+                        {{ .area | markdownify }}
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-300">
+                        {{ .institution | markdownify }}
+                    </div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        {{ $start }} – {{ $end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+        </div>
+    </div>
+</div>
