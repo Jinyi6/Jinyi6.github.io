@@ -7,7 +7,7 @@ robots: "index, follow"
 
 design:
   # Default section spacing
-  spacing: "6rem"
+  spacing: "4.5rem"
 
 sections:
   - block: resume-biography-3
@@ -49,6 +49,7 @@ sections:
       title: News
       subtitle: ''
       text: |-
+        - 📝 **2026-01** Paper accepted by ACM TheWebConf 2026 Industry: [AFE-Master](/publication/liang-2026-afemaster/).
         - 🔥 **2025-12** Released our beginner-friendly LLM Agent tutorial ([website](https://llm-agent-tutorial.github.io/website/) & [PDF](https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf)).
         - 🎤 **2025-12** The 137th [RLCHINA Paper Seminar](https://rlchina.org/topic/1047) hosted!
         - 📝 **2025-11** 1 paper accepted by AAAI 2025 (MADC)!

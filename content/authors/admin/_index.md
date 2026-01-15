@@ -166,6 +166,9 @@ languages:
   # Only `title`, `awarder`, and `date` are required.
   # Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
+  - title: 2025年度CSIG科技进步奖一等奖
+    date: '2026-01-01'
+    awarder: CSIG
   - title: Distinguished PC Members in AAMAS 2025
     date: '2025-01-01'
     awarder: AAMAS 2025

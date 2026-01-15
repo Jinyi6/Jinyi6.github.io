@@ -13,9 +13,9 @@
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
 {{ $dateFmt := $block.design.date_format | default "January 2006" }}
 
-<div class="flex flex-col items-center max-w-prose mx-auto">
-  <div class="w-full flex flex-col p-6">
-    <h3 class="w-full mb-8 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
+<div class="w-full px-4">
+  <div class="mx-auto flex w-full max-w-5xl flex-col">
+    <h3 class="section-title mb-6 text-center text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
 
     {{ if $awards }}
       {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}

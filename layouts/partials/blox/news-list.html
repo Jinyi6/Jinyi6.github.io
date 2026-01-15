@@ -2,17 +2,21 @@
 
 {{ $block := .wcBlock }}
 
-<div class="w-full px-4 py-6">
-  <div class="mx-auto w-full md:w-1/2 lg:w-[50%] max-w-3xl space-y-4">
-    {{ if $block.content.title }}
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
-        {{ $block.content.title | markdownify | emojify }}
-      </h2>
-    {{ end }}
-    {{ if $block.content.subtitle }}
-      <p class="text-lg text-gray-600 dark:text-gray-300">
-        {{ $block.content.subtitle | markdownify | emojify }}
-      </p>
+<div class="w-full px-4">
+  <div class="mx-auto w-full max-w-5xl">
+    {{ if or $block.content.title $block.content.subtitle }}
+      <div class="section-heading">
+        {{ if $block.content.title }}
+          <h2 class="section-title text-gray-900 dark:text-white">
+            {{ $block.content.title | markdownify | emojify }}
+          </h2>
+        {{ end }}
+        {{ if $block.content.subtitle }}
+          <p class="section-subtitle text-lg text-gray-600 dark:text-gray-300">
+            {{ $block.content.subtitle | markdownify | emojify }}
+          </p>
+        {{ end }}
+      </div>
     {{ end }}
     {{ if $block.content.text }}
       <div class="prose prose-li:my-2 text-gray-800 dark:text-gray-200 text-base leading-relaxed">
