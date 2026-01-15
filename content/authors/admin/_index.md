@@ -54,7 +54,7 @@ interests:
 
 education:
   - area: PhD (and MSc)
-    institution: Tianjin University
+    institution: '<span class="edu-institution">Tianjin University</span>'
     date_start: 2019-09-01
     date_end: ''
     # summary: |
@@ -74,7 +74,7 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - area: BSc
-    institution: NorthEastern University
+    institution: '<span class="edu-institution">NorthEastern University</span>'
     date_start: 2015-09-01
     date_end: 2019-06-30
     # summary: |
@@ -166,8 +166,8 @@ languages:
   # Only `title`, `awarder`, and `date` are required.
   # Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: 2025年度CSIG科技进步奖一等奖
-    date: '2026-01-01'
+  - title: CSIG Science and Technology Progress Award, First Prize (2025年度CSIG科技进步奖一等奖)
+    date: '2025-01-01'
     awarder: CSIG
   - title: Distinguished PC Members in AAMAS 2025
     date: '2025-01-01'

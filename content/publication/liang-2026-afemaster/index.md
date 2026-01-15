@@ -19,7 +19,7 @@ publication_types:
 - conference
 publication: '*ACM TheWebConf 2026 Industry*'
 
-featured: true
+featured: false
 
 url_pdf: ''
 url_code: ''

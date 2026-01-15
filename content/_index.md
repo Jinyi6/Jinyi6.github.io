@@ -59,7 +59,6 @@ sections:
         - 📝 **2025-06** 1 paper accepted by ICML 2025 Workshop MAS (MADC)!
         - 📝 **2025-05** 3 papers accepted by ACL 2025 (long paper, Atomic Reasoner, DualRAG, WoT)!
         - 🏆 **2025-02** Nominated as Distinguished PC Member of AAMAS 2025.
-        - 📝 **2025-01** 1 paper accepted by WWW 2025, oral presentation (SheetAgent)!
   - block: collection
     id: papers
     content:

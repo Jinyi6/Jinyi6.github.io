@@ -7,7 +7,7 @@
     {{ if or $block.content.title $block.content.subtitle }}
       <div class="section-heading">
         {{ if $block.content.title }}
-          <h2 class="section-title text-gray-900 dark:text-white">
+          <h2 class="section-title text-3xl font-bold text-gray-900 dark:text-white">
             {{ $block.content.title | markdownify | emojify }}
           </h2>
         {{ end }}
