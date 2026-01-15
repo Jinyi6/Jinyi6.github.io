@@ -2,10 +2,10 @@
 
 {{ $block := .wcBlock }}
 
-<div class="w-full px-4">
-  <div class="mx-auto w-full max-w-5xl">
+<div class="w-full px-4 pb-10">
+  <div class="mx-auto w-full max-w-5xl news-block">
     {{ if or $block.content.title $block.content.subtitle }}
-      <div class="section-heading">
+      <div class="section-heading mb-8">
         {{ if $block.content.title }}
           <h2 class="section-title text-3xl font-bold text-gray-900 dark:text-white">
             {{ $block.content.title | markdownify | emojify }}
@@ -19,7 +19,7 @@
       </div>
     {{ end }}
     {{ if $block.content.text }}
-      <div class="prose prose-li:my-2 text-gray-800 dark:text-gray-200 text-base leading-relaxed">
+      <div class="prose prose-li:my-2 text-gray-800 dark:text-gray-200 text-base leading-relaxed mt-2">
         {{ $block.content.text | markdownify | emojify }}
       </div>
     {{ end }}

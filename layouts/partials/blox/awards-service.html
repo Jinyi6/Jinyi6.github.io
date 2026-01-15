@@ -22,7 +22,7 @@
           </h3>
 
           {{ if $awards }}
-            <div class="space-y-6 text-left">
+            <div class="space-y-7 text-left">
               {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}
               {{ range $idx, $award := sort $awards ".date" "desc" }}
                 {{ $date_display := "" }}
@@ -70,7 +70,7 @@
           </h3>
 
           {{ if $services }}
-            <div class="space-y-5 text-left">
+            <div class="space-y-7 text-left">
               {{ range $services }}
                 <div class="grid gap-2 text-gray-900 dark:text-white">
                   <div class="font-semibold">

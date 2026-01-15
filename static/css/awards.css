@@ -46,7 +46,11 @@
     margin-top: 0.5rem;
   }
 
-  body .edu-institution {
+  body .ul-edu .institution,
+  body .ul-edu p.institution,
+  body .ul-edu .description .institution,
+  body .wg-resume-biography-3 .institution,
+  body .wg-about .institution {
     color: #9ca3af;
   }
   

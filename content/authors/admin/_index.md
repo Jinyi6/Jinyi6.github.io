@@ -54,7 +54,7 @@ interests:
 
 education:
   - area: PhD (and MSc)
-    institution: '<span class="edu-institution">Tianjin University</span>'
+    institution: Tianjin University
     date_start: 2019-09-01
     date_end: ''
     # summary: |
@@ -74,7 +74,7 @@ education:
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
     #   - lorem ipsum dolor sit amet, consectetur adipiscing elit
   - area: BSc
-    institution: '<span class="edu-institution">NorthEastern University</span>'
+    institution: NorthEastern University
     date_start: 2015-09-01
     date_end: 2019-06-30
     # summary: |
