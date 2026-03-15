@@ -2,6 +2,9 @@ name: Deploy website to GitHub Pages
 
 env:
   WC_HUGO_VERSION: '0.136.5'
+  NODE_VERSION: '22'
+  PAGEFIND_VERSION: '1.4.0'
+  HUGO_CACHEDIR: ${{ github.workspace }}/.hugo_cache
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -36,12 +39,17 @@ jobs:
       with:
         hugo-version: ${{ env.WC_HUGO_VERSION }}
         extended: true
-    - uses: actions/cache@v3
+    - name: Setup Node
+      uses: actions/setup-node@v4
       with:
-        path: /tmp/hugo_cache_runner/
-        key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.mod') }}
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Cache Hugo resources
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.HUGO_CACHEDIR }}
+        key: ${{ runner.os }}-hugo-${{ env.WC_HUGO_VERSION }}-${{ hashFiles('**/go.mod', '**/go.sum', 'config/**', 'layouts/**', 'hugoblox.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-hugomod-
+          ${{ runner.os }}-hugo-${{ env.WC_HUGO_VERSION }}-
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
@@ -49,10 +57,10 @@ jobs:
       env:
         HUGO_ENVIRONMENT: production
       run: |
-        echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-        hugo --minify
+        echo "HUGO_CACHEDIR=${HUGO_CACHEDIR}"
+        hugo --gc --minify
     - name: Generate Pagefind search index
-      run: npx pagefind --site "public"
+      run: npx --yes pagefind@${{ env.PAGEFIND_VERSION }} --site "public"
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:

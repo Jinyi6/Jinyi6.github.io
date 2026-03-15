@@ -33,9 +33,6 @@ tags:
   - Offline RL
   - AAMAS 2024
 
-# Display this page in the Featured widget?
-featured: false
-
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:

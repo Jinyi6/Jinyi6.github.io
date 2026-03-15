@@ -8,6 +8,6 @@ tags:
 
 ---
 
-Universal Platform for Reinforcement Learning with Diverse Feedback Types.
+An integrated RLHF platform that makes it easier to study, compare, and operationalize reinforcement learning from diverse human and synthetic feedback.
 
 <!--more-->

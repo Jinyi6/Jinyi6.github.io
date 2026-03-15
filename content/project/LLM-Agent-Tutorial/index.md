@@ -7,4 +7,4 @@ tags:
   - Tutorial
 ---
 
-A beginner-friendly, example-driven tutorial on LLM agents (foundations → examples → practical tips → frontier).
+A beginner-friendly tutorial that helps newcomers move from agent foundations to hands-on system building through examples, practical guidance, and a forward-looking roadmap.

@@ -20,7 +20,63 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Ph.D. Candidate
+role: |-
+  Ph.D. Candidate
+  Reinforcement Learning and LLM Systems
+
+name_native: 刘金毅
+positioning: |-
+  Reliable reasoning and decision-making
+  with LLM post-training, reinforcement learning, and agents.
+intro: I am a Ph.D. candidate at Tianjin University and a member of the TJU DRL Lab. I work with Jianye Hao, Yan Zheng, and Hongyao Tang on reinforcement learning, LLM post-training, and agentic systems that make language models reason more reliably, act more effectively, and support scientific discovery.
+current_focus: Scaling post-training for language models, building reliable reasoning frameworks, and designing agentic systems that connect decision-making with real-world scientific and practical workflows.
+open_to: Open to collaborations, research internships, and conversations around LLM post-training, RL, agents, and AI for science. The TJU DRL Lab is also welcoming interns and prospective MS/PhD students.
+hero_quote: |-
+  Two roads diverged in a wood, and I—
+  I took the one less traveled by,
+  And that has made all the difference.
+hero_ctas:
+  - label: Selected Papers
+    url: /#papers
+    style: primary
+  - label: Projects
+    url: /#projects
+    style: secondary
+proof_points:
+  - value: ICLR 2026
+    label: 3 accepted papers
+  - value: RL x LLMs
+    label: post-training, reasoning, and agents
+  - value: AI for Science
+    label: systems built for real workflows
+signature_tracks:
+  - title: Reliable reasoning
+    summary: I design reasoning frameworks that make language models more consistent, more controllable, and more trustworthy on complex tasks.
+    tags:
+      - Fine-grained reasoning
+      - Reliability
+      - Decision-making
+  - title: LLM post-training
+    summary: I study reinforcement-learning-based post-training methods that improve capability while reducing cost and instability.
+    tags:
+      - RL tuning
+      - Efficiency
+      - Verifiable rewards
+  - title: Agentic systems for science
+    summary: I build agent systems that translate language-model reasoning into useful workflows for research, analysis, and discovery.
+    tags:
+      - AI for science
+      - Multi-agent systems
+      - Real-world tools
+lab_name: TJU DRL Lab
+lab_url: http://www.icdai.org/
+lab_mentors:
+  - name: Jianye Hao
+    url: http://www.icdai.org/jianye.html
+  - name: Yan Zheng
+    url: https://yanzzzzz.github.io/
+  - name: Hongyao Tang
+    url: https://bluecontra.github.io/
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -32,7 +88,7 @@ organizations:
 profiles:
   - icon: at-symbol
     url: 'mailto:jyliu@tju.edu.cn'
-    label: E-mail Me
+    label: Email
   # - icon: brands/x
   #   url: https://twitter.com/GetResearchDev
   # - icon: brands/instagram
@@ -43,14 +99,15 @@ profiles:
   #   url: https://www.linkedin.com/
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=kaQS7NAAAAAJ&hl=en
+    label: Google Scholar
   - icon: academicons/orcid
     url: https://orcid.org/0000-0002-4537-348X
+    label: ORCID
 
 interests:
-  - Deep Reinforcement Learning
-  - LLM Post-training (Scaling and RL)
-  - LLM and LLM Agents
-  - AI for Science
+  - LLM Post-training and Reasoning
+  - Agentic Systems and LLM Agents
+  - Reinforcement Learning and AI for Science
 
 education:
   - area: PhD (and MSc)
@@ -205,18 +262,4 @@ service:
     content: RL China (Academic Community)
 
 ---
-
-## About Me
-
-Jinyi Liu (刘金毅) is currently pursuing a Ph.D. at Tianjin University under the supervision of Professor Jianye Hao, as a member of the [DRL Lab](http://www.icdai.org/). His research interests primarily focus on **DRL**, **LLMs**, and **LLM Agents**. His work aims to explore synergies between decision-making frameworks and language-based AI systems, advancing applications in autonomous reasoning and human-AI collaboration.
-<div style="background-color: rgba(228, 249, 245, 0.36); color: #333333; border-radius: 10px; padding: 20px; margin-top: 2rem; margin-bottom: 2rem; line-height: 1.6;">
-  🔬 <a href="http://www.icdai.org/" target="_blank" rel="noopener noreferrer">TJU DRL-LAB</a> (by <a href="http://www.icdai.org/jianye.html" target="_blank" rel="noopener noreferrer">Jianye Hao</a>, <a href="https://yanzzzzz.github.io/" target="_blank" rel="noopener noreferrer">Yan Zheng</a> and <a href="https://bluecontra.github.io/" target="_blank" rel="noopener noreferrer">Hongyao Tang</a>) is seeking collaborators (interns, MS/PhD)! 
-  <!-- We've got some wicked ideas and the compute power 🚀 to make them a reality. <br> -->
-  👋 DM me if you're interested!
-</div>
-<br><br>
-<!-- <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fef2d0b9; margin-top: 20px;">
-    <p style="margin: 0; font-size: 1.1em; color: #333;">
-        我正关注26届校招，LLM后训练、RL、Agentic Intelligence等方向算法研究岗。如有合适职位，欢迎联系(jyliu_tju.edu.cn)！
-    </p>
-</div> -->
+I am a Ph.D. candidate at Tianjin University and a member of the TJU DRL Lab. I study how reinforcement learning, post-training, and agentic systems can make language models reason more reliably, act more effectively, and support scientific discovery.

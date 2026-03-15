@@ -3,8 +3,8 @@
 # Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-# Default metadata so every page stays out of search results unless it opts in.
-robots: "noindex, nofollow"
+# Default metadata so pages can be indexed unless a page opts out.
+robots: "index, follow"
 
 # Appearance
 appearance:
@@ -35,11 +35,10 @@ header:
     enable: true
     blox: "navbar"
     fixed_to_top: true
-    show_search: true
-    show_theme_chooser: true
+    show_search: false
+    show_theme_chooser: false
     logo:
       text: "Jinyi Liu (刘金毅)"
-      filename: "logo.svg"
 
 # Site footer
 footer:

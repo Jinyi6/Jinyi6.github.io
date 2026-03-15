@@ -1,0 +1,26 @@
+{{ $page := . }}
+{{ if $page.Params.authors }}
+  {{ range $index, $author := $page.Params.authors }}
+    {{ if gt $index 0 }}, {{ end }}
+    {{ $authorPage := site.GetPage (printf "/authors/%s" (urlize $author)) }}
+    {{ $highlightName := false }}
+    {{ with $authorPage }}
+      {{ $highlightName = .Params.highlight_name | default false }}
+    {{ end }}
+    <span {{ if $highlightName }}class="font-bold"{{ end }}>
+      {{ with $authorPage }}
+        {{ if .RelPermalink }}
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{ else }}
+          {{ .LinkTitle }}
+        {{ end }}
+      {{ else }}
+        {{ $author }}
+      {{ end }}
+    </span>
+    {{ $symbol := partial "publication/author-note-symbol.html" (dict "page" $page "index" $index) }}
+    {{ if ne $symbol "" }}
+      <sup class="author-note-mark">{{ $symbol }}</sup>
+    {{ end }}
+  {{ end }}
+{{ end }}

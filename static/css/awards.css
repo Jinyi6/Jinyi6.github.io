@@ -1,56 +1,237 @@
-/* static/css/awards.css */
+body {
+  background: #f4f1eb;
+  color: #16232c;
+}
 
-/* 外层容器，用来整体排版 */
+body .section-title {
+  font-size: clamp(1.9rem, 1.42rem + 0.8vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+body .section-heading {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+body .section-subtitle {
+  margin-top: 0.5rem;
+}
+
+body .ul-edu .institution,
+body .ul-edu p.institution,
+body .ul-edu .description .institution,
+body .wg-resume-biography-3 .institution,
+body .wg-about .institution {
+  color: #80939d;
+}
+
+.resume-page-section {
+  padding-top: 2.2rem !important;
+}
+
+.resume-page-section > .mx-auto {
+  max-width: min(1200px, calc(100% - 2rem)) !important;
+}
+
+.resume-panel {
+  width: 100%;
+  padding: 1.45rem 1.5rem;
+  border: 1px solid rgba(16, 25, 34, 0.08);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 40px rgba(16, 25, 34, 0.05);
+}
+
+.resume-panel--wide {
+  max-width: 100%;
+}
+
+.resume-section-title {
+  margin-top: 0;
+  margin-bottom: 1.3rem !important;
+  color: #13212b !important;
+}
+
+.resume-stack {
+  display: grid;
+  gap: 1.05rem;
+}
+
+.resume-entry {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(16, 25, 34, 0.08);
+}
+
+.resume-entry:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.resume-entry__title {
+  color: #16232c !important;
+  line-height: 1.3;
+}
+
+.resume-entry__org {
+  color: #536773 !important;
+}
+
+.resume-entry__date {
+  color: #8b6d52 !important;
+  font-weight: 600;
+}
+
+.resume-entry__summary,
+.resume-entry__summary p {
+  color: #4c616d !important;
+  line-height: 1.68;
+}
+
 .awards-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    /* font-family: sans-serif; */
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.award-item {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 10rem) 2.15rem minmax(18rem, 1fr);
+  align-items: start;
+  column-gap: 1rem;
+  white-space: normal;
+  font-size: 0.95rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(16, 25, 34, 0.08);
+}
+
+.award-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.award-item .date-column,
+.award-item .award-date {
+  color: #8b6d52 !important;
+  font-weight: 700;
+}
+
+.award-item .text-content-container p:first-child,
+.award-item .award-detail {
+  color: #16232c !important;
+}
+
+.award-item .text-content-container p:not(:first-child) {
+  color: #5e7480 !important;
+}
+
+.emoji-container {
+  width: 1.9rem;
+  height: 1.9rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  transform: translateY(0.08rem);
+  color: #c67b41;
+}
+
+.details-column {
+  min-width: 0;
+  width: 100%;
+}
+
+.text-content-container {
+  width: 100%;
+}
+
+.resume-service-item {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-top: 1px solid rgba(16, 25, 34, 0.08);
+}
+
+.resume-service-item:first-child {
+  padding-top: 0;
+  padding-bottom: 1.25rem;
+  border-top: 0;
+}
+
+.resume-service-item > div:first-child {
+  color: #16232c !important;
+}
+
+.resume-service-item > div:last-child,
+.resume-service-item > div:last-child p {
+  color: #536773 !important;
+  line-height: 1.68;
+}
+
+.wg-resume-languages .col-6,
+.wg-resume-languages .col-lg-4,
+.wg-resume-languages .grid,
+.wg-resume-languages .row {
+  width: min(1120px, calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wg-resume-languages .section-heading,
+.wg-resume-languages .section-title {
+  text-align: center;
+}
+
+.wg-resume-languages .col-6,
+.wg-resume-languages .col-lg-4 {
+  padding: 0;
+}
+
+.wg-resume-languages .skills-content,
+.wg-resume-languages .skill-group,
+.wg-resume-languages .card {
+  border: 1px solid rgba(16, 25, 34, 0.08);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 40px rgba(16, 25, 34, 0.05);
+}
+
+.wg-resume-languages .progress-bar {
+  background: linear-gradient(90deg, #1d4b58, #c67b41);
+}
+
+@media (max-width: 760px) {
+  .resume-page-section {
+    padding-top: 1.4rem !important;
   }
-  
-  /* 每一项 */
+
+  .resume-page-section > .mx-auto {
+    max-width: calc(100% - 1rem) !important;
+  }
+
+  .resume-panel {
+    padding: 1.15rem 1rem;
+    border-radius: 22px;
+  }
+
   .award-item {
-    /* 用 grid 自动对齐“日期”和“详情”两列 */
-    display: grid;
-    grid-template-columns: min-content auto;
-    column-gap: 1rem;        /* 日期和详情之间的空隙 */
-    white-space: pre;        /* 保留空格/制表符 */
-    font-size: 0.95rem;
-  }
-  
-  /* 可选：给日期单独加点样式 */
-  .award-item .award-date {
-    color: #555;
-    font-weight: bold;
-  }
-  
-  /* 可选：给详情加点样式 */
-  .award-item .award-detail {
-    color: #333;
+    grid-template-columns: 1fr;
+    row-gap: 0.35rem;
   }
 
-  /* Shared section heading scale */
-  body .section-title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+  .emoji-container {
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: none;
   }
 
-  body .section-heading {
-    margin-bottom: 1.5rem;
-    text-align: left;
+  .resume-service-item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
-  body .section-subtitle {
-    margin-top: 0.5rem;
+  .resume-service-item:first-child {
+    padding-bottom: 1rem;
   }
-
-  body .ul-edu .institution,
-  body .ul-edu p.institution,
-  body .ul-edu .description .institution,
-  body .wg-resume-biography-3 .institution,
-  body .wg-about .institution {
-    color: #9ca3af;
-  }
-  
+}

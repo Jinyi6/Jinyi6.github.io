@@ -29,6 +29,9 @@ url_source: ''
 url_video: ''
 
 summary:  A lightweight large language model inference framework that performs structured and fine-grained natural language reasoning without the need for complex search and external tools.
+homepage_blurb: Breaks complex reasoning into small atomic steps so language models can reason more reliably without relying on heavyweight search or tool orchestration.
+homepage_rank: 1
+homepage_tag: Reasoning
 
 tags:
   - LLM Post-training (TTS)

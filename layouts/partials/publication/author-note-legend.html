@@ -1,0 +1,27 @@
+{{ $page := .page | default . }}
+{{ $class := .class | default "author-note-legend" }}
+{{ $notes := slice }}
+{{ with $page.Params.author_notes }}
+  {{ range . }}
+    {{ if and (ne . "") (not (in $notes .)) }}
+      {{ $notes = $notes | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if gt (len $notes) 0 }}
+  <p class="{{ $class }}">
+    {{ $symbols := slice "*" "†" "‡" "§" "¶" "#" }}
+    {{ range $index, $note := $notes }}
+      {{ if gt $index 0 }}<span class="author-note-legend__sep">·</span>{{ end }}
+      <span class="author-note-legend__item">
+        {{ if lt $index (len $symbols) }}
+          <sup class="author-note-mark">{{ index $symbols $index }}</sup>
+        {{ else }}
+          <sup class="author-note-mark">{{ add $index 1 }}</sup>
+        {{ end }}
+        {{ $note }}
+      </span>
+    {{ end }}
+  </p>
+{{ end }}

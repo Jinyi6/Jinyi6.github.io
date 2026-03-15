@@ -13,34 +13,35 @@
 {{/* 可选：允许通过 block.design.date_format 配置日期格式 */}}
 {{ $dateFmt := $block.design.date_format | default "January 2006" }}
 
-<div class="w-full px-4">
+<div class="resume-page-section resume-awards-block w-full px-4">
   <div class="mx-auto flex w-full max-w-5xl flex-col">
-    <h3 class="section-title mb-6 text-center text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
+    <div class="resume-panel resume-panel--wide w-full">
+      <h3 class="resume-section-title section-title mb-6 text-center text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "awards" | default "Awards" }}</h3>
 
-    {{ if $awards }}
-      {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}
+      {{ if $awards }}
+        {{ $emojis := slice "🏆" "🎓" "🥇" "🏅" "🎖️" "✨" "🌟" "🎉" }}
 
-      <div class="awards-list w-full">
-        {{ range $idx, $award := sort $awards ".date_start" "desc" }}
-          {{ $date_display := "" }}
-          {{ with $award.date }}
-            {{ $date_display = (time .).Format $dateFmt }}
-          {{ else }}
-            {{ $date_display = i18n "present" | default "Present" }}
-          {{ end }}
+        <div class="awards-list w-full">
+          {{ range $idx, $award := sort $awards ".date_start" "desc" }}
+            {{ $date_display := "" }}
+            {{ with $award.date }}
+              {{ $date_display = (time .).Format $dateFmt }}
+            {{ else }}
+              {{ $date_display = i18n "present" | default "Present" }}
+            {{ end }}
 
-          {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
+            {{ $emoji := index $emojis (mod $idx (len $emojis)) }}
 
-          <div class="award-item grid gap-4 mb-6 sm:grid-cols-[auto,1fr] sm:items-center">
-            <div class="date-column text-sm font-semibold text-gray-900 dark:text-gray-100 sm:text-right sm:pr-4 min-w-[9rem]">
-              {{ $date_display }}
-            </div>
+            <div class="award-item mb-6">
+              <div class="date-column text-sm font-semibold text-gray-900 dark:text-gray-100 sm:text-right sm:pr-4 min-w-[9rem]">
+                {{ $date_display }}
+              </div>
 
-            <div class="details-column flex flex-col gap-1">
-              <div class="flex items-start gap-3">
-                <div class="emoji-container text-lg leading-none flex items-center justify-center flex-shrink-0">
-                  <span>{{ $emoji }}</span>
-                </div>
+              <div class="emoji-container text-lg leading-none flex items-center justify-center flex-shrink-0">
+                <span>{{ $emoji }}</span>
+              </div>
+
+              <div class="details-column flex flex-col gap-1">
                 <div class="text-content-container flex-1">
                   <p class="font-bold text-black dark:text-white">
                     {{ $award.title | markdownify | emojify }}
@@ -56,13 +57,13 @@
                   </p>
                   {{ end }}
                 </div>
-              </div>
+              </div>            
             </div>
-          </div>
-        {{ end }}
-      </div>
-    {{ else }}
-      <p class="text-gray-500 dark:text-gray-400">{{ i18n "no_awards_found" | default "No awards to display at this time." }}</p>
-    {{ end }}
+          {{ end }}
+        </div>
+      {{ else }}
+        <p class="text-gray-500 dark:text-gray-400">{{ i18n "no_awards_found" | default "No awards to display at this time." }}</p>
+      {{ end }}
+    </div>
   </div>
 </div>

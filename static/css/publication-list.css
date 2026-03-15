@@ -1,0 +1,16 @@
+.pub-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.pub-filter-button[aria-pressed="true"] {
+  border-color: #1d4b58;
+  background-color: #1d4b58;
+  color: #fff;
+}
+
+.pub-card.hidden {
+  display: none;
+}

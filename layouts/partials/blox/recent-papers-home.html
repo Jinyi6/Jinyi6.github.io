@@ -1,0 +1,56 @@
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "Recent Papers" }}
+{{ $count := $block.content.count | default 6 }}
+{{ $papers := first $count (sort (where site.RegularPages "Section" "publication") "Date" "desc") }}
+
+<div class="home-section home-section--soft">
+  <div class="home-shell">
+    <div class="home-section__heading home-section__heading--split">
+      <div>
+        <p class="home-section__eyebrow">Latest</p>
+        <h2 class="section-title">{{ $title }}</h2>
+      </div>
+      <a class="home-button home-button--secondary" href="/publication/">View All Publications</a>
+    </div>
+
+    <div class="home-card home-recent-list">
+      {{ range $papers }}
+        {{ $linkURL := .RelPermalink }}
+        {{ $linkLabel := "Details" }}
+        {{ with .Params.url_pdf }}
+          {{ if ne . "" }}
+            {{ $linkURL = . }}
+            {{ $linkLabel = "PDF" }}
+          {{ end }}
+        {{ end }}
+        {{ if eq $linkLabel "Details" }}
+          {{ with .Params.url_project }}
+            {{ if ne . "" }}
+              {{ $linkURL = . }}
+              {{ $linkLabel = "Project" }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if eq $linkLabel "Details" }}
+          {{ with .Params.url_code }}
+            {{ if ne . "" }}
+              {{ $linkURL = . }}
+              {{ $linkLabel = "Code" }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+        <article class="home-recent-item">
+          <div class="home-recent-item__copy">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>
+              {{ with .Params.publication }}{{ . | markdownify | plainify }}{{ end }}
+              {{ with .Date }}<span>{{ .Format "2006" }}</span>{{ end }}
+            </p>
+          </div>
+          <a class="home-recent-item__link" href="{{ $linkURL }}"{{ if ne $linkLabel "Details" }} target="_blank" rel="noopener"{{ end }}>{{ $linkLabel }}</a>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</div>

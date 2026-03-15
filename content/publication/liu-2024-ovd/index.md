@@ -27,6 +27,9 @@ url_source: ''
 url_video: ''
 
 summary:  We propose Optimistic Value Distribution Explorer (OVD-Explorer) to achieve a noise-aware optimistic exploration for continuous control.
+homepage_blurb: Improves exploration in noisy reinforcement learning settings by separating genuinely useful uncertainty from stochastic noise that would otherwise mislead the agent.
+homepage_rank: 4
+homepage_tag: Reinforcement Learning
 
 tags:
   - DRL

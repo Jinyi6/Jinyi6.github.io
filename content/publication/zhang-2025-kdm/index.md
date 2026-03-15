@@ -2,8 +2,8 @@
 title: 'Key Decision-Makers in Multi-Agent Debates: Who Holds the Power?'
 authors:
   - Qian Zhang
-  - YAN ZHENG
   - admin
+  - YAN ZHENG
   - Hebin Liang
   - Lanjun Wang
 date: '2025-02-15'

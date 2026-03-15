@@ -1,0 +1,133 @@
+{{ $block := .wcBlock }}
+{{ $username := $block.content.username | default "admin" }}
+{{ $person := site.GetPage (printf "/authors/%s" $username) }}
+{{ if not $person }}
+  {{ errorf "Could not find an author page for '%s'. Ensure an author page exists at `content/authors/%s/_index.md`." $username $username }}
+{{ end }}
+
+{{ $avatar := $person.Resources.GetMatch "avatar*" }}
+{{ $ctas := $person.Params.hero_ctas }}
+<div class="home-hero">
+  <div class="home-hero__backdrop" aria-hidden="true">
+    <div class="home-hero__glow home-hero__glow--teal"></div>
+    <div class="home-hero__glow home-hero__glow--amber"></div>
+    <svg class="home-hero__paths" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-40 690C142 668 246 612 341 512C440 407 488 310 654 244C826 176 1059 209 1258 124C1371 76 1475 31 1646 16" />
+      <path d="M-36 764C152 734 302 672 426 566C537 471 614 331 805 277C930 241 1081 246 1224 216C1360 188 1493 120 1640 88" />
+      <path d="M245 890C356 777 405 692 546 630C679 572 833 587 962 536C1090 486 1169 365 1320 314C1438 274 1529 278 1646 236" />
+      <path d="M404 885C508 762 571 719 684 688C797 657 886 671 1016 640C1148 609 1266 548 1398 428C1467 365 1534 339 1650 314" />
+      <path d="M1046 892C1031 764 1014 701 1117 592C1234 469 1360 429 1654 384" />
+    </svg>
+  </div>
+
+  <div class="home-shell home-hero__shell">
+    <div class="home-hero__grid">
+      <div class="home-hero__primary">
+        {{ with $person.Params.positioning }}
+          <p class="home-hero__positioning">{{ replace . "\n" "<br>" | safeHTML }}</p>
+        {{ end }}
+
+        {{ with $person.Params.intro }}
+          <div class="home-hero__intro">
+            {{ . }}
+          </div>
+        {{ end }}
+
+        {{ with $ctas }}
+          <div class="home-hero__actions">
+            {{ range . }}
+              {{ $url := .url | default "#" }}
+              {{ $style := .style | default "secondary" }}
+              {{ $external := or (hasPrefix $url "http://") (hasPrefix $url "https://") (hasSuffix $url ".pdf") }}
+              <a class="home-button home-button--{{ $style }}" data-cta="{{ .label | urlize }}" href="{{ $url }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+
+      <aside class="home-card home-hero__identity">
+        {{ with $avatar }}
+          <img class="home-hero__avatar" src="{{ .RelPermalink }}" alt="{{ $person.Title }}">
+        {{ end }}
+
+        <div class="home-hero__identity-copy">
+          <p class="home-hero__eyebrow">Researcher</p>
+          <h1 class="home-hero__title">{{ $person.Title }}</h1>
+          {{ with $person.Params.name_native }}
+            <p class="home-hero__native">{{ . }}</p>
+          {{ end }}
+          {{ with $person.Params.role }}
+            <p class="home-hero__role">{{ . }}</p>
+          {{ end }}
+
+          {{ with $person.Params.organizations }}
+            <div class="home-hero__orgs">
+              {{ range . }}
+                <a href="{{ .url }}">{{ .name }}</a>
+              {{ end }}
+            </div>
+          {{ end }}
+
+          {{ if $person.Params.lab_name }}
+            <div class="home-hero__lab">
+              <p class="home-hero__lab-title">
+                {{ with $person.Params.lab_url }}
+                  <a href="{{ . }}">{{ $person.Params.lab_name }}</a>
+                {{ else }}
+                  {{ $person.Params.lab_name }}
+                {{ end }}
+              </p>
+              {{ with $person.Params.lab_mentors }}
+                <p class="home-hero__lab-mentors">
+                  Advised by
+                  {{ range $index, $mentor := . }}
+                    {{ if eq $index 0 }} {{ else }}, {{ end }}
+                    {{ if $mentor.url }}
+                      <a href="{{ $mentor.url }}">{{ $mentor.name }}</a>
+                    {{ else }}
+                      {{ $mentor.name }}
+                    {{ end }}
+                  {{ end }}
+                </p>
+              {{ end }}
+            </div>
+          {{ end }}
+
+          {{ with $person.Params.profiles }}
+            <div class="home-hero__profiles">
+              {{ range . }}
+                {{ if ne (.label | default "") "ORCID" }}
+                  <a href="{{ .url }}" target="_blank" rel="noopener">{{ .label | default .icon }}</a>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </aside>
+
+      <div class="home-hero__content">
+        <div class="home-hero__meta-grid">
+          {{ with $person.Params.current_focus }}
+            <div class="home-hero__focus"><span>Current focus</span><p>{{ . }}</p></div>
+          {{ end }}
+
+          {{ with $person.Params.open_to }}
+            <div class="home-hero__open-to">
+              <span>Open to</span>
+              <div>{{ . | markdownify }}</div>
+            </div>
+          {{ end }}
+        </div>
+
+        {{ with $person.Params.hero_quote }}
+          <div class="home-hero__footer">
+            <div class="home-hero__quote" aria-label="Personal signature line">
+              <span class="home-hero__quote-mark" aria-hidden="true"></span>
+              <p>{{ replace . "\n" "<br>" | safeHTML }}</p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

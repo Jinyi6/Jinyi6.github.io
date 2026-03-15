@@ -1,0 +1,99 @@
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "Selected Publications" }}
+{{ $count := $block.content.count | default 4 }}
+{{ $papers := where site.RegularPages "Section" "publication" }}
+{{ $featuredCandidates := sort (where $papers "Params.featured" true) "Params.homepage_rank" }}
+{{ $featured := slice }}
+{{ range $featuredCandidates }}
+  {{ if .Resources.GetMatch "featured*" }}
+    {{ $featured = $featured | append . }}
+  {{ end }}
+{{ end }}
+{{ $featured = first $count $featured }}
+
+<div class="home-section">
+  <div class="home-shell">
+    <div class="home-section__heading home-section__heading--split">
+      <div>
+        <p class="home-section__eyebrow">Research</p>
+        <h2 class="section-title">{{ $title }}</h2>
+        <p class="home-section__lede">A curated set of papers that best represent my current work across reasoning, agent systems, and AI for science.</p>
+      </div>
+      <a class="home-button home-button--secondary" href="/publication/">View All Publications</a>
+    </div>
+
+    <div class="home-featured-grid">
+      {{ range $index, $paper := $featured }}
+        {{ $image := $paper.Resources.GetMatch "featured*" }}
+        {{ $blurb := $paper.Params.homepage_blurb | default $paper.Params.summary }}
+        {{ if eq $index 0 }}
+          <article class="home-card home-featured-card home-featured-card--lead">
+            <div class="home-featured-card__content">
+              <div class="home-featured-card__lead-top">
+                <span class="home-featured-card__index">Featured</span>
+                {{ with $paper.Params.homepage_tag }}
+                  <span class="home-featured-card__tag">{{ . }}</span>
+                {{ end }}
+              </div>
+              <p class="home-featured-card__meta">
+                {{ with $paper.Params.publication }}{{ . | markdownify | plainify }}{{ end }}
+                {{ with $paper.Date }}<span>{{ .Format "2006" }}</span>{{ end }}
+              </p>
+              <h3><a href="{{ $paper.RelPermalink }}">{{ $paper.Title }}</a></h3>
+              {{ with $blurb }}
+                <p class="home-featured-card__blurb">{{ . }}</p>
+              {{ end }}
+              <div class="home-featured-card__links">
+                <a href="{{ $paper.RelPermalink }}">Details</a>
+                {{ with $paper.Params.url_pdf }}
+                  {{ if ne . "" }}<a href="{{ . }}" target="_blank" rel="noopener">PDF</a>{{ end }}
+                {{ end }}
+                {{ with $paper.Params.url_project }}
+                  {{ if ne . "" }}<a href="{{ . }}" target="_blank" rel="noopener">Project</a>{{ end }}
+                {{ end }}
+                {{ with $paper.Params.url_code }}
+                  {{ if ne . "" }}<a href="{{ . }}" target="_blank" rel="noopener">Code</a>{{ end }}
+                {{ end }}
+              </div>
+            </div>
+            {{ with $image }}
+              <a class="home-featured-card__image" href="{{ $paper.RelPermalink }}">
+                <img src="{{ .RelPermalink }}" alt="{{ $paper.Title }}">
+              </a>
+            {{ end }}
+          </article>
+        {{ else }}
+          <article class="home-card home-featured-card">
+            {{ with $image }}
+              <a class="home-featured-card__image" href="{{ $paper.RelPermalink }}">
+                <img src="{{ .RelPermalink }}" alt="{{ $paper.Title }}">
+                <span class="home-featured-card__overlay">
+                  <span class="home-featured-card__index">{{ printf "%02d" (add $index 1) }}</span>
+                  {{ with $paper.Params.homepage_tag }}
+                    <span class="home-featured-card__tag">{{ . }}</span>
+                  {{ end }}
+                </span>
+              </a>
+            {{ end }}
+            <div class="home-featured-card__content">
+              <p class="home-featured-card__meta">
+                {{ with $paper.Params.publication }}{{ . | markdownify | plainify }}{{ end }}
+                {{ with $paper.Date }}<span>{{ .Format "2006" }}</span>{{ end }}
+              </p>
+              <h3><a href="{{ $paper.RelPermalink }}">{{ $paper.Title }}</a></h3>
+              {{ with $blurb }}
+                <p class="home-featured-card__blurb">{{ . }}</p>
+              {{ end }}
+              <div class="home-featured-card__links">
+                <a href="{{ $paper.RelPermalink }}">Details</a>
+                {{ with $paper.Params.url_pdf }}
+                  {{ if ne . "" }}<a href="{{ . }}" target="_blank" rel="noopener">PDF</a>{{ end }}
+                {{ end }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>

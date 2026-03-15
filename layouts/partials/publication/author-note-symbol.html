@@ -1,0 +1,32 @@
+{{- $page := .page -}}
+{{- $index := .index -}}
+{{- $note := "" -}}
+{{- with $page.Params.author_notes -}}
+  {{- if lt $index (len .) -}}
+    {{- $note = index . $index -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $note "" -}}
+  {{- $symbols := slice "*" "†" "‡" "§" "¶" "#" -}}
+  {{- $seen := slice -}}
+  {{- $noteOrder := -1 -}}
+  {{- with $page.Params.author_notes -}}
+    {{- range . -}}
+      {{- if ne . "" -}}
+        {{- if not (in $seen .) -}}
+          {{- if and (eq . $note) (lt $noteOrder 0) -}}
+            {{- $noteOrder = len $seen -}}
+          {{- end -}}
+          {{- $seen = $seen | append . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if ge $noteOrder 0 -}}
+    {{- if lt $noteOrder (len $symbols) -}}
+      {{- index $symbols $noteOrder -}}
+    {{- else -}}
+      {{- printf "%d" (add $noteOrder 1) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

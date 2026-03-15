@@ -1,0 +1,55 @@
+{{ $block := .wcBlock }}
+{{ $username := $block.content.username | default "admin" }}
+{{ $person := site.GetPage (printf "/authors/%s" $username) }}
+{{ if not $person }}
+  {{ errorf "Could not find an author page for '%s'. Ensure an author page exists at `content/authors/%s/_index.md`." $username $username }}
+{{ end }}
+
+{{ $work := first 3 $person.Params.work }}
+{{ $awards := first 3 (sort $person.Params.awards ".date" "desc") }}
+
+<div class="home-section home-section--soft">
+  <div class="home-shell">
+    <div class="home-section__heading home-section__heading--split">
+      <div>
+        <p class="home-section__eyebrow">Trajectory</p>
+        <h2 class="section-title">Experience Snapshot</h2>
+        <p class="home-section__lede">A brief view of research training, industry collaboration, and selected recognition.</p>
+      </div>
+      <a class="home-button home-button--secondary" href="/experience/">Full Experience</a>
+    </div>
+
+    <div class="home-snapshot-grid">
+      <section class="home-card home-snapshot-card">
+        <h3>Experience</h3>
+        <div class="home-snapshot-list">
+          {{ range $work }}
+            {{ $start := "" }}
+            {{ with .date_start }}{{ $start = (time .).Format "Jan 2006" }}{{ end }}
+            {{ $end := "" }}
+            {{ with .date_end }}{{ if ne . "" }}{{ $end = (time .).Format "Jan 2006" }}{{ end }}{{ end }}
+            {{ if not $end }}{{ $end = "Present" }}{{ end }}
+            <article class="home-snapshot-item">
+              <p class="home-snapshot-item__meta">{{ $start }} - {{ $end }}</p>
+              <h4>{{ .position }}</h4>
+              <p>{{ .company_name }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="home-card home-snapshot-card">
+        <h3>Selected Honors</h3>
+        <div class="home-snapshot-list">
+          {{ range $awards }}
+            <article class="home-snapshot-item">
+              <p class="home-snapshot-item__meta">{{ (time .date).Format "2006" }}</p>
+              <h4>{{ .title }}</h4>
+              {{ with .awarder }}<p>{{ . }}</p>{{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

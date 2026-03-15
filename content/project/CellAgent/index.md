@@ -7,6 +7,6 @@ tags:
   - CellAgent
 ---
 
-An LLM-driven multi-agent framework for single-cell data analysis, ensuring high-quality results with minimal effort.
+An LLM-driven multi-agent system that lets researchers run end-to-end single-cell analysis through natural language while preserving high-quality scientific outputs.
 
 <!--more-->

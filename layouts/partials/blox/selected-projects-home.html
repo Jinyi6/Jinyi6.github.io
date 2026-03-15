@@ -1,0 +1,43 @@
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "Selected Projects" }}
+{{ $count := $block.content.count | default 3 }}
+{{ $projects := first $count (sort (where site.RegularPages "Section" "project") "Date" "desc") }}
+
+<div class="home-section">
+  <div class="home-shell">
+    <div class="home-section__heading home-section__heading--split">
+      <div>
+        <p class="home-section__eyebrow">Systems</p>
+        <h2 class="section-title">{{ $title }}</h2>
+        <p class="home-section__lede">Selected systems and learning artifacts that turn research ideas into tools people can actually use.</p>
+      </div>
+      <a class="home-button home-button--secondary" href="/project/">View All Projects</a>
+    </div>
+
+    <div class="home-project-grid">
+      {{ range $projects }}
+        {{ $project := . }}
+        {{ $image := $project.Resources.GetMatch "featured*" }}
+        {{ $link := $project.Params.external_link | default $project.RelPermalink }}
+        <article class="home-card home-project-card">
+          {{ with $image }}
+            <a class="home-project-card__image" href="{{ $link }}"{{ if $project.Params.external_link }} target="_blank" rel="noopener"{{ end }}>
+              <img src="{{ .RelPermalink }}" alt="{{ $project.Title }}">
+            </a>
+          {{ end }}
+          <div class="home-project-card__content">
+            <h3><a href="{{ $link }}"{{ if $project.Params.external_link }} target="_blank" rel="noopener"{{ end }}>{{ $project.Title }}</a></h3>
+            <p class="home-project-card__summary">{{ $project.Summary | plainify }}</p>
+            {{ with $project.Params.tags }}
+              <div class="home-project-card__tags">
+                {{ range . }}
+                  <span>{{ . }}</span>
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</div>

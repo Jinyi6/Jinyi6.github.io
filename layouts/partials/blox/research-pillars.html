@@ -1,0 +1,36 @@
+{{ $block := .wcBlock }}
+{{ $username := $block.content.username | default "admin" }}
+{{ $person := site.GetPage (printf "/authors/%s" $username) }}
+{{ if not $person }}
+  {{ errorf "Could not find an author page for '%s'. Ensure an author page exists at `content/authors/%s/_index.md`." $username $username }}
+{{ end }}
+
+{{ $tracks := $person.Params.signature_tracks }}
+
+<div class="home-section home-section--pillars">
+  <div class="home-shell">
+    <div class="home-section__heading">
+      <p class="home-section__eyebrow">Signature Themes</p>
+      <h2 class="section-title">{{ $block.content.title | default "Research Pillars" }}</h2>
+      {{ with $block.content.lede }}
+        <p class="home-section__lede">{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div class="home-pillars-grid">
+      {{ range $tracks }}
+        <article class="home-card home-pillar-card">
+          <h3>{{ .title }}</h3>
+          <p>{{ .summary }}</p>
+          {{ with .tags }}
+            <div class="home-pillar-card__tags">
+              {{ range . }}
+                <span>{{ . }}</span>
+              {{ end }}
+            </div>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</div>

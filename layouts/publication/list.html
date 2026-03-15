@@ -1,120 +1,130 @@
 {{ define "main" }}
-  {{ $filterLabels := slice "All" "DRL" "LLM Agent" "LLM Post-training (RL Tuning)" "LLM Post-training (TTS)" "Embodied AI" }}
-  {{ $filters := slice }}
-  {{ range $filterLabels }}
-    {{ $slug := cond (eq . "All") "all" (urlize .) }}
-    {{ $filters = $filters | append (dict "label" . "slug" $slug) }}
+  {{ $filters := slice (dict "label" "All" "slug" "all") }}
+  {{ with .Params.filter_tags }}
+    {{ range . }}
+      {{ $label := . }}
+      {{ if reflect.IsMap . }}
+        {{ $label = .label | default "" }}
+      {{ end }}
+      {{ if ne (lower $label) "all" }}
+        {{ $filters = $filters | append (dict "label" $label "slug" (urlize $label)) }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $tagLabels := slice }}
+    {{ range .Pages }}
+      {{ range .Params.tags }}
+        {{ if not (in $tagLabels .) }}
+          {{ $tagLabels = $tagLabels | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ range sort $tagLabels }}
+      {{ $filters = $filters | append (dict "label" . "slug" (urlize .)) }}
+    {{ end }}
   {{ end }}
-  <section class="px-6 py-12 lg:py-16">
-    <div class="mx-auto w-full max-w-5xl">
-      <header class="mb-10">
-        <h1 class="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white">{{ .Title }}</h1>
+  <link rel="stylesheet" href="{{ "css/publication-list.css" | relURL }}">
+  <section class="home-publication-page px-6 py-12 lg:py-16">
+    <div class="home-shell">
+      <header class="home-section__heading">
+        <p class="home-section__eyebrow">Publications</p>
+        <h1 class="section-title">{{ .Title }}</h1>
         {{ with .Content }}
-          <div class="prose prose-neutral mt-4 text-base leading-relaxed dark:prose-invert">
+          <div class="home-section__lede">
             {{ . }}
           </div>
         {{ end }}
       </header>
-      <div class="mb-8 flex flex-wrap gap-3" id="pub-filters">
+      <div class="pub-filter-row" id="pub-filters">
         {{ range $index, $filter := $filters }}
           <button
-            class="pub-filter-button rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition hover:border-primary-500 hover:text-primary-600 focus:outline-none focus-visible:ring"
+            class="pub-filter-button"
             data-pub-filter="{{ $filter.slug }}"
             aria-pressed="{{ if eq $index 0 }}true{{ else }}false{{ end }}">
             {{ $filter.label }}
           </button>
         {{ end }}
       </div>
-      <div class="space-y-6" id="pub-list">
+      <div class="pub-page-list" id="pub-list">
         {{ range .Pages.ByDate.Reverse }}
+          {{ $paper := . }}
           {{ $tagSlugs := slice }}
           {{ range .Params.tags }}
             {{ $tagSlug := . | urlize }}
             {{ $tagSlugs = $tagSlugs | append $tagSlug }}
           {{ end }}
-          <article class="pub-card rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:border-primary-400 dark:border-neutral-700 dark:bg-neutral-900"
-                   data-tag-slugs="{{ delimit $tagSlugs " " }}">
-            <div class="flex flex-col gap-2">
-              <h2 class="text-2xl font-semibold text-neutral-900 dark:text-white">
-                <a href="{{ .RelPermalink }}" class="hover:text-primary-600">{{ .Title }}</a>
-              </h2>
-              {{ with .Params.authors }}
-                {{ $authorNames := slice }}
-                {{ range . }}
-                  {{ if eq . "admin" }}
-                    {{ with site.GetPage "authors/admin" }}
-                      {{ $authorNames = $authorNames | append .Title }}
-                    {{ else }}
-                      {{ $authorNames = $authorNames | append . }}
-                    {{ end }}
-                  {{ else }}
-                    {{ $authorNames = $authorNames | append . }}
-                  {{ end }}
-                {{ end }}
-                <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ delimit $authorNames ", " }}</p>
+          {{ $primaryLink := .RelPermalink }}
+          {{ $primaryLabel := "Details" }}
+          {{ with .Params.url_pdf }}
+            {{ if ne . "" }}
+              {{ $primaryLink = . }}
+              {{ $primaryLabel = "PDF" }}
+            {{ end }}
+          {{ end }}
+          {{ if eq $primaryLabel "Details" }}
+            {{ with .Params.url_project }}
+              {{ if ne . "" }}
+                {{ $primaryLink = . }}
+                {{ $primaryLabel = "Project" }}
               {{ end }}
-              <p class="text-sm text-neutral-500 dark:text-neutral-400">
-                {{ with .Params.publication }}{{ . | markdownify }}{{ end }}
+            {{ end }}
+          {{ end }}
+          {{ if eq $primaryLabel "Details" }}
+            {{ with .Params.url_code }}
+              {{ if ne . "" }}
+                {{ $primaryLink = . }}
+                {{ $primaryLabel = "Code" }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          <article class="pub-card"
+                   data-tag-slugs="{{ delimit $tagSlugs " " }}">
+            <div class="pub-card__content">
+              <div class="pub-card__main">
+                <h2 class="pub-card__title">
+                  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </h2>
+              {{ with .Params.authors }}
+                <p class="pub-card__authors">
+                  {{ range $index, $author := . }}
+                    {{ if gt $index 0 }}, {{ end }}
+                    {{ $authorName := $author }}
+                    {{ $highlightName := false }}
+                    {{ with site.GetPage (printf "/authors/%s" (urlize $author)) }}
+                      {{ $authorName = .Title }}
+                      {{ $highlightName = .Params.highlight_name | default false }}
+                    {{ end }}
+                    {{ if $highlightName }}<strong>{{ $authorName }}</strong>{{ else }}{{ $authorName }}{{ end }}
+                    {{ $symbol := partial "publication/author-note-symbol.html" (dict "page" $paper "index" $index) }}
+                    {{ if ne $symbol "" }}
+                      <sup class="author-note-mark">{{ $symbol }}</sup>
+                    {{ end }}
+                  {{ end }}
+                </p>
+              {{ end }}
+              <p class="pub-card__meta">
+                {{ with .Params.publication }}{{ . | markdownify | plainify }}{{ end }}
                 {{ with .Date }} · {{ .Format "Jan 2006" }}{{ end }}
               </p>
-              {{ with .Params.summary }}
-                <p class="text-base text-neutral-700 dark:text-neutral-200">{{ . }}</p>
-              {{ end }}
               {{ with .Params.tags }}
-                <div class="flex flex-wrap gap-2 pt-2">
+                <div class="pub-card__tags">
                   {{ range . }}
-                    <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium uppercase tracking-wide text-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">{{ . }}</span>
+                    <span>{{ . }}</span>
                   {{ end }}
                 </div>
               {{ end }}
+              </div>
+              <div class="pub-card__actions">
+                <a class="home-button home-button--secondary" href="{{ .RelPermalink }}">Details</a>
+                {{ if ne $primaryLabel "Details" }}
+                  <a class="home-button home-button--ghost" href="{{ $primaryLink }}" target="_blank" rel="noopener">{{ $primaryLabel }}</a>
+                {{ end }}
+              </div>
             </div>
           </article>
         {{ end }}
       </div>
     </div>
   </section>
-  <style>
-    .pub-filter-button[aria-pressed="true"] {
-      border-color: var(--color-primary-500, #2563eb);
-      background-color: var(--color-primary-500, #2563eb);
-      color: #fff;
-    }
-    .pub-card.hidden {
-      display: none;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const buttons = Array.from(document.querySelectorAll('[data-pub-filter]'));
-      const cards = Array.from(document.querySelectorAll('.pub-card'));
-
-      const setActive = (activeSlug) => {
-        buttons.forEach((btn) => {
-          const isActive = btn.dataset.pubFilter === activeSlug;
-          btn.setAttribute('aria-pressed', isActive);
-        });
-
-        cards.forEach((card) => {
-          if (activeSlug === 'all') {
-            card.classList.remove('hidden');
-            return;
-          }
-          const tags = (card.dataset.tagSlugs || '').split(' ').filter(Boolean);
-          if (tags.includes(activeSlug)) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      };
-
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          setActive(button.dataset.pubFilter);
-        });
-      });
-
-      setActive('all');
-    });
-  </script>
+  <script defer src="{{ "js/publication-filters.js" | relURL }}"></script>
 {{ end }}

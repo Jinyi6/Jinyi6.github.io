@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <section class="px-6 py-12 lg:py-16">
+    <div class="home-shell">
+      <header class="home-section__heading">
+        <p class="home-section__eyebrow">Systems</p>
+        <h1 class="section-title">{{ .Title }}</h1>
+        {{ with .Content }}
+          <div class="home-section__lede">
+            {{ . }}
+          </div>
+        {{ end }}
+      </header>
+
+      <div class="home-project-grid">
+        {{ range .RegularPages.ByDate.Reverse }}
+          {{ $project := . }}
+          {{ $image := $project.Resources.GetMatch "featured*" }}
+          {{ $link := $project.Params.external_link | default $project.RelPermalink }}
+          <article class="home-card home-project-card">
+            {{ with $image }}
+              <a class="home-project-card__image" href="{{ $link }}"{{ if $project.Params.external_link }} target="_blank" rel="noopener"{{ end }}>
+                <img src="{{ .RelPermalink }}" alt="{{ $project.Title }}">
+              </a>
+            {{ end }}
+            <div class="home-project-card__content">
+              <h3><a href="{{ $link }}"{{ if $project.Params.external_link }} target="_blank" rel="noopener"{{ end }}>{{ $project.Title }}</a></h3>
+              <p class="home-project-card__summary">{{ $project.Summary | plainify }}</p>
+              {{ with $project.Params.tags }}
+                <div class="home-project-card__tags">
+                  {{ range . }}
+                    <span>{{ . }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

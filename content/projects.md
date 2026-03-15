@@ -2,6 +2,8 @@
 title: 'Projects'
 date: 2025-04-20
 type: landing
+build:
+  render: never
 
 design:
   # Section spacing

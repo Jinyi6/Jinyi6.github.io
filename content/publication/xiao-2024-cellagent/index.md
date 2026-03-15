@@ -1,28 +1,31 @@
 ---
-title: 'Cellagent: An llm-driven multi-agent framework for automated single-cell data
-  analysis'
+title: 'CellAgent: LLM-Driven Multi-Agent Framework for Natural Language-Based Single-Cell Analysis'
 authors:
 - Yihang Xiao
 - admin
 - Yan Zheng
-- Xiaohan Xie
+- Shaoqing Jiao
 - Jianye Hao
+- Xiaohan Xie
 - Mingzhi Li
 - Ruitao Wang
 - Fei Ni
 - Yuxiao Li
-- Jintian Luo
-- ' others'
+- Zhen Wang
+- Xuequn Shang
+- Zhijie Bao
+- Changxiao Yang
+- Jiajie Peng
 author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
   - 'Equal contribution'
   - 'Equal contribution'
-date: '2024-08-01'
-publishDate: '2025-04-26T09:31:01.919444Z'
+date: '2026-01-04'
+publishDate: '2026-01-04T00:00:00Z'
 publication_types:
-- article-journal
-publication: '*BioRxiv*'
+- paper-conference
+publication: '*The Fourteenth International Conference on Learning Representations (ICLR 2026 Poster)*'
 
 featured: true
 url_pdf: 'https://arxiv.org/pdf/2407.09811'
@@ -37,14 +40,16 @@ url_video: ''
 projects:
   - CellAgent
 
-summary: An LLM-driven multi-agent framework for single-cell data analysis, ensuring high-quality results with minimal effort.
+summary: An LLM-driven multi-agent system for end-to-end single-cell and spatial transcriptomics analysis through natural language, combining hierarchical planning, expert tools, and self-reflective optimization.
+homepage_blurb: Lets researchers run end-to-end single-cell and spatial transcriptomics analysis through natural language, reducing programming overhead without sacrificing result quality.
+homepage_rank: 3
+homepage_tag: AI for Science
 
 tags:
   - LLM Agent
   - Single-cell data analysis
-
-# Display this page in the Featured widget?
-featured: true
+  - Spatial transcriptomics
+  - ICLR 2026
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
