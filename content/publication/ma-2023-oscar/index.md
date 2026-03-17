@@ -15,6 +15,8 @@ publication_types:
 - article-journal
 publication: '*CAAI Artificial Intelligence Research*'
 
+summary: An offline reinforcement learning method that stays conservative on out-of-distribution states for sequential decision-making.
+
 tags:
   - DRL
 ---

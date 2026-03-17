@@ -17,6 +17,8 @@ publication_types:
 - paper-conference
 publication: '*The Twelfth International Conference on Learning Representations*'
 
+summary: A unified platform and benchmark suite for reinforcement learning with diverse human feedback.
+
 tags:
   - DRL
   - PbRL

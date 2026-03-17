@@ -27,6 +27,8 @@ url_slides: ''
 url_source: 'https://openreview.net/forum?id=hmXie9J7yy'
 url_video: ''
 
+summary: A preference-based reinforcement learning study on improving reward models with proximal policy exploration.
+
 tags:
   - DRL
   - PbRL

@@ -156,6 +156,15 @@
       {{ end }}
 
       <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+        {{ if and (not .Content) .Params.summary }}
+          <section>
+            <h2>Overview</h2>
+            <p>{{ .Params.summary }}</p>
+            {{ with .Params.publication }}
+              <p><strong>Venue.</strong> {{ . | markdownify | plainify }}</p>
+            {{ end }}
+          </section>
+        {{ end }}
         {{ .Content }}
       </div>
 
@@ -165,6 +174,37 @@
         {{ .Scratch.Set "invert_pager" true }}
         {{ partial "page_footer" . }}
       </div>
+
+      {{ $relatedProjects := slice }}
+      {{ with .Params.projects }}
+        {{ range . }}
+          {{ with site.GetPage (printf "/project/%s" (urlize .)) }}
+            {{ $relatedProjects = $relatedProjects | append . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ $morePublications := first 3 (where .CurrentSection.RegularPages.ByDate.Reverse "RelPermalink" "ne" .RelPermalink) }}
+      <section class="mx-auto mt-8 w-full max-w-6xl border-t border-slate-200 pt-8 dark:border-slate-800">
+        <div class="flex flex-wrap gap-3">
+          <a class="home-button home-button--secondary" href="/publication/">Back to Publications</a>
+          {{ range $relatedProjects }}
+            <a class="home-button home-button--ghost" href="{{ .RelPermalink }}">Related Project: {{ .Title }}</a>
+          {{ end }}
+        </div>
+        {{ with $morePublications }}
+          <div class="mt-6">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">More Publications</p>
+            <div class="grid gap-3 md:grid-cols-3">
+              {{ range . }}
+                <a class="rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 no-underline transition hover:border-amber-300 hover:text-amber-700 dark:border-slate-800 dark:text-slate-200 dark:hover:border-amber-500 dark:hover:text-amber-300" href="{{ .RelPermalink }}">
+                  <span class="block text-sm font-semibold leading-snug">{{ .Title }}</span>
+                  <span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{{ .Date.Format "Jan 2006" }}</span>
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </section>
 
     </main>
   </article>

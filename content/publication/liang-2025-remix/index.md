@@ -3,13 +3,14 @@ title: 'Squeeze the Soaked Sponge: Efficient Off-policy RFT for Large Language M
 authors:
 - Jing Liang
 - admin
-- Hongyao Tang
 - Yi Ma
+- Hongyao Tang
 - Yan Zheng
 - Shuyue Hu
 - Lei Bai
 - Jianye Hao
 author_notes:
+  - 'Equal contribution'
   - 'Equal contribution'
   - 'Equal contribution'
 date: '2026-01-05'

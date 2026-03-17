@@ -14,6 +14,8 @@ publication_types:
 publication: '*Proceedings of the Thirty-Third International Joint Conference on Artificial
   Intelligence*'
 
+summary: An offline-to-online reinforcement learning method that improves transition efficiency with Q-ensembles.
+
 tags:
   - DRL
   - Offline RL

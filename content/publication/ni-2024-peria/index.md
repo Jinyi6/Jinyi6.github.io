@@ -18,6 +18,8 @@ publication_types:
 - article-journal
 publication: '*Advances in Neural Information Processing Systems*'
 
+summary: A holistic language-and-vision planning framework that unifies perception, reasoning, imagination, and action for manipulation.
+
 tags:
   - Embodied AI
   - LLM Agent

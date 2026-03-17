@@ -1,7 +1,10 @@
 ---
 title: 'Experience'
 date: 2023-10-24
+lastmod: 2026-03-17
 type: landing
+description: Experience, education, awards, and academic service for Jinyi Liu across reinforcement learning, LLM systems, and AI research.
+summary: Experience, education, awards, and academic service for Jinyi Liu across reinforcement learning, LLM systems, and AI research.
 
 design:
   spacing: '5rem'

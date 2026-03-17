@@ -1,6 +1,9 @@
 ---
 title: Publications
 cms_exclude: true
+lastmod: 2026-03-17
+description: Publication archive for Jinyi Liu, spanning reinforcement learning, LLM post-training, agent systems, embodied AI, and AI for science.
+summary: Publication archive for Jinyi Liu, spanning reinforcement learning, LLM post-training, agent systems, embodied AI, and AI for science.
 filter_tags:
   - All
   - DRL

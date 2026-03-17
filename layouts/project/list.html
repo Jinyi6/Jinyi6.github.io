@@ -15,15 +15,15 @@
         {{ range .RegularPages.ByDate.Reverse }}
           {{ $project := . }}
           {{ $image := $project.Resources.GetMatch "featured*" }}
-          {{ $link := $project.Params.external_link | default $project.RelPermalink }}
+          {{ $detailLink := $project.RelPermalink }}
           <article class="home-card home-project-card">
             {{ with $image }}
-              <a class="home-project-card__image" href="{{ $link }}"{{ if $project.Params.external_link }} target="_blank" rel="noopener"{{ end }}>
+              <a class="home-project-card__image" href="{{ $detailLink }}">
                 <img src="{{ .RelPermalink }}" alt="{{ $project.Title }}">
               </a>
             {{ end }}
             <div class="home-project-card__content">
-              <h3><a href="{{ $link }}"{{ if $project.Params.external_link }} target="_blank" rel="noopener"{{ end }}>{{ $project.Title }}</a></h3>
+              <h3><a href="{{ $detailLink }}">{{ $project.Title }}</a></h3>
               <p class="home-project-card__summary">{{ $project.Summary | plainify }}</p>
               {{ with $project.Params.tags }}
                 <div class="home-project-card__tags">
@@ -32,6 +32,12 @@
                   {{ end }}
                 </div>
               {{ end }}
+              <div class="home-project-card__actions">
+                <a class="home-button home-button--secondary" href="{{ $detailLink }}">Details</a>
+                {{ with $project.Params.external_link }}
+                  <a class="home-button home-button--ghost" href="{{ . }}" target="_blank" rel="noopener">Visit</a>
+                {{ end }}
+              </div>
             </div>
           </article>
         {{ end }}

@@ -17,7 +17,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'Welcome to My personal website. I research Reinforcement Learning and LLMs, with a focus on building interpretable decision-making agents and enabling real-world LLM applications.'
+    description: 'Personal website of Jinyi Liu (刘金毅), a PhD candidate working on reinforcement learning, LLM post-training, reasoning, and agentic systems for science.'
     twitter: 'GetResearchDev'
   analytics:
     google_analytics: 'G-51XTL78GSK'

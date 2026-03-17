@@ -809,6 +809,18 @@ body {
   color: #5c707c;
 }
 
+.home-project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.15rem;
+}
+
+.home-project-card__actions .home-button {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.82rem;
+}
+
 .home-featured-card--lead .home-featured-card__blurb {
   font-size: 0.94rem;
   color: #334957;

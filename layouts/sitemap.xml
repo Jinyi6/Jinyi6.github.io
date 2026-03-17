@@ -1,19 +1,39 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML -}}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- $homeLastmod := .Site.Home.Lastmod -}}
+  {{- with .Site.Home.Params.lastmod -}}
+    {{- $homeLastmod = time.AsTime . -}}
+  {{- end -}}
+  {{- range first 1 (.Site.RegularPages.ByLastmod.Reverse) -}}
+    {{- if gt .Lastmod.Unix $homeLastmod.Unix -}}
+      {{- $homeLastmod = .Lastmod -}}
+    {{- end -}}
+  {{- end -}}
   <url>
     <loc>{{ .Site.Home.Permalink }}</loc>
-    {{- with .Site.Home.Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
+    {{- with $homeLastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
   </url>
   {{- range .Site.Sections -}}
+  {{- $sectionLastmod := .Lastmod -}}
+  {{- with .Params.lastmod -}}
+    {{- $sectionLastmod = time.AsTime . -}}
+  {{- end -}}
+  {{- range first 1 (.RegularPages.ByLastmod.Reverse) -}}
+    {{- if gt .Lastmod.Unix $sectionLastmod.Unix -}}
+      {{- $sectionLastmod = .Lastmod -}}
+    {{- end -}}
+  {{- end -}}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{- with $sectionLastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
+  </url>
+  {{- end -}}
+  {{- range .Site.RegularPages -}}
+  {{- if .Permalink -}}
   <url>
     <loc>{{ .Permalink }}</loc>
     {{- with .Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
   </url>
   {{- end -}}
-  {{- range .Site.RegularPages -}}
-  <url>
-    <loc>{{ .Permalink }}</loc>
-    {{- with .Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
-  </url>
   {{- end -}}
 </urlset>

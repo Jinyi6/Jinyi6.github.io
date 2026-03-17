@@ -17,6 +17,8 @@ publication_types:
 publication: '*2021 36th IEEE/ACM International Conference on Automated Software Engineering
   (ASE)*'
 
+summary: A deep reinforcement learning approach for generating failure-inducing inputs in cyber-physical systems testing.
+
 tags:
   - DRL
   - Software Engineering

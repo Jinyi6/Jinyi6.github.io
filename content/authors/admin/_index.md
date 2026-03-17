@@ -103,6 +103,9 @@ profiles:
   - icon: academicons/orcid
     url: https://orcid.org/0000-0002-4537-348X
     label: ORCID
+  - icon: custom/openreview
+    url: https://openreview.net/profile?id=%7EJinyi_Liu1
+    label: OpenReview
 
 interests:
   - LLM Post-training and Reasoning

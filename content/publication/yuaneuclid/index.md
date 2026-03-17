@@ -17,6 +17,8 @@ publication_types:
 - paper-conference
 publication: '*The Eleventh International Conference on Learning Representations*'
 
+summary: An unsupervised reinforcement learning method that improves efficiency with a multi-choice dynamics model.
+
 tags:
   - DRL
 ---
