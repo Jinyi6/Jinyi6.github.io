@@ -25,6 +25,8 @@ url_slides: ''
 url_source: ''
 url_video: ''
 
+summary: A study of how multimodal LLM feedback can improve robotic manipulation planning and execution.
+
 tags:
   - Embodied AI
   - LLM Agent

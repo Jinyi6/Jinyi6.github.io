@@ -1,0 +1,68 @@
+{{ $baseURL := site.BaseURL }}
+{{ $websiteID := printf "%s#website" $baseURL }}
+{{ $personID := printf "%s#person" $baseURL }}
+{{ $description := site.Params.marketing.seo.description | default site.Title }}
+{{ $sameAs := slice }}
+{{ $personName := site.Title }}
+{{ $personDescription := $description }}
+{{ $personRole := "" }}
+{{ $personImage := "" }}
+{{ $personNativeName := "" }}
+{{ $personAffiliation := "" }}
+{{ range first 1 (where (where site.Pages "Section" "authors") "Params.superuser" true) }}
+  {{ $personName = .Title }}
+  {{ $personDescription = .Params.intro | default $description }}
+  {{ $personRole = .Params.role | plainify }}
+  {{ $personNativeName = .Params.name_native | default "" }}
+  {{ with (.Resources.ByType "image").GetMatch "*avatar*" }}
+    {{ $personImage = .Permalink }}
+  {{ end }}
+  {{ with index .Params.organizations 0 }}
+    {{ $personAffiliation = .name | default "" }}
+  {{ end }}
+  {{ range .Params.profiles }}
+    {{ $url := .url | default "" }}
+    {{ if strings.HasPrefix $url "http" }}
+      {{ $sameAs = $sameAs | append $url }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $website := dict
+  "@id" $websiteID
+  "@type" "WebSite"
+  "url" $baseURL
+  "name" site.Title
+  "description" $description
+  "inLanguage" (site.LanguageCode | default "en-us")
+  "publisher" (dict "@id" $personID)
+}}
+
+{{ $person := dict
+  "@id" $personID
+  "@type" "Person"
+  "name" $personName
+  "url" $baseURL
+  "description" $personDescription
+}}
+{{ if $personRole }}
+  {{ $person = merge $person (dict "jobTitle" $personRole) }}
+{{ end }}
+{{ if $personNativeName }}
+  {{ $person = merge $person (dict "alternateName" $personNativeName) }}
+{{ end }}
+{{ if $personImage }}
+  {{ $person = merge $person (dict "image" $personImage) }}
+{{ end }}
+{{ if $personAffiliation }}
+  {{ $person = merge $person (dict "affiliation" (dict "@type" "Organization" "name" $personAffiliation)) }}
+{{ end }}
+{{ if gt (len $sameAs) 0 }}
+  {{ $person = merge $person (dict "sameAs" $sameAs) }}
+{{ end }}
+
+{{ $graph := dict
+  "@context" "https://schema.org"
+  "@graph" (slice $website $person)
+}}
+<script type="application/ld+json">{{ $graph | jsonify | safeJS }}</script>

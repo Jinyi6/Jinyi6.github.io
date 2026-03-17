@@ -25,6 +25,7 @@ publishDate: '2025-09-26T00:00:00Z'
 publication_types:
   - paper-conference
 publication: 'NeurIPS 2025'
+summary: A reward-modeling approach for preference-based reinforcement learning built on proximal policy exploration.
 tags:
   - DRL
   - Exploration

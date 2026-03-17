@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Website name
-title: Jinyi Liu (刘金毅)
+title: 'Jinyi Liu (刘金毅) | PhD Candidate in RL, LLMs, and Agentic Systems'
 # Website URL
 baseURL: 'https://liu.jinyi.space/'
 
@@ -34,6 +34,12 @@ ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
 permalinks:
   authors: '/author/:slug/'
 disableAliases: true
+frontmatter:
+  lastmod:
+    - lastmod
+    - publishDate
+    - date
+    - :default
 outputs:
   home: [HTML, RSS, headers, redirects, backlinks]
   section: [HTML, RSS]

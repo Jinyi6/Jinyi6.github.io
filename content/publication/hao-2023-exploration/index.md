@@ -26,6 +26,8 @@ url_slides: ''
 url_source: ''
 url_video: ''
 
+summary: A survey of exploration methods in deep reinforcement learning, spanning single-agent and multi-agent settings.
+
 tags:
   - DRL
   - Exploration

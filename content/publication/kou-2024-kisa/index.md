@@ -25,6 +25,8 @@ url_slides: ''
 url_source: ''
 url_video: ''
 
+summary: A unified keyframe identification and skill annotation method for long-horizon robot demonstrations.
+
 tags:
   - Embodied AI
   - LLM

@@ -26,6 +26,8 @@ url_slides: ''
 url_source: ''
 url_video: ''
 
+summary: A dual-process framework that combines retrieval and reasoning to improve multi-hop question answering.
+
 tags:
   - LLM Agent
   - LLM Post-training (TTS)

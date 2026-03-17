@@ -19,6 +19,8 @@ publication_types:
 publication: '*Proceedings of the Thirty-Third International Joint Conference on Artificial
   Intelligence*'
 
+summary: An experience resampling method that uses gradient-direction uncertainty for more stable policy improvement.
+
 tags:
   - DRL
 ---
