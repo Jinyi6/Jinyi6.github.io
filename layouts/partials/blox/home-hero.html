@@ -72,7 +72,7 @@
             <div class="home-hero__lab">
               <p class="home-hero__lab-title">
                 {{ with $person.Params.lab_url }}
-                  <a href="{{ . }}">{{ $person.Params.lab_name }}</a>
+                  <a class="home-hero__lab-link home-hero__lab-link--primary" href="{{ . }}">{{ $person.Params.lab_name }}</a>
                 {{ else }}
                   {{ $person.Params.lab_name }}
                 {{ end }}
@@ -83,7 +83,7 @@
                   {{ range $index, $mentor := . }}
                     {{ if eq $index 0 }} {{ else }}, {{ end }}
                     {{ if $mentor.url }}
-                      <a href="{{ $mentor.url }}">{{ $mentor.name }}</a>
+                      <a class="home-hero__lab-link" href="{{ $mentor.url }}">{{ $mentor.name }}</a>
                     {{ else }}
                       {{ $mentor.name }}
                     {{ end }}

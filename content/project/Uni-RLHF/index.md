@@ -2,21 +2,26 @@
 title: Uni-RLHF
 date: 2024-01-01
 external_link: https://uni-rlhf.github.io/
-summary: Project page for the Uni-RLHF platform, emphasizing the benchmark, interface, and reproducible experimentation workflow around RLHF.
+related_publication: yuanuni
+action_links:
+  - label: Explore Platform
+    url: https://uni-rlhf.github.io/
+    style: primary
+    external: true
+  - label: Read Paper
+    url: /publication/yuanuni/
+    style: secondary
+summary: Public platform page for Uni-RLHF, emphasizing the benchmark, interface, and reproducible workflow for RLHF experimentation.
 tags:
   - PbRL
   - RLHF
 
 ---
 
-An integrated RLHF platform that makes it easier to study, compare, and operationalize reinforcement learning from diverse human and synthetic feedback.
+Uni-RLHF is best understood as infrastructure: a common platform for setting up, comparing, and reproducing RLHF pipelines under one interface instead of scattered experiment scripts.
 
 <!--more-->
 
-This page centers on the platform and benchmark experience. For the research paper behind the system, see [the related publication](/publication/yuanuni/).
+This page focuses on the platform and benchmark experience: how tasks, feedback sources, and evaluation workflows are organized for actual use rather than described only at the paper level.
 
-Uni-RLHF is designed as an infrastructure layer for running and comparing RLHF pipelines with a common interface instead of ad hoc experiment stacks.
-
-- [Open the Uni-RLHF platform](https://uni-rlhf.github.io/)
-- [Read the Uni-RLHF paper](/publication/yuanuni/)
-- [Back to all projects](/project/)
+Use the project site if you want to see the system framing and public-facing structure first. Use the paper page if you want the research motivation behind the benchmark suite.

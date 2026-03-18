@@ -168,6 +168,7 @@ body {
 }
 
 .home-button {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -305,7 +306,7 @@ body {
 }
 
 .home-hero__identity-copy {
-  margin-top: 0.85rem;
+  margin-top: 1rem;
 }
 
 .home-hero__eyebrow {
@@ -362,11 +363,11 @@ body {
 }
 
 .home-hero__lab {
-  margin-top: 0.85rem;
-  padding: 0.75rem 0.82rem;
-  border-radius: 16px;
-  background: rgba(232, 238, 241, 0.04);
-  border: 1px solid rgba(232, 238, 241, 0.08);
+  margin-top: 1.2rem;
+  padding: 1rem 0.95rem 1.08rem;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(232, 238, 241, 0.06), rgba(232, 238, 241, 0.035));
+  border: 1px solid rgba(232, 238, 241, 0.1);
 }
 
 .home-hero__lab-title,
@@ -380,16 +381,43 @@ body {
   color: #eef4f6;
 }
 
-.home-hero__lab-title a,
-.home-hero__lab-mentors a {
-  color: inherit;
+.home-hero__lab-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  padding: 0.14rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 205, 172, 0.18);
+  background: rgba(242, 205, 172, 0.08);
+  color: #f7d4b7;
   text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.home-hero__lab-link::after {
+  content: "↗";
+  font-size: 0.72em;
+  opacity: 0.78;
+}
+
+.home-hero__lab-link--primary {
+  padding: 0.2rem 0.5rem;
+  background: rgba(242, 205, 172, 0.12);
+  border-color: rgba(242, 205, 172, 0.26);
+  color: #fff2e6;
+}
+
+.home-hero__lab-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(242, 205, 172, 0.42);
+  background: rgba(242, 205, 172, 0.16);
+  color: #fff7f1;
 }
 
 .home-hero__lab-mentors {
-  margin-top: 0.38rem;
+  margin-top: 0.56rem;
   font-size: 0.84rem;
-  line-height: 1.55;
+  line-height: 1.8;
   color: #a8bbc4;
 }
 
@@ -440,11 +468,11 @@ body {
 
 .home-hero__intro {
   max-width: 40rem;
-  margin-top: 1.18rem;
-  margin-bottom: 0.48rem;
+  margin-top: 1.55rem;
+  margin-bottom: 1.15rem;
   color: var(--home-ink-muted);
-  font-size: 0.98rem;
-  line-height: 1.76;
+  font-size: 1rem;
+  line-height: 1.86;
 }
 
 .home-hero__intro p {
@@ -455,20 +483,21 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.05rem;
-  margin-top: 1.5rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
 }
 
 .home-hero__focus {
   display: flex;
   flex-direction: column;
-  gap: 0.38rem;
+  gap: 0.5rem;
   margin: 0;
-  padding: 1rem 1.15rem;
-  border-radius: 18px;
+  padding: 1.18rem 1.25rem;
+  border-radius: 20px;
   background: rgba(232, 238, 241, 0.05);
   border: 1px solid rgba(232, 238, 241, 0.1);
   color: #e6edf0;
-  line-height: 1.58;
+  line-height: 1.66;
 }
 
 .home-hero__focus p,
@@ -492,16 +521,16 @@ body {
 
 .home-hero__open-to {
   margin-top: 0;
-  padding: 1rem 1.15rem;
-  border-radius: 18px;
+  padding: 1.18rem 1.25rem;
+  border-radius: 20px;
   border: 1px solid rgba(198, 123, 65, 0.2);
   background: linear-gradient(135deg, rgba(198, 123, 65, 0.12), rgba(232, 238, 241, 0.03));
   color: #eaf0f2;
 }
 
 .home-hero__open-to div {
-  margin-top: 0.48rem;
-  line-height: 1.62;
+  margin-top: 0.58rem;
+  line-height: 1.72;
   color: #d9e2e6;
 }
 
@@ -526,34 +555,38 @@ body {
 .home-hero__footer {
   width: min(100%, 37rem);
   min-width: 0;
-  margin: 1.85rem 0 0 auto;
+  margin: 2.9rem 0 0 auto;
   transform: translateX(4.5rem);
 }
 
 .home-hero__quote {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.9rem;
+  gap: 1.15rem;
   align-items: start;
   width: 100%;
-  padding: 0.4rem 0 0;
+  padding: 0.85rem 0 0.4rem;
 }
 
 .home-hero__quote-mark {
-  width: 2.6rem;
-  height: 1px;
-  margin-top: 0.85rem;
-  background: linear-gradient(90deg, rgba(242, 205, 172, 0.68), rgba(242, 205, 172, 0));
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(242, 205, 172, 0.8), rgba(242, 205, 172, 0.08));
+  box-shadow: 0 0 20px rgba(242, 205, 172, 0.24);
 }
 
 .home-hero__quote p {
   margin: 0;
   font-family: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  font-size: clamp(1.12rem, 0.9rem + 0.6vw, 1.54rem);
+  font-size: clamp(1.26rem, 1rem + 0.74vw, 1.82rem);
+  font-weight: 500;
   font-style: italic;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: rgba(242, 205, 172, 0.84);
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+  color: rgba(247, 220, 195, 0.92);
+  text-shadow: 0 10px 34px rgba(0, 0, 0, 0.24);
 }
 
 .home-pillars-grid,
@@ -1151,10 +1184,14 @@ body {
 
   .home-featured-card--lead {
     position: relative;
+    min-width: 0;
   }
 
   .home-featured-card--lead .home-featured-card__image {
     order: -1;
+    min-width: 0;
+    width: 100%;
+    height: auto;
   }
 
   .home-featured-card--lead .home-featured-card__lead-top {
@@ -1165,10 +1202,16 @@ body {
   }
 
   .home-featured-card--lead .home-featured-card__image img {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
     aspect-ratio: 16 / 10;
+    object-fit: cover;
   }
 
   .home-featured-card--lead .home-featured-card__content {
+    min-width: 0;
     padding: 0.92rem 1rem 1rem;
   }
 
@@ -1193,7 +1236,11 @@ body {
 
 @media (max-width: 760px) {
   .home-shell {
-    width: min(var(--home-shell-width), calc(100% - 1.25rem));
+    width: 100%;
+    max-width: none;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    box-sizing: border-box;
   }
 
   .home-hero {
@@ -1230,8 +1277,28 @@ body {
     font-size: clamp(1.76rem, 1.34rem + 2.15vw, 2.34rem);
   }
 
+  .home-hero__intro {
+    margin-top: 1.3rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .home-hero__lab {
+    margin-top: 1rem;
+    padding: 0.92rem 0.88rem 0.96rem;
+  }
+
+  .home-hero__meta-grid {
+    margin-top: 1.7rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .home-hero__focus,
+  .home-hero__open-to {
+    padding: 1rem 1.05rem;
+  }
+
   .home-hero__footer {
-    margin-top: 0.8rem;
+    margin-top: 1.35rem;
     width: min(100%, 19rem);
     max-width: none;
     margin-right: auto;
@@ -1252,14 +1319,19 @@ body {
 
   .home-hero__quote p {
     max-width: 17rem;
-    font-size: 1.04rem;
-    line-height: 1.1;
+    font-size: 1.14rem;
+    line-height: 1.18;
   }
 
   .home-recent-item,
   .home-section__heading--split {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .home-section__heading--split > .home-button {
+    width: 100%;
+    justify-content: center;
   }
 
   .pub-card__content,

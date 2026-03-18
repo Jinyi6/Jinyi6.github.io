@@ -2,18 +2,31 @@
 title: LLM Agent Tutorial
 date: 2025-11-17
 external_link: https://llm-agent-tutorial.github.io/website/
-summary: Project page for the LLM Agent Tutorial website, highlighting the public learning resource, companion materials, and entry points for readers.
+related_publication: llm-agent-tutorial
+action_links:
+  - label: Browse Website
+    url: https://llm-agent-tutorial.github.io/website/
+    style: primary
+    external: true
+  - label: Read Paper
+    url: /publication/llm-agent-tutorial/
+    style: secondary
+  - label: PDF
+    url: https://llm-agent-tutorial.github.io/website/A%20Beginner-Friendly%20Tutorial%20on%20LLM-based%20Agents.pdf
+    style: ghost
+    external: true
+  - label: TechRxiv
+    url: http://techrxiv.org/doi/full/10.36227/techrxiv.176369788.84013646/v1
+    style: ghost
+    external: true
+summary: Public tutorial hub for learning LLM agents through guided concepts, practical examples, and companion reading materials.
 tags:
   - LLM Agent
   - Tutorial
 ---
 
-A beginner-friendly tutorial that helps newcomers move from agent foundations to hands-on system building through examples, practical guidance, and a forward-looking roadmap.
+This project page serves as the public entry point for the tutorial website, where readers can move from agent basics to hands-on examples and a broader roadmap of the space.
 
-This project page is the navigation hub for the public tutorial website. For the paper version and citation details, see [the related publication](/publication/llm-agent-tutorial/).
+The emphasis here is usability and onboarding: a clean learning path, companion materials, and direct access to the tutorial PDF for readers who want to study offline or cite the work.
 
-The tutorial site is aimed at readers who want a practical onboarding path: concepts first, then examples, then a roadmap for where LLM-agent systems are heading.
-
-- [Open the tutorial website](https://llm-agent-tutorial.github.io/website/)
-- [Read the tutorial paper](/publication/llm-agent-tutorial/)
-- [Back to all projects](/project/)
+If you want the learning experience, start with the website. If you want citation details and the formal record, open the paper page or TechRxiv version.

@@ -33,8 +33,8 @@ current_focus: Scaling post-training for language models, building reliable reas
 open_to: Open to collaborations, research internships, and conversations around LLM post-training, RL, agents, and AI for science. The TJU DRL Lab is also welcoming interns and prospective MS/PhD students.
 hero_quote: |-
   Two roads diverged in a wood, and I—
-  I took the one less traveled by,
-  And that has made all the difference.
+    I took the one less traveled by,
+      and that has made all the difference.
 hero_ctas:
   - label: Selected Papers
     url: /#papers
