@@ -1,0 +1,106 @@
+---
+import "../styles/global.css";
+import { navigation, profile } from "@data/profile";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Jinyi Liu (刘金毅) | RL, LLM Post-training, and Agentic Systems",
+  description = "Personal homepage of Jinyi Liu, a researcher working on reinforcement learning, LLM post-training, memory, and agentic systems."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f6f8fb" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.loli.net" />
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+    <meta property="og:image" content="/assets/avatar.jpg" />
+  </head>
+  <body>
+    <div class="site-field" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="grain"></span>
+    </div>
+
+    <header class="topbar" data-elevated="false">
+      <a class="brand" href="/" aria-label="Jinyi Liu homepage">
+        <span class="brand-mark">JL</span>
+        <span>{profile.name} <em>{profile.nativeName}</em></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="nav">
+        {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </header>
+
+    <main id="top">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 {profile.name}.</span>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script>
+      const topbar = document.querySelector(".topbar");
+      const nav = document.querySelector(".nav");
+      const toggle = document.querySelector(".nav-toggle");
+      const revealItems = document.querySelectorAll(".reveal");
+
+      function setTopbarState() {
+        if (topbar) topbar.dataset.elevated = window.scrollY > 16 ? "true" : "false";
+      }
+
+      setTopbarState();
+      window.addEventListener("scroll", setTopbarState, { passive: true });
+
+      toggle?.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        nav?.classList.toggle("is-open", !expanded);
+      });
+
+      nav?.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLElement && event.target.matches("a")) {
+          toggle?.setAttribute("aria-expanded", "false");
+          nav.classList.remove("is-open");
+        }
+      });
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+      } else {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      }
+    </script>
+  </body>
+</html>

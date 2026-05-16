@@ -1,0 +1,265 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { allWorks } from "@data/allWorks";
+
+const byYear = allWorks.reduce<Record<number, typeof allWorks>>((acc, w) => {
+  (acc[w.year] ??= []).push(w);
+  return acc;
+}, {});
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+
+const allTags = [
+  "LLM Post-training (RL Tuning)",
+  "LLM Post-training (TTS)",
+  "LLM Agent",
+  "Embodied AI",
+  "DRL",
+];
+---
+
+<BaseLayout title="Publications — Jinyi Liu" description="Full publication list of Jinyi Liu.">
+  <div class="pub-page">
+    <header class="pub-header">
+      <h1>Publications</h1>
+      <p>{allWorks.length} papers · * denotes equal contribution</p>
+    </header>
+
+    <div class="pub-filters" id="pub-filters">
+      <button class="pub-tag active" data-tag="all">All</button>
+      {allTags.map((tag) => (
+        <button class="pub-tag" data-tag={tag}>{tag}</button>
+      ))}
+    </div>
+
+    <div class="pub-list" id="pub-list">
+      {years.map((year) => (
+        <section class="pub-year-group" data-year={year}>
+          <h2 class="pub-year">{year}</h2>
+          {byYear[year].map((work) => (
+            <article class="pub-entry" data-tags={work.tags.join(",")}>
+              <div class="pub-entry-body">
+                <p class="pub-venue">{work.venueShort}</p>
+                <h3 class="pub-title">{work.title}</h3>
+                <p class="pub-authors">
+                  {work.authors.map((a, i) => (
+                    <>
+                      {i > 0 && ", "}
+                      {a.replace("*", "") === "Jinyi Liu"
+                        ? <strong class="pub-me">{a}</strong>
+                        : <span>{a}</span>}
+                    </>
+                  ))}
+                </p>
+                <p class="pub-summary">{work.summary}</p>
+                <div class="pub-links">
+                  {work.pdf && <a href={work.pdf} target="_blank" rel="noopener">PDF</a>}
+                  {work.source && <a href={work.source} target="_blank" rel="noopener">arXiv / OpenReview</a>}
+                </div>
+              </div>
+              <div class="pub-entry-tags">
+                {work.tags.map((tag) => <span class="pub-tag-chip">{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const filters = document.getElementById("pub-filters");
+  const entries = document.querySelectorAll<HTMLElement>(".pub-entry");
+  const yearGroups = document.querySelectorAll<HTMLElement>(".pub-year-group");
+
+  filters?.addEventListener("click", (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>(".pub-tag");
+    if (!btn) return;
+
+    filters.querySelectorAll(".pub-tag").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const selected = btn.dataset.tag ?? "all";
+
+    entries.forEach((entry) => {
+      const tags = entry.dataset.tags ?? "";
+      const visible = selected === "all" || tags.split(",").includes(selected);
+      entry.style.display = visible ? "" : "none";
+    });
+
+    yearGroups.forEach((group) => {
+      const hasVisible = [...group.querySelectorAll<HTMLElement>(".pub-entry")]
+        .some((e) => e.style.display !== "none");
+      group.style.display = hasVisible ? "" : "none";
+    });
+  });
+</script>
+
+<style>
+  .pub-page {
+    width: min(860px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 7rem 0 5rem;
+  }
+
+  .pub-header {
+    margin-bottom: 2.4rem;
+  }
+
+  .pub-header h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 820;
+    letter-spacing: -0.04em;
+    margin: 0 0 0.4rem;
+  }
+
+  .pub-header p {
+    color: var(--paper-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .pub-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .pub-filters .pub-tag {
+    padding: 0.38rem 0.9rem;
+    border: 1px solid var(--paper-line);
+    border-radius: 999px;
+    background: none;
+    color: var(--paper-text);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+
+  .pub-filters .pub-tag:hover,
+  .pub-filters .pub-tag.active {
+    border-color: var(--paper-accent);
+    background: rgba(180, 83, 9, 0.07);
+    color: var(--paper-accent);
+  }
+
+  .pub-year-group {
+    margin-bottom: 3rem;
+  }
+
+  .pub-year {
+    font-size: 1.05rem;
+    font-weight: 820;
+    letter-spacing: 0.04em;
+    color: var(--paper-accent);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--paper-line);
+    text-transform: uppercase;
+  }
+
+  .pub-entry {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .pub-entry-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pub-venue {
+    margin: 0 0 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 820;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--paper-accent);
+  }
+
+  .pub-title {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    font-weight: 760;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--paper-ink);
+  }
+
+  .pub-authors {
+    margin: 0 0 0.5rem;
+    font-size: 0.82rem;
+    color: var(--paper-muted);
+    line-height: 1.5;
+  }
+
+  .pub-me {
+    color: var(--paper-ink);
+    font-weight: 760;
+  }
+
+  .pub-summary {
+    margin: 0 0 0.7rem;
+    font-size: 0.85rem;
+    color: var(--paper-text);
+    line-height: 1.65;
+  }
+
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pub-links a {
+    padding: 0.22rem 0.65rem;
+    border: 1px solid var(--paper-line);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 720;
+    color: var(--paper-text);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .pub-links a:hover {
+    border-color: var(--paper-accent);
+    color: var(--paper-accent);
+  }
+
+  .pub-entry-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+
+  .pub-tag-chip {
+    padding: 0.18rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(180, 83, 9, 0.07);
+    color: var(--paper-accent);
+    font-size: 0.7rem;
+    font-weight: 720;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .pub-entry {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .pub-entry-tags {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import { resumeHighlights, resumeTimeline } from "@data/resume";
+---
+
+<section class="resume-page section">
+  <div class="resume-intro reveal">
+    <p class="eyebrow">Resume</p>
+    <h1>Research training and experience.</h1>
+    <p>
+      A compact public timeline of my education, research internships, and research trajectory.
+      A public CV download is intentionally omitted for now.
+    </p>
+  </div>
+
+  <div class="resume-highlights reveal" style="--delay: 90ms">
+    {resumeHighlights.map((item) => <p>{item}</p>)}
+  </div>
+
+  <div class="resume-timeline" aria-label="Resume timeline">
+    {resumeTimeline.map((item, index) => (
+      <article class:list={["resume-item reveal", item.side]} style={`--delay: ${index * 55}ms`}>
+        <div class="resume-card">
+          <span class="resume-period">{item.period}</span>
+          <h2>{item.organization}</h2>
+          <h3>{item.title}</h3>
+          <p>{item.subtitle}</p>
+          <ul>
+            {item.details.map((detail) => <li>{detail}</li>)}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
