@@ -38,7 +38,7 @@ export const profile = {
   keywords: ["RL Post-training", "LLM Agents", "Reasoning", "AI4S"],
   metrics: [
     { value: "20+", label: "research papers" },
-    { value: "17", label: "CCF-A papers" },
+    { value: "18", label: "CCF-A papers" },
     { value: "800+", label: "Google Scholar citations", id: "scholar-citations" },
     { value: "", label: "days studying RL", id: "rl-days" }
   ]
