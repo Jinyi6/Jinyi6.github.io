@@ -19,7 +19,7 @@
   --radius: 24px;
   --radius-sm: 14px;
   --font-sans: "Avenir Next", "SF Pro Display", "Helvetica Neue", Helvetica, sans-serif;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Noto Serif SC", serif;
 }
 
 * {
@@ -1601,6 +1601,7 @@ h3 {
 
 .news-list span {
   color: var(--paper-text);
+  font-weight: 700;
 }
 
 .news-list span a {
@@ -1980,7 +1981,7 @@ h3 {
 
 .paper-hero-quote {
   margin: 0.6rem 0 0;
-  padding: 3rem 29% 3rem 5%;
+  padding: 3rem 5%;
   border: 0;
   background:
     linear-gradient(rgba(14, 5, 0, 0.28), rgba(14, 5, 0, 0.28)),
@@ -1993,6 +1994,8 @@ h3 {
   line-height: 1.7;
   text-align: center;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  overflow-x: auto;
   mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
 }

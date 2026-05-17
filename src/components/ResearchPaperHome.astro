@@ -108,9 +108,7 @@ const rlDaysServer = Math.floor((Date.now() - rlStartMs) / 86400000) + 1;
       </div>
 
       <blockquote class="paper-hero-quote">
-        {profile.quote.map((line, i) => (
-          <>{line}{i < profile.quote.length - 1 && <br />}</>
-        ))}
+        {profile.quote.join(" ")}
       </blockquote>
     </header>
 
@@ -264,7 +262,7 @@ const rlDaysServer = Math.floor((Date.now() - rlStartMs) / 86400000) + 1;
           </li>
           <li>
             <span class="channel-label">MemoraX AI</span>
-            <p>Open for collaboration on Agent / Memory research — intern, full-time, or research partnership.</p>
+            <p><a href="https://memorax.net/" target="_blank" rel="noopener">MemoraX AI</a> is open for collaboration on Agent / Memory research — intern, full-time, or research partnership.</p>
           </li>
         </ul>
         <div class="contact-right">

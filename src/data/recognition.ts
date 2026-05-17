@@ -12,7 +12,7 @@ export const honors = [
 
 export const service = [
   {
-    label: "Conference PC member",
+    label: "🙋‍♂️ Conference PC member",
     items: [
       "NeurIPS (2025–)",
       "ICLR (2025–)",
@@ -33,8 +33,8 @@ export const service = [
   {
     label: "Community",
     items: [
-      "RL China student liaison",
-      { text: 'Zhihu writer "嗟嗟" — sharing RL and LLM research notes', url: "https://www.zhihu.com/people/39-89-5-30-3" },
+      "🤝 RL China student liaison",
+      { text: '✍️ Zhihu writer "嗟嗟" — sharing RL and LLM research notes', url: "https://www.zhihu.com/people/39-89-5-30-3" },
       "🙋‍♂️ Conference Committee Volunteer · DAI 2022"
     ]
   }
