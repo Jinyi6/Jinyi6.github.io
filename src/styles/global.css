@@ -1126,6 +1126,7 @@ h3 {
 .paper-index {
   position: sticky;
   top: 6.6rem;
+  z-index: 1;
   display: grid;
   align-content: start;
   gap: 0.15rem;
