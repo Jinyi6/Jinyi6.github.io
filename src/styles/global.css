@@ -1980,8 +1980,8 @@ h3 {
 }
 
 .paper-hero-quote {
-  margin: 0.6rem 0 0;
-  padding: 3rem 5%;
+  margin: 0.6rem 0 0 calc(-170px - clamp(1.4rem, 4vw, 4rem));
+  padding: 3rem 5% 3rem 28.6%;
   border: 0;
   background:
     linear-gradient(rgba(14, 5, 0, 0.28), rgba(14, 5, 0, 0.28)),
@@ -1997,6 +1997,13 @@ h3 {
   white-space: nowrap;
   mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+}
+
+@media (max-width: 980px) {
+  .paper-hero-quote {
+    margin-left: 0;
+    padding: 3rem 5%;
+  }
 }
 
 @media (max-width: 600px) {
