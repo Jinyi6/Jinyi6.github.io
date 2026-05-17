@@ -108,7 +108,9 @@ const rlDaysServer = Math.floor((Date.now() - rlStartMs) / 86400000) + 1;
       </div>
 
       <blockquote class="paper-hero-quote">
-        {profile.quote.join(" ")}
+        {profile.quote.map((line, i) => (
+          <>{line}{i < profile.quote.length - 1 && <br />}</>
+        ))}
       </blockquote>
     </header>
 
