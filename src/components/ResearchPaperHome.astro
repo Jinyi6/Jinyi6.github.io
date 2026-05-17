@@ -6,8 +6,9 @@ import { systems } from "@data/systems";
 import { timeline } from "@data/timeline";
 import { honors, service } from "@data/recognition";
 import { news } from "@data/news";
+import { talks } from "@data/talks";
 
-const topWorks = selectedWorks.slice(0, 6);
+const topWorks = selectedWorks;
 
 // Fetch Google Scholar citations at build time; fall back to "800+"
 let scholarCitations = "800+";
@@ -37,6 +38,7 @@ const rlDaysServer = Math.floor((Date.now() - rlStartMs) / 86400000) + 1;
     <a href="#news">News</a>
     <a href="#papers">Papers</a>
     <a href="#systems">Projects</a>
+    <a href="#talks">Talks</a>
     <a href="#timeline">Timeline</a>
     <a href="#contact">Contact</a>
   </aside>
@@ -175,6 +177,21 @@ const rlDaysServer = Math.floor((Date.now() - rlStartMs) / 86400000) + 1;
           </a>
         ))}
       </div>
+    </section>
+
+    <section id="talks" class="paper-section">
+      <h2>Talks</h2>
+      <ul class="talks-list">
+        {talks.map((talk) => (
+          <li>
+            <time>{talk.date}</time>
+            <span>
+              <em>{talk.title}</em>
+              <span class="talk-venue">{talk.venue}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </section>
 
     <section id="timeline" class="paper-section">

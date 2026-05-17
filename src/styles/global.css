@@ -1618,6 +1618,53 @@ h3 {
   text-decoration-color: var(--paper-accent);
 }
 
+/* ── talks list ── */
+.talks-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--paper-line);
+}
+
+.talks-list li {
+  display: grid;
+  grid-template-columns: 6.4rem 1fr;
+  gap: 1.6rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--paper-line);
+  font-size: 0.95rem;
+  line-height: 1.72;
+}
+
+.talks-list time {
+  flex-shrink: 0;
+  color: var(--paper-accent);
+  font-size: 0.92rem;
+  font-weight: 820;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-top: 0.1em;
+}
+
+.talks-list li > span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.talks-list em {
+  font-style: italic;
+  color: var(--paper-text);
+  font-weight: 600;
+}
+
+.talk-venue {
+  font-size: 0.88rem;
+  color: var(--paper-muted);
+  font-weight: 400;
+}
+
 /* ── split two-column timeline ── */
 .paper-timeline-split {
   position: relative;
