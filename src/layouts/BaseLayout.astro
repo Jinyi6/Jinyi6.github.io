@@ -11,6 +11,8 @@ const {
   title = "Jinyi Liu (刘金毅) | RL, LLM Post-training, and Agentic Systems",
   description = "Personal homepage of Jinyi Liu, a researcher working on reinforcement learning, LLM post-training, memory, and agentic systems."
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -19,6 +21,7 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f6f8fb" />
     <meta property="og:title" content={title} />
