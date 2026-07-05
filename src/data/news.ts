@@ -34,7 +34,9 @@ export const news: NewsItem[] = [
     date: "2026-04",
     emoji: "🏆",
     parts: [
-      "MemoraX AI memory system achieves SOTA on LoCoMo-Refined with 82.65, outperforming the next best by over 30%."
+      "MemoraX AI memory system achieves SOTA on ",
+      { text: "LoCoMo-Refined", url: "https://github.com/mem-eval-suite/LoCoMo_refined" },
+      " with 82.65, outperforming the next best by over 30%."
     ]
   },
   {
