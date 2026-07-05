@@ -8,6 +8,13 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
+    date: "2026-07",
+    emoji: "✨",
+    parts: [
+      "Paper accepted by ICML 2026 as a Spotlight: ScaleMoE — Mixture-of-Experts for scalable continuous control in actor-critic RL."
+    ]
+  },
+  {
     date: "2026-05",
     emoji: "🎉",
     parts: [

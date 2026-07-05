@@ -15,6 +15,16 @@ export interface Work {
 // "Jinyi Liu" in author lists marks the page author
 export const allWorks: Work[] = [
   {
+    slug: "ma-2026-scalemoe",
+    title: "ScaleMoE: Mixture-of-Experts for Scalable Continuous Control in Actor-Critic Reinforcement Learning",
+    authors: ["Yi Ma", "Chenjun Xiao", "Hongyao Tang", "Yaodong Yang", "Jinyi Liu", "Jing Liang", "Jiye Liang"],
+    year: 2026,
+    venue: "ICML 2026 Spotlight",
+    venueShort: "ICML 2026 Spotlight",
+    tags: ["DRL"],
+    summary: "ScaleMoE brings a mixture-of-experts architecture to actor-critic reinforcement learning, scaling network capacity to improve sample efficiency and performance on continuous control tasks.",
+  },
+  {
     slug: "liu-2026-distrlvr",
     title: "Beyond Scalar Critics: A Distributional Perspective on Reinforcement Learning with Verifiable Rewards for LLMs",
     authors: ["Jinyi Liu*", "Yiboyun Chen", "Hongyao Tang", "Yi Ma", "Shuyue Hu", "Yang Chen", "Fei Ni", "Qiaosheng Zhang", "Lei Bai", "Yan Zheng", "Jianye Hao"],

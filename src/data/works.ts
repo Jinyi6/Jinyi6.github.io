@@ -11,6 +11,15 @@ export const selectedWorks = [
     ]
   },
   {
+    title: "ScaleMoE",
+    theme: "MoE for RL",
+    role: "Co-author",
+    venue: "ICML 2026 Spotlight",
+    summary:
+      "Mixture-of-experts architecture for actor-critic reinforcement learning that scales network capacity to improve sample efficiency and performance on continuous control.",
+    links: []
+  },
+  {
     title: "ReMix",
     theme: "Post-training",
     role: "First author",
