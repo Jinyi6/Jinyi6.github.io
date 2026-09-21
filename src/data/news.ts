@@ -8,6 +8,15 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
+    date: "2026-09",
+    emoji: "🎤",
+    parts: [
+      "Paper accepted as an oral at DAI 2026: ",
+      { text: "Scaling Reinforcement Learning via Agent Ensemble", url: "https://openreview.net/forum?id=v7nuoZGZD3" },
+      "."
+    ]
+  },
+  {
     date: "2026-07",
     emoji: "✨",
     parts: [

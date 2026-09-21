@@ -15,6 +15,18 @@ export interface Work {
 // "Jinyi Liu" in author lists marks the page author
 export const allWorks: Work[] = [
   {
+    slug: "ma-2026-agent-ensemble",
+    title: "Scaling Reinforcement Learning via Agent Ensemble",
+    authors: ["Yi Ma", "Hongyao Tang", "Chenjun Xiao", "Jinyi Liu"],
+    year: 2026,
+    venue: "DAI 2026 Oral",
+    venueShort: "DAI 2026 Oral",
+    tags: ["DRL"],
+    summary: "An agent-ensemble approach to scaling reinforcement learning by combining multiple agents with complementary behaviors.",
+    pdf: "https://openreview.net/pdf?id=v7nuoZGZD3",
+    source: "https://openreview.net/forum?id=v7nuoZGZD3",
+  },
+  {
     slug: "ma-2026-scalemoe",
     title: "ScaleMoE: Mixture-of-Experts for Scalable Continuous Control in Actor-Critic Reinforcement Learning",
     authors: ["Yi Ma", "Chenjun Xiao", "Hongyao Tang", "Yaodong Yang", "Jinyi Liu", "Jing Liang", "Jiye Liang"],

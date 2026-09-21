@@ -39,7 +39,7 @@ export const profile = {
   metrics: [
     { value: "20+", label: "research papers" },
     { value: "20", label: "CCF-A papers" },
-    { value: "900+", label: "Google Scholar citations", id: "scholar-citations" },
+    { value: "1024", label: "Google Scholar citations", id: "scholar-citations" },
     { value: "", label: "days studying RL", id: "rl-days" }
   ]
 };
