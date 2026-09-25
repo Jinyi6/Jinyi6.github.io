@@ -9,6 +9,19 @@ export interface NewsItem {
 export const news: NewsItem[] = [
   {
     date: "2026-09",
+    emoji: "🎉",
+    parts: [
+      "Three papers accepted by NeurIPS 2026 as posters: ",
+      { text: "Beyond Correctness", url: "https://openreview.net/forum?id=WZIsP7IaVI" },
+      ", ",
+      { text: "The Mirage of Optimizing Training Policies", url: "https://openreview.net/forum?id=XZFFNg98QZ" },
+      ", and ",
+      { text: "Does Your Large Language Model Have An Intuitive Sense of The Difficulty of A Question?", url: "https://openreview.net/forum?id=sFq1guxX1W" },
+      "."
+    ]
+  },
+  {
+    date: "2026-09",
     emoji: "🎤",
     parts: [
       "Paper accepted as an oral at DAI 2026: ",
